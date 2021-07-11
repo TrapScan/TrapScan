@@ -34,7 +34,7 @@ export default {
             // TODO: Replace with real code
             notes: this.notes,
             code: 'TEST_CODE',
-            date: new Date(),
+            // date: new Date(),
             recorded_by: this.user
           }
         },

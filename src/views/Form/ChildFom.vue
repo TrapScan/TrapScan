@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     onComplete () {
-      console.log(this.title)
       this.$store.dispatch('updateForm', { form: this.formData })
       this.$store.dispatch('setFormIndex', { index: this.goesTo })
     }

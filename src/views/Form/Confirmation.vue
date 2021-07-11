@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { mapGetters } from 'vuex'
 export default {
   data () {
@@ -30,26 +29,24 @@ export default {
   computed: {
     ...mapGetters({
       user: 'getUser',
-      form: 'getForm'
+      form: 'getForm',
+      form_index: 'getFormIndex'
     })
   },
-  mounted () {
-    console.log('Simulating request, endpoint not implemented')
-    axios.post('https://jsonplaceholder.typicode.com/posts', {
-      title: 'foo',
-      body: 'bar',
-      userId: 1
-    })
-      .then((response) => {
-        console.log(response)
-        this.success = true
-        this.loading = false
-      })
-      .catch((error) => {
-        this.success = false
-        this.loading = false
-        console.log(error)
-      })
+  watch: {
+    form_index: function (val) {
+      if (val === 9) {
+        this.$store.dispatch('submitInspectionForm').then((res) => {
+          this.success = true
+          this.loading = false
+        })
+          .catch((error) => {
+            this.success = false
+            this.loading = false
+            console.error(error)
+          })
+      }
+    }
   }
 }
 </script>

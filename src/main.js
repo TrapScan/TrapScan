@@ -6,25 +6,25 @@ import store from './store'
 import firebase from 'firebase'
 import vuetify from './plugins/vuetify'
 import VueQrcodeReader from 'vue-qrcode-reader'
+import axios from 'axios'
 
 Vue.use(VueQrcodeReader)
 
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
-  const currentUser = firebase.auth().currentUser
+  const currentUser = store.getters.user
   const requireAuth = to.matched.some(record => record.meta.authRequired)
   if (requireAuth && !currentUser) next('/')
   else if (!requireAuth && currentUser) {
-    store.commit('setUser', { user: currentUser })
     next('/dashboard')
-  } else if (currentUser) {
-    store.commit('setUser', { user: currentUser })
-    next()
   } else {
     next()
   }
 })
+
+axios.defaults.withCredentials = true
+axios.defaults.baseURL = 'http://localhost'
 
 var firebaseConfig = {
   apiKey: 'AIzaSyDLnhlwQ2lA2246I6alj2GM1kbrYIIB_mo',
@@ -38,15 +38,11 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 
-let app = ''
-firebase.auth().onAuthStateChanged(user => {
-  // store.dispatch('setUser', user)
-  if (!app) {
-    app = new Vue({
-      router,
-      store,
-      vuetify,
-      render: h => h(App)
-    }).$mount('#app')
-  }
+store.dispatch('me').then(() => {
+  new Vue({
+    router,
+    store,
+    vuetify,
+    render: h => h(App)
+  }).$mount('#app')
 })
