@@ -15,7 +15,17 @@ Vue.config.productionTip = false
 router.beforeEach((to, from, next) => {
   const currentUser = store.getters.user
   const requireAuth = to.matched.some(record => record.meta.authRequired)
-  if (requireAuth && !currentUser) next('/')
+  const adminOnly = to.matched.some(record => record.meta.adminOnly)
+  if (adminOnly && requireAuth && currentUser) {
+    let admin = false
+    currentUser.roles.forEach(element => {
+      if (element.name === 'admin') admin = true
+    })
+    if (admin) next()
+    else {
+      next('/')
+    }
+  } else if (requireAuth && !currentUser) next('/')
   else if (!requireAuth && currentUser) {
     next('/dashboard')
   } else {
