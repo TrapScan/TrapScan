@@ -6,6 +6,7 @@ import Dashboard from '../views/Dashboard.vue'
 import MagicLoginCallback from '../views/Passwordless/MagicLoginCallback.vue'
 import Scan from '../views/Scan.vue'
 import Form from '../views/Form/Form.vue'
+import Admin from '../views/Admin.vue'
 
 Vue.use(VueRouter)
 
@@ -51,6 +52,15 @@ const routes = [
     component: Form,
     meta: {
       authRequired: true
+    }
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: Admin,
+    meta: {
+      authRequired: true,
+      adminOnly: true
     }
   }
 ]
