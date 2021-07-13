@@ -1,6 +1,8 @@
 <template>
   <div>
-    <v-btn elevation="2" @click="goToForm">Go to Form</v-btn>
+    <v-btn elevation="2" @click="goToForm">Go to Inspection Form</v-btn>
+    <br>
+    <v-btn elevation="2" @click="goToInstallationForm">Go to Installation Form</v-btn>
     <p class="decode-result">
       Last result: <b>{{ result }}</b>
     </p>
@@ -50,6 +52,9 @@ export default {
   methods: {
     goToForm () {
       this.$router.push('/form')
+    },
+    goToInstallationForm () {
+      this.$router.push('/installform')
     },
     onInit (promise) {
       promise.catch(console.error).then(this.resetValidationState)

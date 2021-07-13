@@ -7,6 +7,7 @@ import MagicLoginCallback from '../views/Passwordless/MagicLoginCallback.vue'
 import Scan from '../views/Scan.vue'
 import Form from '../views/Form/Form.vue'
 import Admin from '../views/Admin.vue'
+import QRInstall from '../views/Admin/QRInstall.vue'
 
 Vue.use(VueRouter)
 
@@ -58,6 +59,15 @@ const routes = [
     path: '/admin',
     name: 'Admin',
     component: Admin,
+    meta: {
+      authRequired: true,
+      adminOnly: true
+    }
+  },
+  {
+    path: '/installform',
+    component: QRInstall,
+    name: 'InstallationForm',
     meta: {
       authRequired: true,
       adminOnly: true

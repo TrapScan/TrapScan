@@ -9,7 +9,6 @@ const adminModule = {
       return new Promise((resolve, reject) => {
         if (form.project === null) {
           admin.createNewQR({ number: form.number }).then((response) => {
-            console.log(response.data.new_qr_codes)
             state.recentQRList = response.data.new_qr_codes
             resolve(response)
           })
@@ -27,6 +26,18 @@ const adminModule = {
               reject(error.response.data.errors)
             })
         }
+      })
+    },
+    mapQRCode (state, form) {
+      return new Promise((resolve, reject) => {
+        admin.createNewQR({ number: form.number }).then((response) => {
+          state.recentQRList = response.data.new_qr_codes
+          resolve(response)
+        })
+          .catch((error) => {
+            console.error(error)
+            reject(error.response.data.errors)
+          })
       })
     }
   },
