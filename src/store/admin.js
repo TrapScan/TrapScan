@@ -28,9 +28,9 @@ const adminModule = {
         }
       })
     },
-    mapQRCode (state, form) {
+    submitQRMapForm (state, form) {
       return new Promise((resolve, reject) => {
-        admin.createNewQR({ number: form.number }).then((response) => {
+        admin.mapCode({ number: form.number }).then((response) => {
           state.recentQRList = response.data.new_qr_codes
           resolve(response)
         })
@@ -44,6 +44,9 @@ const adminModule = {
   actions: {
     submitQRCreationForm ({ commit }, form) {
       commit('submitQRCreationForm', form)
+    },
+    submitQRMapForm ({ commit }, form) {
+      commit('submitQRMapForm', form)
     }
   },
   getters: {

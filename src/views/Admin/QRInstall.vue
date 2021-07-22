@@ -30,7 +30,7 @@ export default {
   }),
   methods: {
     submit () {
-      this.$store.dispatch('submitQRMapForm', { nz_id: this.nz_id })
+      this.$store.dispatch('submitQRMapForm', { nz_id: this.nz_id, qr_id: this.qr_id })
     }
   },
   computed: {

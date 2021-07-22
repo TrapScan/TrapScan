@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>I checked this trap QR TEST-123 and...</h2>
+    <h2>I checked this trap {{ scannedCodeValue }} and...</h2>
     <ChildForm v-for="option in options"
       :goesTo="option.goesTo"
       :key="option.title"
@@ -13,6 +13,7 @@
 
 <script>
 import ChildForm from './ChildFom'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     ChildForm
@@ -53,8 +54,10 @@ export default {
       ]
     }
   },
-  methods: {
-
+  computed: {
+    ...mapGetters([
+      'scannedCodeValue'
+    ])
   }
 }
 </script>

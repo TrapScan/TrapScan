@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import authModule from './auth'
 import inspectionFormModule from './inspections'
 import adminModule from './admin'
+import scanModule from './scan'
 
 Vue.use(Vuex)
 
@@ -10,7 +11,8 @@ export default new Vuex.Store({
   modules: {
     auth: authModule,
     inspectionForm: inspectionFormModule,
-    admin: adminModule
+    admin: adminModule,
+    scan: scanModule
   },
   state: {
     error: null,
