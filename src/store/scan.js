@@ -3,13 +3,15 @@ import scan from '../api/scan'
 
 const scanModule = {
   state: {
-    scannedQRID: null
+    scannedQRID: null,
+    scannedTrap: null
   },
   mutations: {
     scanQR (state, data) {
       return new Promise((resolve, reject) => {
         scan.scan(data.qr_id).then((response) => {
           const trap = response.data[0]
+          state.scannedTrap = trap
           state.scannedQRID = data.qr_id
           console.log(state)
           let pcord = false
@@ -26,7 +28,7 @@ const scanModule = {
 
             if (trap) {
               // Check if unmapped (no nz id) and if admin / pcord => Installation form
-              if (!trap.nz_id && (pcord || admin)) {
+              if (!trap.nz_trap_id && (pcord || admin)) {
                 resolve(true)
                 router.push('/installform')
               } else {
