@@ -30,7 +30,7 @@ const adminModule = {
     },
     submitQRMapForm (state, form) {
       return new Promise((resolve, reject) => {
-        admin.mapCode({ number: form.number }).then((response) => {
+        admin.mapCode(form).then((response) => {
           state.recentQRList = response.data.new_qr_codes
           resolve(response)
         })
