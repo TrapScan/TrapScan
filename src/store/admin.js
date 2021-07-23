@@ -1,8 +1,11 @@
+// import { reject } from 'core-js/fn/promise'
 import admin from '../api/admin'
 
 const adminModule = {
   state: {
-    recentQRList: []
+    recentQRList: [],
+    mapFormError: false,
+    mapFormErrorMessage: null
   },
   mutations: {
     submitQRCreationForm (state, form) {
@@ -27,18 +30,6 @@ const adminModule = {
             })
         }
       })
-    },
-    submitQRMapForm (state, form) {
-      return new Promise((resolve, reject) => {
-        admin.mapCode(form).then((response) => {
-          state.recentQRList = response.data.new_qr_codes
-          resolve(response)
-        })
-          .catch((error) => {
-            console.error(error)
-            reject(error.response.data.errors)
-          })
-      })
     }
   },
   actions: {
@@ -46,12 +37,18 @@ const adminModule = {
       commit('submitQRCreationForm', form)
     },
     submitQRMapForm ({ commit }, form) {
-      commit('submitQRMapForm', form)
+      return admin.mapCode(form)
     }
   },
   getters: {
     recentQRs (state) {
       return state.recentQRList
+    },
+    mapFormErrors (state) {
+      if (state.mapFormError) {
+        return state.mapFormErrorMessage
+      }
+      return false
     }
   }
 }
