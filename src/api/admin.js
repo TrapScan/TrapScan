@@ -15,5 +15,9 @@ export default {
   },
   async fetchUnmappedCodesForProject (project) {
     return api.get('/api/admin/qr/unmapped/' + project)
+  },
+  async mapCode (data) {
+    await csrf.getCookie()
+    return api.post('/api/admin/qr/map', data)
   }
 }

@@ -7,10 +7,12 @@ import firebase from 'firebase'
 import vuetify from './plugins/vuetify'
 import VueQrcodeReader from 'vue-qrcode-reader'
 import axios from 'axios'
+import SuccessFailBanner from './components/SuccessFailBanner'
 
 Vue.use(VueQrcodeReader)
 
 Vue.config.productionTip = false
+Vue.component('message-banner', SuccessFailBanner)
 
 router.beforeEach((to, from, next) => {
   const currentUser = store.getters.user

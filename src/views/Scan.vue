@@ -1,6 +1,8 @@
 <template>
   <div>
-    <v-btn elevation="2" @click="goToForm">Go to Form</v-btn>
+    <v-btn elevation="2" @click="goToForm">Go to Inspection Form</v-btn>
+    <br>
+    <v-btn elevation="2" @click="goToInstallationForm">Go to Installation Form</v-btn>
     <p class="decode-result">
       Last result: <b>{{ result }}</b>
     </p>
@@ -20,7 +22,7 @@
       </div>
 
       <div v-if="validationPending" class="validation-pending">
-        Long validation in progress...
+        Checking QR Code...
       </div>
     </qrcode-stream>
   </div>
@@ -51,6 +53,9 @@ export default {
     goToForm () {
       this.$router.push('/form')
     },
+    goToInstallationForm () {
+      this.$router.push('/installform')
+    },
     onInit (promise) {
       promise.catch(console.error).then(this.resetValidationState)
     },
@@ -61,15 +66,18 @@ export default {
 
     async onDecode (content) {
       this.result = content
+      let code = this.result.split('/')
+      code = code[code.length - 1]
+      console.log(code)
+
       this.turnCameraOff()
 
-      // TODO: Fetch QR from Firebase
-      await this.timeout(1500)
       // TODO: Enter the stepper form, or make this step 1
       this.isValid = content.startsWith('http')
-
       // some more delay, so users have time to read the message
       await this.timeout(1000)
+
+      this.$store.dispatch('scanQR', { qr_id: code })
 
       this.turnCameraOn()
     },
