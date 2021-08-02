@@ -8,6 +8,7 @@ import Scan from '../views/Scan.vue'
 import Form from '../views/Form/Form.vue'
 import Admin from '../views/Admin.vue'
 import QRInstall from '../views/Admin/QRInstall.vue'
+import About from '../views/About.vue'
 
 Vue.use(VueRouter)
 
@@ -27,14 +28,6 @@ const routes = [
     }
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
     path: '/signIn/:email',
     name: 'SignIn',
     component: MagicLoginCallback
@@ -51,6 +44,14 @@ const routes = [
     path: '/form',
     name: 'Form',
     component: Form,
+    meta: {
+      authRequired: true
+    }
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About,
     meta: {
       authRequired: true
     }

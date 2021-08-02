@@ -10,9 +10,8 @@
       <v-icon>mdi-cube-scan</v-icon>
     </v-btn>
 
-    <v-btn value="history">
+    <v-btn value="about" to="/about">
       <span>About</span>
-
       <v-icon>mdi-information</v-icon>
     </v-btn>
   </v-bottom-navigation>
