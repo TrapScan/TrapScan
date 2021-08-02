@@ -72,7 +72,6 @@ export default new Vuex.Store({
     },
     async fetchStats ({ commit }) {
       const newStats = await stats.globalKpis()
-      console.log(newStats.data)
       commit('setStats', newStats.data)
     }
   },
