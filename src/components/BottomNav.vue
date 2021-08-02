@@ -1,7 +1,7 @@
 <template>
   <v-bottom-navigation v-model="value">
     <v-btn value="dashboard" to="/dashboard">
-      <span>Dashboard</span>
+      <span>Data</span>
       <v-icon>mdi-home</v-icon>
     </v-btn>
 
@@ -11,9 +11,9 @@
     </v-btn>
 
     <v-btn value="history">
-      <span>History</span>
+      <span>About</span>
 
-      <v-icon>mdi-history</v-icon>
+      <v-icon>mdi-information</v-icon>
     </v-btn>
   </v-bottom-navigation>
 </template>

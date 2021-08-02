@@ -26,18 +26,8 @@ export default {
   data: () => ({
     //
   }),
-  created () {
-    // firebase.auth().onAuthStateChanged(user => {
-    //   console.log('State Changed! User => ' + user)
-    //   this.$store.dispatch('setUser', { user })
-    //   if (user) {
-    //     // User - go to dashboard
-    //     this.$router.push('/dashboard').catch(() => {})
-    //   } else {
-    //     // No user, redirect to login
-    //     this.$router.push('/').catch(() => {})
-    //   }
-    // })
+  mounted () {
+    this.$store.dispatch('fetchStats')
   },
   computed: {
     ...mapGetters(['getUser', 'isUserAuth'])

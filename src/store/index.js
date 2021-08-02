@@ -4,6 +4,7 @@ import authModule from './auth'
 import inspectionFormModule from './inspections'
 import adminModule from './admin'
 import scanModule from './scan'
+import stats from '../api/stats'
 
 Vue.use(Vuex)
 
@@ -15,11 +16,25 @@ export default new Vuex.Store({
     scan: scanModule
   },
   state: {
+    // Generic display component for form messages from backend
     formMessage: {
       status: null, // Drives message component type ['error', 'success', 'warning']
       message: null,
       errorList: null // Optional object of errors return by laravel
     },
+    // Stats, include any defaults needed, but whole object will be rewritten
+    globalStats: {
+      total_inspections: 0,
+      total_catches: 0,
+      total_traps: 0,
+      total_projects: 0,
+      total_users: 0,
+      average_catches_per_user: 0.0,
+      average_inspections_per_user: 0.0,
+      average_trap_per_project: 0.0,
+      average_project_per_user: 0.0
+    },
+    // Static components
     species: ['Rat', 'Mouse', 'Stoat', 'Weasel', 'Hedgehog'],
     extraSpecies: ['Rat - Kiore', 'Rat - Norway', 'Unspecified', 'Bird', 'Rat - Ship', 'Cat', 'Deer', 'Dog', 'Ferret', 'Goat', 'Hare', 'Magpie', 'Peafowl', 'Pig', 'Possum', 'Rabbit', 'Turkey'],
     bait: ['Peanut Butter', 'Goodnature Rat and Mouse Lure', 'Dehydrated Rabbit', 'Whole egg', 'Chocolate'],
@@ -40,6 +55,9 @@ export default new Vuex.Store({
       state.formMessage.status = null
       state.formMessage.message = null
       state.formMessage.errorList = null
+    },
+    setStats (state, stats) {
+      state.globalStats = stats
     }
   },
   actions: {
@@ -51,6 +69,11 @@ export default new Vuex.Store({
     },
     clearFormStatus ({ commit }) {
       commit('clearFormStatus')
+    },
+    async fetchStats ({ commit }) {
+      const newStats = await stats.globalKpis()
+      console.log(newStats.data)
+      commit('setStats', newStats.data)
     }
   },
   getters: {
@@ -80,6 +103,9 @@ export default new Vuex.Store({
     },
     getExtraBait (state) {
       return state.extraBait
+    },
+    getGlobalStats (state) {
+      return state.globalStats
     }
   }
 })
