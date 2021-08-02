@@ -1,5 +1,5 @@
 <template>
-  <v-bottom-navigation v-model="value">
+  <v-bottom-navigation v-model="value" color="primary">
     <v-btn value="dashboard" to="/dashboard">
       <span>Data</span>
       <v-icon>mdi-home</v-icon>
