@@ -4,6 +4,7 @@ import authModule from './auth'
 import inspectionFormModule from './inspections'
 import adminModule from './admin'
 import scanModule from './scan'
+import settingsModule from './settings'
 import stats from '../api/stats'
 
 Vue.use(Vuex)
@@ -13,7 +14,8 @@ export default new Vuex.Store({
     auth: authModule,
     inspectionForm: inspectionFormModule,
     admin: adminModule,
-    scan: scanModule
+    scan: scanModule,
+    settings: settingsModule
   },
   state: {
     // Generic display component for form messages from backend

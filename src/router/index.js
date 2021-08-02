@@ -9,6 +9,7 @@ import Form from '../views/Form/Form.vue'
 import Admin from '../views/Admin.vue'
 import QRInstall from '../views/Admin/QRInstall.vue'
 import About from '../views/About.vue'
+import Settings from '../views/Settings.vue'
 
 Vue.use(VueRouter)
 
@@ -22,7 +23,22 @@ const routes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard,
-    // component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
+    meta: {
+      authRequired: true
+    }
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About,
+    meta: {
+      authRequired: true
+    }
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: Settings,
     meta: {
       authRequired: true
     }
@@ -44,14 +60,6 @@ const routes = [
     path: '/form',
     name: 'Form',
     component: Form,
-    meta: {
-      authRequired: true
-    }
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: About,
     meta: {
       authRequired: true
     }

@@ -28,10 +28,11 @@ const authModule = {
 
       return dispatch('me')
     },
-    me ({ commit }) {
+    me ({ commit, dispatch }) {
       return axios.get('/api/user').then((response) => {
         commit('SET_AUTHENTICATED', true)
         commit('SET_USER', response.data.data)
+        dispatch('setSettings', response.data.data.settings)
       }).catch(() => {
         commit('SET_AUTHENTICATED', false)
         commit('SET_USER', null)
