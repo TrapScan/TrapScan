@@ -33,6 +33,7 @@ const authModule = {
         commit('SET_AUTHENTICATED', true)
         commit('SET_USER', response.data.data)
         dispatch('setSettings', response.data.data.settings)
+        dispatch('fetchCoordinatorSettings')
       }).catch(() => {
         commit('SET_AUTHENTICATED', false)
         commit('SET_USER', null)

@@ -140,7 +140,8 @@ const settingsModule = {
     settings: {
       theme: 'default', // Key in the themes object
       dark_mode: false
-    }
+    },
+    coordinatorSettings: null
   },
   mutations: {
     setTheme (state, selectedTheme) {
@@ -166,6 +167,9 @@ const settingsModule = {
     },
     updateSettingsRemote (state) {
       settings.updateSettings(state.settings)
+    },
+    setCoordinatorSettings (state, settings) {
+      state.coordinatorSettings = settings
     }
   },
   actions: {
@@ -181,6 +185,10 @@ const settingsModule = {
       commit('setSettings', settings)
       commit('setTheme', settings.theme)
       commit('setDarkMode', settings.dark_mode)
+    },
+    async fetchCoordinatorSettings ({ commit }) {
+      const data = await settings.projectCoordinatorSettings()
+      commit('setCoordinatorSettings', data.data.data)
     }
   },
   getters: {
@@ -194,6 +202,9 @@ const settingsModule = {
     },
     currentTheme (state) {
       return state.settings.theme
+    },
+    coordinatorSettings (state) {
+      return state.coordinatorSettings
     }
   }
 }
