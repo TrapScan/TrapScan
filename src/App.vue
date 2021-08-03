@@ -6,8 +6,8 @@
         <router-view></router-view>
       </v-container>
     </v-main>
-    <v-footer v-if="isUserAuth" color="white" :elevation="0" padless app>
-      <bottom-nav elevation="0"></bottom-nav>
+    <v-footer v-if="isUserAuth" height="70%" color="white" :elevation="0" padless app>
+        <bottom-nav id="main-bottom-nav" elevation="0"></bottom-nav>
     </v-footer>
   </v-app>
 </template>
@@ -34,3 +34,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+#main-bottom-nav {
+  height:100% !important;
+}
+</style>
