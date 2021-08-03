@@ -8,5 +8,8 @@ export default {
   },
   projectCoordinatorSettings () {
     return api.get('/api/my/coordinator/settings')
+  },
+  async updateCoordinatorSettings (settings) {
+    return api.post('/api/my/coordinator/settings', settings)
   }
 }

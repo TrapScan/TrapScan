@@ -88,7 +88,8 @@ export default {
       }
     },
     toggle (setting) {
-      setting.project_id = this.selectedProject.project_id
+      setting.project_id = this.selectedProject.id
+      console.log(setting)
       this.$store.dispatch('updateCoordinatorSettings', setting)
     }
   },
