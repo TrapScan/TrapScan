@@ -36,7 +36,7 @@ router.beforeEach((to, from, next) => {
 })
 
 axios.defaults.withCredentials = true
-axios.defaults.baseURL = 'http://localhost'
+axios.defaults.baseURL = process.env.VUE_APP_API_URL
 
 var firebaseConfig = {
   apiKey: 'AIzaSyDLnhlwQ2lA2246I6alj2GM1kbrYIIB_mo',

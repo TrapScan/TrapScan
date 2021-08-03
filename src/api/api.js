@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://localhost'
+  baseURL: process.env.VUE_APP_API_URL
 })
 
 api.defaults.withCredentials = true

@@ -5,6 +5,11 @@
 npm install
 ```
 
+Copy the .env.local and enter your dev api endpoint
+```
+mv .env.local.example .env.local
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
