@@ -1,9 +1,6 @@
 <template>
-  <v-app-bar app
-    elevate-on-scroll
-    scroll-target="#scrolling-techniques-7"
-  >
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+  <v-app-bar app elevate-on-scroll scroll-target="#scrolling-techniques-7">
+    <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
 
     <v-toolbar-title>Trap Scan</v-toolbar-title>
 
@@ -13,7 +10,7 @@
       <v-icon>mdi-magnify</v-icon>
     </v-btn> -->
 
-    <v-btn icon value="settings" to="/settings">
+    <v-btn v-if="isUserAuth" icon value="settings" to="/settings">
       <v-icon>mdi-cog</v-icon>
     </v-btn>
 
