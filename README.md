@@ -1,5 +1,7 @@
 # trapscan
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0d55b471-e242-400e-b412-d2d5a943f720/deploy-status)](https://app.netlify.com/sites/trapscan/deploys)
+
 ## Project setup
 ```
 npm install
