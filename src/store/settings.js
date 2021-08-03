@@ -188,7 +188,9 @@ const settingsModule = {
     },
     async fetchCoordinatorSettings ({ commit }) {
       const data = await settings.projectCoordinatorSettings()
-      commit('setCoordinatorSettings', data.data.data)
+      let newSettings = data.data.data
+      if (newSettings.length <= 0) newSettings = null
+      commit('setCoordinatorSettings', newSettings)
     },
     updateCoordinatorSettings ({ commit }, revision) {
       settings.updateCoordinatorSettings(revision)

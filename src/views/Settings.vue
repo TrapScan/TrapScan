@@ -29,7 +29,7 @@
       </v-list-item-content>
     </v-list-item>
 
-    <div>
+    <div v-if="coordinatorSettings">
       <h2>Project Coordinator Settings</h2>
       <v-divider></v-divider>
       <v-list-item>
