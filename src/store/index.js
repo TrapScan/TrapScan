@@ -99,6 +99,9 @@ export default new Vuex.Store({
     getExtraSpecies (state) {
       return state.extraSpecies
     },
+    allSpecies (state) {
+      return state.species.concat(state.extraSpecies).sort()
+    },
     getBait (state) {
       return state.bait
     },

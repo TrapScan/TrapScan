@@ -50,18 +50,45 @@
       </v-list-item>
       <div v-if="selectedProject">
         <h3>Notification Settings</h3>
-        <v-list-item v-for="setting in selectedProject.settings" :key="setting.key">
+
+        <v-divider></v-divider>
+
+        <v-list-item>
+          <v-list-item-content
+            ><v-list-item-title class="font-weight-bold"
+              >Catches</v-list-item-title
+            >
+          </v-list-item-content>
+          <v-list-item-action
+            ><v-switch @click="toggleCatches" v-model="notifyForCatches" />
+          </v-list-item-action>
+        </v-list-item>
+        <v-list-item v-if="notifyForCatches">
+          <v-list-item-content
+            ><v-list-item-title class="font-weight-bold"
+              >Enable Species Filter</v-list-item-title
+            >
+          </v-list-item-content>
+          <v-list-item-action
+            ><v-switch v-model="showFilter" />
+          </v-list-item-action>
+        </v-list-item>
+        <v-list-item v-if="showFilter && notifyForCatches">
           <v-list-item-content>
-            <v-list-item>
-              <v-list-item-content
-                ><v-list-item-title class="font-weight-bold">
-                  {{setting.label}}</v-list-item-title
-                >
-              </v-list-item-content>
-              <v-list-item-action
-                ><v-switch @click="toggle(setting)" v-model="setting.value" />
-              </v-list-item-action>
-            </v-list-item>
+            <v-select
+              class="pb-0"
+              hint="Only be notified for certain catches"
+              v-model="catchFilter"
+              @change="updateCatchFilter"
+              :items="allSpecies"
+              :menu-props="{ maxHeight: '400' }"
+              return-object
+              persistent-hint
+              multiple
+              chips
+              label="Species Filter"
+              outlined
+            ></v-select>
           </v-list-item-content>
         </v-list-item>
       </div>
@@ -74,8 +101,11 @@ export default {
   name: 'Settings',
   data () {
     return {
-      selected: null,
-      selectedProject: null
+      selected: 'All',
+      selectedProject: null,
+      catchFilter: null,
+      notifyForCatches: true,
+      showFilter: false
     }
   },
   mounted () {
@@ -87,14 +117,28 @@ export default {
         this.$store.dispatch('setTheme', value)
       }
     },
-    toggle (setting) {
-      setting.project_id = this.selectedProject.id
-      console.log(setting)
+    toggleCatches () {
+      const setting = {
+        project_id: this.selectedProject.id,
+        value: this.notifyForCatches,
+        key: 'notify_catches'
+      }
       this.$store.dispatch('updateCoordinatorSettings', setting)
+    },
+    updateCatchFilter () {
+      if (this.catchFilter.length > 0 && this.showFilter) {
+        console.log('Simulate sending update')
+      }
     }
   },
   computed: {
-    ...mapGetters(['getUser', 'themeNames', 'currentTheme', 'coordinatorSettings']),
+    ...mapGetters([
+      'getUser',
+      'themeNames',
+      'currentTheme',
+      'coordinatorSettings',
+      'allSpecies'
+    ]),
     dark_mode: {
       get () {
         return this.$store.state.settings.settings.dark_mode
