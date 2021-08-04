@@ -140,7 +140,13 @@ const settingsModule = {
     settings: {
       theme: 'default', // Key in the themes object
       dark_mode: false
-    }
+    },
+    coordinatorSettings: [
+      {
+        notify_catches: null,
+        catch_filter: null
+      }
+    ]
   },
   mutations: {
     setTheme (state, selectedTheme) {
@@ -166,6 +172,17 @@ const settingsModule = {
     },
     updateSettingsRemote (state) {
       settings.updateSettings(state.settings)
+    },
+    setCoordinatorSettings (state, settings) {
+      state.coordinatorSettings = settings
+    },
+    updateCatchFilter (state, catchFilter, projectId) {
+      for (let i = 0; i < state.coordinatorSettings.length; i++) {
+        const element = state.coordinatorSettings[i]
+        if (element.id === projectId) {
+          element.catchFilter = catchFilter
+        }
+      }
     }
   },
   actions: {
@@ -181,6 +198,19 @@ const settingsModule = {
       commit('setSettings', settings)
       commit('setTheme', settings.theme)
       commit('setDarkMode', settings.dark_mode)
+    },
+    async fetchCoordinatorSettings ({ commit }) {
+      const data = await settings.projectCoordinatorSettings()
+      let newSettings = data.data.data
+      if (newSettings.length <= 0) newSettings = null
+      commit('setCoordinatorSettings', newSettings)
+    },
+    updateCoordinatorSettings ({ commit }, revision) {
+      settings.updateCoordinatorSettings(revision)
+    },
+    updateCatchFilter ({ commit }, { catchFilter, projectId }) {
+      commit('updateCatchFilter', catchFilter, projectId)
+      settings.updateCatchFilter(catchFilter, projectId)
     }
   },
   getters: {
@@ -194,6 +224,9 @@ const settingsModule = {
     },
     currentTheme (state) {
       return state.settings.theme
+    },
+    coordinatorSettings (state) {
+      return state.coordinatorSettings
     }
   }
 }

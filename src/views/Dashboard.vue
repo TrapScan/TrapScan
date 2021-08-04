@@ -28,7 +28,7 @@
       </v-list-item>
     </v-card>
 
-    <v-card color="secondary" elevation="10" dark  class="mx-auto" max-width="500">
+    <v-card color="accent" elevation="10" dark  class="mx-auto" max-width="500">
       <v-list-item two-line>
         <v-list-item-content>
           <v-card-title class="text-h5 mb-1">Global Stats</v-card-title>
