@@ -37,6 +37,7 @@
           <v-select
             class="pb-0"
             messages="Select a project to manage"
+            @change="projectSelected"
             v-model="selectedProject"
             :items="coordinatorSettings"
             item-text="name"
@@ -118,6 +119,9 @@ export default {
       if (this.currentTheme !== value) {
         this.$store.dispatch('setTheme', value)
       }
+    },
+    projectSelected () {
+      this.showFilter = this.selectedProject.catch_filter.length > 0
     },
     updateCatchFilter () {
       if (this.showFilter && this.selectedProject.notify_catches) {
