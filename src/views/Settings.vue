@@ -38,7 +38,6 @@
             class="pb-0"
             messages="Select a project to manage"
             v-model="selectedProject"
-            @change="changedTheme"
             :items="coordinatorSettings"
             item-text="name"
             return-object
@@ -60,25 +59,29 @@
             >
           </v-list-item-content>
           <v-list-item-action
-            ><v-switch @click="toggleCatches" v-model="notifyForCatches" />
+            ><v-switch
+              @click="notifyCatchesChange"
+              v-model="selectedProject.notify_catches"
+            />
           </v-list-item-action>
         </v-list-item>
-        <v-list-item v-if="notifyForCatches">
+
+        <v-list-item v-if="selectedProject.notify_catches">
           <v-list-item-content
             ><v-list-item-title class="font-weight-bold"
               >Enable Species Filter</v-list-item-title
             >
           </v-list-item-content>
           <v-list-item-action
-            ><v-switch v-model="showFilter" />
+            ><v-switch @click="toggleSpeciesFilter" v-model="showFilter" />
           </v-list-item-action>
         </v-list-item>
-        <v-list-item v-if="showFilter && notifyForCatches">
+        <v-list-item v-if="showFilter && selectedProject.notify_catches">
           <v-list-item-content>
             <v-select
               class="pb-0"
               hint="Only be notified for certain catches"
-              v-model="catchFilter"
+              v-model="selectedProject.catch_filter"
               @change="updateCatchFilter"
               :items="allSpecies"
               :menu-props="{ maxHeight: '400' }"
@@ -104,7 +107,6 @@ export default {
       selected: 'All',
       selectedProject: null,
       catchFilter: null,
-      notifyForCatches: true,
       showFilter: false
     }
   },
@@ -117,18 +119,37 @@ export default {
         this.$store.dispatch('setTheme', value)
       }
     },
-    toggleCatches () {
+    updateCatchFilter () {
+      if (this.showFilter && this.selectedProject.notify_catches) {
+        if (this.selectedProject.catch_filter.length === 0) {
+          // Empty catch filter, set it to null and push to backend
+          console.log('Simulate setting to null')
+          this.selectedProject.catch_filter = null
+          this.showFilter = false
+        }
+        this.$store.dispatch('updateCatchFilter', {
+          catchFilter: this.selectedProject.catch_filter,
+          projectId: this.selectedProject.id
+        })
+      }
+    },
+    notifyCatchesChange () {
       const setting = {
         project_id: this.selectedProject.id,
-        value: this.notifyForCatches,
+        value: this.selectedProject.notify_catches,
         key: 'notify_catches'
       }
-      this.$store.dispatch('updateCoordinatorSettings', setting)
+      return this.$store.dispatch('updateCoordinatorSettings', setting)
     },
-    updateCatchFilter () {
-      if (this.catchFilter.length > 0 && this.showFilter) {
-        console.log('Simulate sending update')
+    // This is needed to catch them disabling the filter without unselecting
+    toggleSpeciesFilter () {
+      if (!this.showFilter) {
+        this.selectedProject.catch_filter = null
       }
+      this.$store.dispatch('updateCatchFilter', {
+        catchFilter: this.selectedProject.catch_filter,
+        projectId: this.selectedProject.id
+      })
     }
   },
   computed: {
