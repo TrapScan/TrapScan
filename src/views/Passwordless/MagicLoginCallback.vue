@@ -37,7 +37,6 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
-import firebase from 'firebase'
 export default {
   data: () => ({
     showAskForMail: false,
@@ -52,20 +51,13 @@ export default {
     ...mapGetters(['signInEmail'])
   },
   created () {
-    const url = location.href
-    const email = this.signInEmail
-    if (firebase.auth().isSignInWithEmailLink(url) && email) {
-      firebase.auth().signInWithEmailLink(email, url)
-    } else {
-      this.showAskForMail = true // entering mail will trigger `continueWithSignIn`
-    }
+    // const url = location.href
+    // const email = this.signInEmail
+    // Initiate sign in
   },
   methods: {
     continueWithSignIn () {
-      firebase.auth().signInWithEmailLink(this.email, location.href)
-        .then(data => {
-          this.$router.push('/dashboard')
-        })
+      // Continue
     }
   }
 }

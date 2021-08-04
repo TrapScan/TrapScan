@@ -1,5 +1,4 @@
 import axios from 'axios'
-import firebase from 'firebase'
 
 const authModule = {
   state: {
@@ -51,25 +50,6 @@ const authModule = {
       await axios.get('/api/login/google')
 
       return this.dispatch('me')
-    },
-    loginWithGoogleRedirect ({ commit }) {
-      var provider = new firebase.auth.GoogleAuthProvider()
-      firebase.auth()
-        .signInWithRedirect(provider)
-        .catch((error) => {
-          alert(error)
-          commit('setError', error)
-        })
-    },
-    loginWithFacebookPopUp ({ commit }) {
-      var provider = new firebase.auth.FacebookAuthProvider()
-      firebase
-        .auth()
-        .signInWithPopup(provider)
-        .catch((error) => {
-          alert(error)
-          commit('setError', error)
-        })
     }
   },
   getters: {

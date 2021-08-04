@@ -35,7 +35,6 @@
 </template>
 <script>
 import { mapActions } from 'vuex'
-import firebase from 'firebase'
 export default {
   data: () => ({
     valid: false,
@@ -48,19 +47,7 @@ export default {
   }),
   methods: {
     login () {
-      const actionCodeSettings = {
-        url: `${location.origin}/signin/` + this.email,
-        handleCodeInApp: true
-      }
-
-      firebase.auth().sendSignInLinkToEmail(this.email, actionCodeSettings)
-        .then(() => {
-          this.$store.dispatch('startMagicSignIn', this.email)
-          this.showInstructions = true
-        })
-        .catch((error) => {
-          this.$store.dispatch('setError', { error })
-        })
+      // Handle
     },
     ...mapActions(['signIn'])
   }

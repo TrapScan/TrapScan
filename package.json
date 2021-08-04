@@ -11,7 +11,6 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "firebase": "^8.3.3",
     "js-cookie": "^2.2.1",
     "luxon": "^1.28.0",
     "register-service-worker": "^1.7.1",
