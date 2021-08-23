@@ -13,6 +13,7 @@ import Settings from '../views/Settings.vue'
 import ResetPassword from '../views/ResetPassword.vue'
 import ForgotPassword from '../views/ForgotPassword.vue'
 import Register from '../views/Register.vue'
+import PreForm from '../views/PreForm.vue'
 
 Vue.use(VueRouter)
 
@@ -115,6 +116,11 @@ const routes = [
       authRequired: true,
       adminOnly: true
     }
+  },
+  {
+    path: '/api/scan/:code',
+    component: PreForm,
+    name: 'ExternalScan'
   }
 ]
 

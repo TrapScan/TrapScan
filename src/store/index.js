@@ -6,6 +6,7 @@ import adminModule from './admin'
 import scanModule from './scan'
 import settingsModule from './settings'
 import stats from '../api/stats'
+import anonInspectionFormModule from './anonInspections'
 
 Vue.use(Vuex)
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
   modules: {
     auth: authModule,
     inspectionForm: inspectionFormModule,
+    anonInspectionForm: anonInspectionFormModule,
     admin: adminModule,
     scan: scanModule,
     settings: settingsModule
