@@ -15,8 +15,9 @@ const settingsModule = {
           info: '#2196F3',
           success: '#4CAF50',
           warning: '#FFC107',
-          card: '#182532',
-          background: '#F4EFE1'
+          card: '#FAFAFA', // Used in inspection form card background
+          background: '#F4EFE1', // // Basic background of the app
+          icon_background: '#DADADA' // Used in inspection form icon background
         },
         dark: {
           primary: '#1976D2',
@@ -26,8 +27,9 @@ const settingsModule = {
           info: '#2196F3',
           success: '#4CAF50',
           warning: '#FFC107',
-          card: '#182532',
-          background: '#0D151C'
+          card: '#182532', // Used in inspection form card background
+          background: '#0D151C', // Basic background of the app
+          icon_background: '#0D151C' // Used in inspection form icon background
         }
       },
       miromiro: {

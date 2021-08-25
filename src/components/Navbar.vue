@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app elevate-on-scroll scroll-target="#scrolling-techniques-7">
+  <v-app-bar app :elevation="elevation" hide-on-scroll>
     <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
 
     <v-toolbar-title>Trap Scan</v-toolbar-title>
@@ -22,6 +22,12 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 export default {
+  props: {
+    elevation: {
+      type: Number,
+      default: 5
+    }
+  },
   data () {
     return {
       navItems: [

@@ -1,8 +1,12 @@
 <template>
   <div>
-    <v-btn elevation="2" @click="goToForm">Go to Inspection Form</v-btn>
+    <v-btn elevation="2" value="form" to="/form">
+      <span>Go to Inspection Form</span>
+    </v-btn>
     <br>
-    <v-btn elevation="2" @click="goToInstallationForm">Go to Installation Form</v-btn>
+    <v-btn elevation="2" value="installform" to="/installform">
+      <span>Go to Installation Form</span>
+    </v-btn>
     <p class="decode-result">
       Last result: <b>{{ result }}</b>
     </p>

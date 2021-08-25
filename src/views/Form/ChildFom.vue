@@ -5,7 +5,7 @@
     color="primary"
     @click="onComplete"
   >
-    <span class="ml-3 mr-4 background pa-1 rounded-lg">
+    <span class="ml-3 mr-4 icon_background pa-1 rounded-lg">
       <v-icon large color="primary"> mdi-domain </v-icon>
     </span>
     <span class="mr-auto subtitle align-self-start text-left">{{ name }}</span>

@@ -6,7 +6,7 @@
             mdi-arrow-left
           </v-icon>Previous Step
         </v-btn> -->
-        <v-app-bar app color="background" elevation="10">
+        <v-app-bar app color="background" elevation="0">
           <v-toolbar-title v-if="e1 !== 1" @click="backButton">
             <v-icon large color="primary"> mdi-chevron-left </v-icon>
           </v-toolbar-title>
