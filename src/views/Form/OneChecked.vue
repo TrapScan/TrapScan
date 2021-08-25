@@ -1,13 +1,15 @@
 <template>
-  <div>
+  <div class="form-options">
     <h2>I checked this trap {{ scannedCodeValue }} and...</h2>
-    <ChildForm v-for="option in options"
-      :goesTo="option.goesTo"
-      :key="option.title"
-      :name="option.title"
-      :formData="option.formData"
-      :title="option.title">
-    </ChildForm>
+    <div class="d-flex flex-column justify-end" style="height: 90%">
+      <ChildForm v-for="option in options"
+        :goesTo="option.goesTo"
+        :key="option.title"
+        :name="option.title"
+        :formData="option.formData"
+        :title="option.title">
+      </ChildForm>
+    </div>
   </div>
 </template>
 

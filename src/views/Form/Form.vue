@@ -1,11 +1,22 @@
 <template>
-  <div>
-    <v-stepper v-model="e1">
-       <v-btn v-if="e1 !== 1" outlined elevation="2" class="ml-4 mt-4" color="secondary" @click="backButton">
+  <div style="height: 100%">
+    <v-stepper v-model="e1" elevation="0" class="background" style="height: 100%">
+       <!-- <v-btn v-if="e1 !== 1" outlined elevation="2" class="ml-4" color="primary" @click="backButton">
           <v-icon left>
             mdi-arrow-left
           </v-icon>Previous Step
-        </v-btn>
+        </v-btn> -->
+        <v-app-bar app color="background" elevation="10">
+          <v-toolbar-title v-if="e1 !== 1" @click="backButton">
+            <v-icon large color="primary"> mdi-chevron-left </v-icon>
+          </v-toolbar-title>
+
+          <v-spacer></v-spacer>
+
+          <v-btn icon @click="backToScanner">
+            <v-icon medium color="primary"> mdi-close </v-icon>
+          </v-btn>
+      </v-app-bar>
       <v-stepper-header style="display: none;">
         <v-stepper-step :complete="e1 > 1" step="1">
           Checked and
@@ -60,40 +71,40 @@
         </v-stepper-step>
       </v-stepper-header>
 
-      <v-stepper-items>
-        <v-stepper-content step="1">
+      <v-stepper-items style="height: 100%">
+        <v-stepper-content style="height: 100%" class="background pa-1 rounded" step="1">
           <OneChecked></OneChecked>
         </v-stepper-content>
 
-        <v-stepper-content step="2">
+        <v-stepper-content style="height: 100%" class="background pa-1 rounded" step="2">
           <TwoEmpty></TwoEmpty>
         </v-stepper-content>
 
-        <v-stepper-content step="3">
+        <v-stepper-content style="height: 100%" class="background pa-1 rounded" step="3">
           <ThreeSpecies></ThreeSpecies>
         </v-stepper-content>
 
-        <v-stepper-content step="4">
+        <v-stepper-content style="height: 100%" class="background pa-1 rounded" step="4">
           <FourSomethingsWrong></FourSomethingsWrong>
         </v-stepper-content>
 
-        <v-stepper-content step="5">
+        <v-stepper-content style="height: 100%" class="background pa-1 rounded" step="5">
           <FiveBaitUsed></FiveBaitUsed>
         </v-stepper-content>
 
-        <v-stepper-content step="6">
+        <v-stepper-content style="height: 100%" class="background pa-1 rounded" step="6">
           <Summary></Summary>
         </v-stepper-content>
 
-        <v-stepper-content step="7">
+        <v-stepper-content style="height: 100%" class="background pa-1 rounded" step="7">
           <SevenEdit></SevenEdit>
         </v-stepper-content>
 
-        <v-stepper-content step="8">
+        <v-stepper-content style="height: 100%" class="background pa-1 rounded" step="8">
           <EightNotes></EightNotes>
         </v-stepper-content>
 
-        <v-stepper-content step="9">
+        <v-stepper-content style="height: 100%" class="background pa-1 rounded" step="9">
           <Confirmation></Confirmation>
         </v-stepper-content>
       </v-stepper-items>
@@ -136,7 +147,24 @@ export default {
   methods: {
     backButton () {
       this.$store.dispatch('formBackNavigate')
+    },
+    backToScanner () {
+      this.$router.replace({ name: 'home' })
     }
+  },
+  mounted () {
+    this.$store.dispatch('setShowNavBar', { navBarState: false })
+  },
+  beforeDestroy () {
+    this.$store.dispatch('setShowNavBar', { navBarState: true })
   }
 }
 </script>
+<style>
+.v-stepper__wrapper {
+  height: 100%;
+}
+.form-options{
+  height: 100%;
+}
+</style>

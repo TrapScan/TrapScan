@@ -14,7 +14,9 @@ const settingsModule = {
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
+          warning: '#FFC107',
+          card: '#182532',
+          background: '#F4EFE1'
         },
         dark: {
           primary: '#1976D2',
@@ -23,7 +25,9 @@ const settingsModule = {
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
+          warning: '#FFC107',
+          card: '#182532',
+          background: '#0D151C'
         }
       },
       miromiro: {

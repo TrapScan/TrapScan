@@ -18,6 +18,8 @@ export default new Vuex.Store({
     settings: settingsModule
   },
   state: {
+    // Global Nav Controls
+    showNavBar: true,
     // Generic display component for form messages from backend
     formMessage: {
       status: null, // Drives message component type ['error', 'success', 'warning']
@@ -60,6 +62,9 @@ export default new Vuex.Store({
     },
     setStats (state, stats) {
       state.globalStats = stats
+    },
+    setShowNavBar (state, navBarState) {
+      state.showNavBar = navBarState
     }
   },
   actions: {
@@ -75,6 +80,9 @@ export default new Vuex.Store({
     async fetchStats ({ commit }) {
       const newStats = await stats.globalKpis()
       commit('setStats', newStats.data)
+    },
+    setShowNavBar ({ commit }, { navBarState }) {
+      commit('setShowNavBar', navBarState)
     }
   },
   getters: {
@@ -110,6 +118,9 @@ export default new Vuex.Store({
     },
     getGlobalStats (state) {
       return state.globalStats
+    },
+    showNavBar (state) {
+      return state.showNavBar
     }
   }
 })

@@ -1,15 +1,13 @@
 <template>
   <!-- <div class="text-center card ma-2 pa-2"> -->
   <div
-    class="text-center card ma-2 py-5 d-flex justify-start align-center rounded"
-    color="primary"
+    class="grid-button text-center card py-2 d-flex flex-column"
     @click="onComplete"
   >
-    <span class="ml-3 mr-4 background pa-1 rounded-lg">
-      <v-icon large color="primary"> mdi-domain </v-icon>
+    <span>
+      <v-icon :size="size"> $vuetify.icons.{{ icon }} </v-icon>
     </span>
-    <span class="mr-auto subtitle align-self-start text-left">{{ name }}</span>
-    <v-icon large color="primary" class="justify-self-end"> mdi-chevron-right </v-icon>
+    <span>{{ name }}</span>
   </div>
   <!-- </div> -->
 </template>
@@ -35,6 +33,10 @@ export default {
     icon: {
       type: String,
       default: ''
+    },
+    size: {
+      type: String,
+      default: '80%'
     }
   },
   data () {
@@ -42,16 +44,21 @@ export default {
   },
   methods: {
     onComplete () {
-      this.$store.dispatch('updateForm', { form: this.formData })
-      this.$store.dispatch('setFormIndex', { index: this.goesTo })
+      if (!this.dumb) {
+        this.$store.dispatch('updateForm', { form: this.formData })
+        this.$store.dispatch('setFormIndex', { index: this.goesTo })
+      } else {
+        this.$store.dispatch('anonUpdateForm', { form: this.formData })
+        this.$store.dispatch('anonSetFormIndex', { index: this.goesTo })
+      }
     }
   }
 }
 </script>
 <style scoped>
-button {
+.grid-button {
   width: 100%;
-  max-width: 80vh;
+  max-width: 40vh;
 }
 
 .justify-self-start {
@@ -61,4 +68,5 @@ button {
 .justify-self-end {
   justify-self: end !important;
 }
+
 </style>
