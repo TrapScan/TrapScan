@@ -7,10 +7,10 @@ module.exports = {
       name: 'TrapScan',
       appleMobileWebAppCapable: 'yes',
       appleMobileWebAppStatusBarStyle: 'black',
-      startUrl: 'https://trapscan.app',
-      themeColor: '#130f40',
+      start_url: 'https://trapscan.app',
+      theme_color: '#130f40',
       msTileColor: '#130f40',
-      preferRelatedApplications: true,
+      prefer_related_applications: true,
       icons: [
         {
           src: './img/icons/android-chrome-192x192.png',
