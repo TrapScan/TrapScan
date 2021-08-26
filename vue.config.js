@@ -3,6 +3,9 @@ module.exports = {
     'vuetify'
   ],
   pwa: {
+    workboxOptions: {
+      exclude: [/_redirects/]
+    },
     manifestOptions: {
       name: 'TrapScan',
       appleMobileWebAppCapable: 'yes',
