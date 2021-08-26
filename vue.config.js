@@ -11,6 +11,7 @@ module.exports = {
       theme_color: '#130f40',
       msTileColor: '#130f40',
       prefer_related_applications: true,
+      scope: 'https://trapscan.app',
       icons: [
         {
           src: './img/icons/android-chrome-192x192.png',
