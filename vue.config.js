@@ -8,12 +8,6 @@ module.exports = {
     appleMobileWebAppStatusBarStyle: 'black',
     themeColor: '#130f40',
     msTileColor: '#130f40',
-    workboxPluginMode: 'InjectManifest',
-    workboxOptions: {
-      // swSrc is required in InjectManifest mode.
-      swSrc: 'dev/sw.js'
-      // ...other Workbox options...
-    },
     manifestOptions: {
       icons: [
         {
