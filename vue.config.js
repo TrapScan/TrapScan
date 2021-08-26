@@ -3,13 +3,14 @@ module.exports = {
     'vuetify'
   ],
   pwa: {
-    name: 'TrapScan',
-    appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'black',
-    start_url: 'https://trapscan.app',
-    themeColor: '#130f40',
-    msTileColor: '#130f40',
     manifestOptions: {
+      name: 'TrapScan',
+      appleMobileWebAppCapable: 'yes',
+      appleMobileWebAppStatusBarStyle: 'black',
+      startUrl: 'https://trapscan.app',
+      themeColor: '#130f40',
+      msTileColor: '#130f40',
+      preferRelatedApplications: true,
       icons: [
         {
           src: './img/icons/android-chrome-192x192.png',
