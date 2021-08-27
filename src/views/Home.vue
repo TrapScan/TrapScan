@@ -2,12 +2,6 @@
   <v-container fill-height fluid style="height: 80vh">
     <v-row align="center" justify="center">
       <v-col lg="6">
-        <!-- <v-card elevation="1" class="pa-6 rounded"> -->
-        <!-- <v-img
-            height="250"
-            class="rounded mb-8"
-            src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-          ></v-img> -->
         <v-form :v-model="valid">
           <v-text-field
             v-model="email"
@@ -30,38 +24,66 @@
           </v-text-field>
         </v-form>
         <v-card-actions class="flex justify-center">
-          <v-btn @click="submit" @keydown.enter="submit" large class="pl-10 pr-10" color="primary">
+          <v-btn
+            @click="submit"
+            @keydown.enter="submit"
+            large
+            class="pl-10 pr-10"
+            color="primary"
+          >
             Login
           </v-btn>
         </v-card-actions>
         <v-card-actions class="mt-8 flex justify-center">
-          <v-btn
-            width="65%"
-            @click="loginWithGooglePopUp"
-            large
-            class="pl-10 pr-10"
-            color="primary"
+          <a
+            class="
+              pl-10
+              pr-10
+              v-btn v-btn--is-elevated v-btn--has-bg
+              theme--light
+              v-size--large
+              primary
+            "
+            :href="baseURL+'/auth/google/redirect'"
+            >Login with Google</a
           >
-            Login with Google
-          </v-btn>
         </v-card-actions>
         <v-card-actions class="flex justify-center">
-          <v-btn
-            width="65%"
-            @click="loginWithFacebook"
-            large
-            class="pl-10 pr-10"
-            color="primary"
+          <a
+            class="
+              pl-10
+              pr-10
+              v-btn v-btn--is-elevated v-btn--has-bg
+              theme--light
+              v-size--large
+              primary
+            "
+            :href="baseURL+'/auth/facebook/redirect'"
+            >Login with Facebook</a
           >
-            Login with Facebook
-          </v-btn>
+        </v-card-actions>
+        <v-card-actions>
+            <a
+            class="
+              pl-10
+              pr-10
+              v-btn v-btn--is-elevated v-btn--has-bg
+              theme--light
+              v-size--large
+              primary
+            "
+            :href="baseURL+'/auth/apple/redirect'"
+            >Login with Apple</a
+          >
         </v-card-actions>
         <!-- </v-card> -->
       </v-col>
     </v-row>
   </v-container>
 </template>
+
 <script>
+import axios from 'axios'
 import { mapActions } from 'vuex'
 
 export default {
@@ -79,9 +101,7 @@ export default {
     ]
   }),
   methods: {
-    ...mapActions([
-      'signIn'
-    ]),
+    ...mapActions(['signIn']),
     async submit () {
       await this.signIn({ email: this.email, password: this.password })
 
@@ -94,11 +114,21 @@ export default {
       })
     },
     loginWithGooglePopUp () {
-      this.$store.dispatch('loginWithGooglePopUp')
+      axios.get('/auth/google/redirect')
     },
     loginWithFacebook () {
       this.$store.dispatch('loginWithFacebookPopUp')
     }
+  },
+  computed: {
+    baseURL () {
+      return process.env.VUE_APP_API_URL
+    }
   }
 }
 </script>
+<style scoped>
+.v-btn{
+  width: 100%;
+}
+</style>

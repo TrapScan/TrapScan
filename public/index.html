@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="appleid-signin-client-id" content="app.trapscan">
+    <meta name="appleid-signin-scope" content="">
+    <meta name="appleid-signin-redirect-uri" content="https://api.trapscan.com/auth/apple/callback">
+    <meta name="appleid-signin-state" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
@@ -14,6 +18,6 @@
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <script type="text/javascript" src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js"></script>    <!-- built files will be auto injected -->
   </body>
 </html>

@@ -37,19 +37,6 @@ const authModule = {
         commit('SET_AUTHENTICATED', false)
         commit('SET_USER', null)
       })
-    },
-    async loginWithGooglePopUp ({ commit }) {
-      // var provider = new firebase.auth.GoogleAuthProvider()
-      // firebase.auth()
-      //   .signInWithPopup(provider)
-      //   .catch((error) => {
-      //     alert(error)
-      //     commit('setError', error)
-      //   })
-      await axios.get('/sanctum/csrf-cookie')
-      await axios.get('/api/login/google')
-
-      return this.dispatch('me')
     }
   },
   getters: {
