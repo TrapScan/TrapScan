@@ -8,6 +8,9 @@ const settingsModule = {
         name: 'Default',
         icon: '',
         light: {
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
           primary: '#1976D2',
           secondary: '#424242',
           accent: '#82B1FF',
@@ -20,6 +23,9 @@ const settingsModule = {
           icon_background: '#DADADA' // Used in inspection form icon background
         },
         dark: {
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
           primary: '#1976D2',
           secondary: '#424242',
           accent: '#82B1FF',

@@ -2,7 +2,8 @@
   <v-app-bar app :elevation="elevation" collapse-on-scroll>
     <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
 
-    <v-toolbar-title>Trap Scan</v-toolbar-title>
+    <back-button v-if="this.$route.meta.showBackButton"></back-button>
+    <v-toolbar-title v-else>Trap Scan</v-toolbar-title>
 
     <v-spacer></v-spacer>
 
@@ -21,7 +22,9 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import BackButton from './BackButton.vue'
 export default {
+  components: { BackButton },
   props: {
     elevation: {
       type: Number,

@@ -3,17 +3,22 @@ import api from './api'
 import csrf from './csrf'
 
 export default {
-  async login (form) {
-    await csrf.getCookie()
-    return api.post('/login', form)
-  },
+  // async login (form) {
+  //   await csrf.getCookie()
+  //   return api.post('/login', form)
+  // },
 
-  async logout () {
-    await csrf.getCookie()
-    return api.post('/logout')
-  },
+  // async logout () {
+  //   await csrf.getCookie()
+  //   return api.post('/logout')
+  // },
 
-  auth () {
-    return api.get('/user')
+  // auth () {
+  //   return api.get('/user')
+  // }
+
+  async resetPassword (form) {
+    await csrf.getCookie()
+    return api.post('/password/reset', form)
   }
 }

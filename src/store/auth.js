@@ -1,4 +1,5 @@
 import axios from 'axios'
+import auth from '../api/auth'
 
 const authModule = {
   state: {
@@ -20,6 +21,9 @@ const authModule = {
       await axios.post('/login', credentials)
 
       return dispatch('me')
+    },
+    async resetPassword ({ dispatch }, form) {
+      return auth.resetPassword(form)
     },
     async signOut ({ dispatch }) {
       await axios.post('/logout')

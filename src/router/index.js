@@ -10,6 +10,8 @@ import Admin from '../views/Admin.vue'
 import QRInstall from '../views/Admin/QRInstall.vue'
 import About from '../views/About.vue'
 import Settings from '../views/Settings.vue'
+import ResetPassword from '../views/ResetPassword.vue'
+import ForgotPassword from '../views/ForgotPassword.vue'
 
 Vue.use(VueRouter)
 
@@ -18,6 +20,19 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/i/forgot/password',
+    name: 'ForgotPassword',
+    component: ForgotPassword,
+    meta: {
+      showBackButton: true
+    }
+  },
+  {
+    path: '/reset/password/:token',
+    name: 'ResetPassowrd',
+    component: ResetPassword
   },
   {
     path: '/dashboard',
@@ -40,7 +55,8 @@ const routes = [
     name: 'Settings',
     component: Settings,
     meta: {
-      authRequired: true
+      authRequired: true,
+      showBackButton: true
     }
   },
   {
