@@ -69,7 +69,6 @@ export default new Vuex.Store({
   },
   actions: {
     setError ({ commit }, { error }) {
-      console.log('error')
       commit('setFormError', error)
     },
     setSuccess ({ commit }, { success }) {
