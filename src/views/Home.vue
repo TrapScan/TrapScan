@@ -44,7 +44,7 @@
               v-size--large
               primary
             "
-            :href="baseURL+'/auth/google/redirect'"
+            :href="baseURL + '/auth/google/redirect'"
             >Login with Google</a
           >
         </v-card-actions>
@@ -58,12 +58,12 @@
               v-size--large
               primary
             "
-            :href="baseURL+'/auth/facebook/redirect'"
+            :href="baseURL + '/auth/facebook/redirect'"
             >Login with Facebook</a
           >
         </v-card-actions>
         <v-card-actions>
-            <a
+          <a
             class="
               pl-10
               pr-10
@@ -72,11 +72,13 @@
               v-size--large
               primary
             "
-            :href="baseURL+'/auth/apple/redirect'"
+            :href="baseURL + '/auth/apple/redirect'"
             >Login with Apple</a
           >
         </v-card-actions>
-        <!-- </v-card> -->
+        <v-card-actions>
+          <v-btn text to="/i/forgot/password" outlined color="primary">Forgot your password?</v-btn>
+        </v-card-actions>
       </v-col>
     </v-row>
   </v-container>
@@ -128,7 +130,7 @@ export default {
 }
 </script>
 <style scoped>
-.v-btn{
+.v-btn {
   width: 100%;
 }
 </style>
