@@ -73,6 +73,15 @@ const routes = [
     }
   },
   {
+    path: '/scan/:code',
+    name: 'Scan',
+    component: Scan,
+    meta: {
+      authRequired: true
+    },
+    props: route => ({ initial_code: route.params.code })
+  },
+  {
     path: '/form',
     name: 'Form',
     component: Form,

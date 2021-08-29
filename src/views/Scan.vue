@@ -33,6 +33,12 @@
 </template>
 <script>
 export default {
+  props: {
+    initial_code: {
+      type: String,
+      default: null
+    }
+  },
   data () {
     return {
       isValid: undefined,
@@ -51,6 +57,12 @@ export default {
 
     validationFailure () {
       return this.isValid === false
+    }
+  },
+  mounted () {
+    if (this.initial_code) {
+      console.log('scanning')
+      this.$store.dispatch('scanQR', { qr_id: this.initial_code })
     }
   },
   methods: {
