@@ -17,6 +17,7 @@ router.beforeEach((to, from, next) => {
   const currentUser = store.getters.user
   const requireAuth = to.matched.some(record => record.meta.authRequired)
   const adminOnly = to.matched.some(record => record.meta.adminOnly)
+
   if (adminOnly && requireAuth && currentUser) {
     let admin = false
     currentUser.roles.forEach(element => {
@@ -31,6 +32,13 @@ router.beforeEach((to, from, next) => {
     next('/dashboard')
   } else {
     next()
+  }
+
+  // Handle Scan redirect to anon form for non logged in users
+  if (to.name === 'Scan') {
+    if (!currentUser) {
+      next('/anon/scan/' + to.params.code)
+    }
   }
 })
 

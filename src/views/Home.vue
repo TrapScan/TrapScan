@@ -17,6 +17,7 @@
           <v-text-field
             v-model="password"
             :rules="passwordRules"
+            @keydown.native.enter="submit"
             label="Password"
             required
             type="password"
@@ -27,7 +28,6 @@
         <v-card-actions class="flex justify-center">
           <v-btn
             @click="submit"
-            @keydown.enter="submit"
             :loading="loading"
             large
             class="pl-10 pr-10"

@@ -1,4 +1,5 @@
 import { DateTime } from 'luxon'
+import inspections from '../api/inspections'
 
 var date = DateTime.local().toFormat('yyyy-LL-dd HH:mm:ss')
 
@@ -69,8 +70,9 @@ const anonInspectionFormModule = {
       const formBackup = { ...state.form }
       state.form_navigation_data_history.push(formBackup)
     },
-    anonSubmitInspectionForm (state) {
-      console.log('Submitting stub')
+    anonSubmitInspectionForm (state, code) {
+      state.form.QR_ID = code
+      inspections.createAnon(state.form)
     }
   },
   actions: {
@@ -83,8 +85,8 @@ const anonInspectionFormModule = {
     anonSetFormIndex ({ commit }, { index }) {
       commit('anonSetFormIndex', index)
     },
-    anonSubmitInspectionForm ({ commit }) {
-      commit('anonSubmitInspectionForm')
+    anonSubmitInspectionForm ({ commit }, { code }) {
+      commit('anonSubmitInspectionForm', code)
     }
   },
   getters: {
