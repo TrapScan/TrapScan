@@ -59,6 +59,7 @@ export default {
 .grid-button {
   width: 100%;
   max-width: 40vh;
+  cursor: pointer;
 }
 
 .justify-self-start {

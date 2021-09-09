@@ -1,31 +1,43 @@
 <template>
   <div class="form-options">
     <h2>The trap caught a...</h2>
-    <div v-if="! moreItems" class="option-grid">
-      <ChildFormGrid  v-for="option in getSpecies"
+    <div v-if="!moreItems" class="option-grid">
+      <ChildFormGrid
+        v-for="option in getSpecies"
         :goesTo="5"
         :key="option"
         :icon="option.toLowerCase()"
         :name="option"
         :size="option === 'Stoat' || option === 'Rat' ? '90%' : '80%'"
         :formData="{ species_caught: option, words: `${option} ` }"
-        :title="option"></ChildFormGrid>
+        :title="option"
+      ></ChildFormGrid>
+
+      <div
+        class="grid-button text-center card py-2 d-flex flex-column"
+         @click="showMoreItems"
+      >
+        <span>
+          <v-icon size="90%"> $vuetify.icons.somethingElse </v-icon>
+        </span>
+        <span>Something Else</span>
+      </div>
     </div>
     <div v-else>
-      <ChildForm v-for="option in getExtraSpecies"
+      <ChildForm
+        v-for="option in getExtraSpecies"
         :goesTo="5"
         :key="option"
         :name="option"
         :formData="{ species_caught: option, words: `${option} ` }"
-        :title="option"></ChildForm>
+        :title="option"
+      ></ChildForm>
     </div>
 
-    <!-- This button will need to be updated with any changes to ChildForm styling -->
-    <div class="text-center" v-if="! moreItems">
-        <v-btn class="ma-2" outlined color="primary" @click="showMoreItems">Show More Items</v-btn>
-    </div>
-    <div class="text-center" v-else>
-        <v-btn class="ma-2" outlined color="primary" @click="showLessItems">Show Less Items</v-btn>
+    <div class="text-center" v-if="moreItems">
+      <v-btn class="ma-2" outlined color="primary" @click="showLessItems"
+        >Show Less Items</v-btn
+      >
     </div>
   </div>
 </template>
@@ -60,7 +72,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .option-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
