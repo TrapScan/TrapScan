@@ -36,54 +36,71 @@
             Login
           </v-btn>
         </v-card-actions>
-        <v-btn to="/register" x-small text>No account? Register now</v-btn>
-        <v-card-actions class="mt-5 flex justify-center">
-          <a
-            class="
-              pl-10
-              pr-10
-              v-btn v-btn--is-elevated v-btn--has-bg
-              theme--light
-              v-size--large
-              primary
-            "
-            :href="baseURL + '/auth/google/redirect'"
-            :loading="loading"
-            >Login with Google</a
-          >
-        </v-card-actions>
-        <v-card-actions class="flex justify-center">
-          <a
-            class="
-              pl-10
-              pr-10
-              v-btn v-btn--is-elevated v-btn--has-bg
-              theme--light
-              v-size--large
-              primary
-            "
-            :href="baseURL + '/auth/facebook/redirect'"
-            :loading="loading"
-            >Login with Facebook</a
-          >
-        </v-card-actions>
         <v-card-actions>
-          <a
-            class="
-              pl-10
-              pr-10
-              v-btn v-btn--is-elevated v-btn--has-bg
-              theme--light
-              v-size--large
-              primary
-            "
-            :href="baseURL + '/auth/apple/redirect'"
-            :disabled="loading"
-            >Login with Apple</a
+          <v-btn
+            outlined
+            to="/register"
+            :loading="loading"
+            color="primary"
+            >Register Now</v-btn
           >
         </v-card-actions>
+        <v-row>
+          <v-col>
+            <v-card-actions class="flex justify-center">
+              <a
+                class="
+                  py-3
+                  v-btn v-btn--is-elevated v-btn--has-bg
+                  theme--light
+                  is-google
+                "
+                :href="baseURL + '/auth/google/redirect'"
+                :loading="loading"
+                ><v-icon color="white">mdi-google</v-icon></a
+              >
+            </v-card-actions>
+          </v-col>
+          <v-col>
+            <v-card-actions class="flex justify-center">
+              <a
+                class="
+                  py-3
+                  v-btn v-btn--is-elevated v-btn--has-bg
+                  theme--light
+                  is-facebook
+                "
+                :href="baseURL + '/auth/facebook/redirect'"
+                :loading="loading"
+                ><v-icon color="white">mdi-facebook</v-icon></a
+              >
+            </v-card-actions>
+          </v-col>
+          <v-col>
+            <v-card-actions>
+              <a
+                class="
+                  py-3
+                  v-btn v-btn--is-elevated v-btn--has-bg
+                  theme--light
+                  is-apple
+                "
+                :href="baseURL + '/auth/apple/redirect'"
+                :disabled="loading"
+                ><v-icon color="white">mdi-apple</v-icon></a
+              >
+            </v-card-actions>
+          </v-col>
+        </v-row>
         <v-card-actions>
-          <v-btn text to="/i/forgot/password" :loading="loading" outlined color="primary">Forgot your password?</v-btn>
+          <v-btn
+            text
+            to="/i/forgot/password"
+            :loading="loading"
+            outlined
+            color="primary"
+            >Forgot your password?</v-btn
+          >
         </v-card-actions>
       </v-col>
     </v-row>
@@ -142,5 +159,16 @@ export default {
 <style scoped>
 .v-btn {
   width: 100%;
+}
+
+.is-facebook {
+  background-color: #1877f2 !important;
+}
+.is-google {
+  background-color: #ea4335 !important;
+}
+
+.is-apple {
+  background-color: #000000 !important;
 }
 </style>
