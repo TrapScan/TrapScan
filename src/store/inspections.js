@@ -66,7 +66,8 @@ const inspectionFormModule = {
       const formBackup = { ...state.form }
       state.form_navigation_data_history.push(formBackup)
     },
-    submitInspectionForm (state) {
+    submitInspectionForm (state, qrCode) {
+      state.form.QR_ID = qrCode
       return new Promise((resolve, reject) => {
         inspections.create(state.form).then((response) => {
           console.log(response)
@@ -89,8 +90,8 @@ const inspectionFormModule = {
     setFormIndex ({ commit }, { index }) {
       commit('setFormIndex', index)
     },
-    submitInspectionForm ({ commit }) {
-      commit('submitInspectionForm')
+    submitInspectionForm ({ commit, rootGetters }) {
+      commit('submitInspectionForm', rootGetters.scannedCodeValue)
     }
   },
   getters: {
