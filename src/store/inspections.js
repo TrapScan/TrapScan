@@ -3,8 +3,8 @@ import inspections from '../api/inspections'
 
 var date = DateTime.local().toFormat('yyyy-LL-dd HH:mm:ss')
 
-const inspectionFormModule = {
-  state: {
+const getDefaultState = () => {
+  return {
     form: {
       QR_ID: 'Test-1234',
       code: 'test',
@@ -40,7 +40,11 @@ const inspectionFormModule = {
       }
     ],
     form_index: 1
-  },
+  }
+}
+
+const inspectionFormModule = {
+  state: getDefaultState(),
   mutations: {
     setFormIndex (state, index) {
       state.form_index = index
@@ -70,14 +74,15 @@ const inspectionFormModule = {
       state.form.QR_ID = qrCode
       return new Promise((resolve, reject) => {
         inspections.create(state.form).then((response) => {
-          console.log(response)
           resolve(response)
         })
           .catch((error) => {
-            console.log(error)
             reject(error.response.data.errors)
           })
       })
+    },
+    resetInspectionForm (state) {
+      Object.assign(state, getDefaultState())
     }
   },
   actions: {
@@ -92,6 +97,9 @@ const inspectionFormModule = {
     },
     submitInspectionForm ({ commit, rootGetters }) {
       commit('submitInspectionForm', rootGetters.scannedCodeValue)
+    },
+    resetInspectionForm ({ commit }) {
+      commit('resetInspectionForm')
     }
   },
   getters: {

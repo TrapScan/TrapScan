@@ -156,6 +156,7 @@ export default {
     this.$store.dispatch('setShowNavBar', { navBarState: false })
   },
   beforeDestroy () {
+    this.$store.dispatch('resetInspectionForm')
     this.$store.dispatch('setShowNavBar', { navBarState: true })
   }
 }
