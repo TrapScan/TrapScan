@@ -10,6 +10,7 @@
     <p class="decode-result">
       Last result: <b>{{ result }}</b>
     </p>
+    <!-- <user-location v-on:location-updated="locationUpdated"></user-location> -->
     <qrcode-stream
       key="trapscan"
       :camera="camera"
@@ -32,7 +33,12 @@
   </div>
 </template>
 <script>
+// import UserLocation from '../components/UserLocation.vue'
+
 export default {
+  components: {
+    // UserLocation
+  },
   props: {
     initial_code: {
       type: String,
@@ -61,7 +67,6 @@ export default {
   },
   mounted () {
     if (this.initial_code) {
-      console.log('scanning')
       this.$store.dispatch('scanQR', { qr_id: this.initial_code })
     }
   },
