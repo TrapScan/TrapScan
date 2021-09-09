@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-// import MagicLogin from '../views/MagicLogin.vue'
 import Dashboard from '../views/Dashboard.vue'
 import MagicLoginCallback from '../views/Passwordless/MagicLoginCallback.vue'
 import Scan from '../views/Scan.vue'
@@ -13,6 +12,7 @@ import Settings from '../views/Settings.vue'
 import ResetPassword from '../views/ResetPassword.vue'
 import ForgotPassword from '../views/ForgotPassword.vue'
 import Register from '../views/Register.vue'
+import AnonInspectionForm from '../views/AnonForm/AnonInspectionForm'
 
 Vue.use(VueRouter)
 
@@ -115,6 +115,11 @@ const routes = [
       authRequired: true,
       adminOnly: true
     }
+  },
+  {
+    path: '/anon/scan/:code',
+    component: AnonInspectionForm,
+    name: 'ExternalScan'
   }
 ]
 

@@ -31,10 +31,6 @@ export default {
     dumb: {
       type: Boolean,
       default: false
-    },
-    icon: {
-      type: String,
-      default: ''
     }
   },
   data () {
@@ -42,8 +38,13 @@ export default {
   },
   methods: {
     onComplete () {
-      this.$store.dispatch('updateForm', { form: this.formData })
-      this.$store.dispatch('setFormIndex', { index: this.goesTo })
+      if (!this.dumb) {
+        this.$store.dispatch('updateForm', { form: this.formData })
+        this.$store.dispatch('setFormIndex', { index: this.goesTo })
+      } else {
+        this.$store.dispatch('anonUpdateForm', { form: this.formData })
+        this.$store.dispatch('anonSetFormIndex', { index: this.goesTo })
+      }
     }
   }
 }
