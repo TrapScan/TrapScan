@@ -36,7 +36,8 @@
             Login
           </v-btn>
         </v-card-actions>
-        <v-card-actions class="mt-8 flex justify-center">
+        <v-btn to="/register" x-small text>No account? Register now</v-btn>
+        <v-card-actions class="mt-5 flex justify-center">
           <a
             class="
               pl-10

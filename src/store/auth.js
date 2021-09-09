@@ -16,6 +16,12 @@ const authModule = {
     }
   },
   actions: {
+    async register ({ dispatch }, form) {
+      await axios.get('/sanctum/csrf-cookie')
+      await axios.post('/register', form)
+
+      return dispatch('me')
+    },
     async signIn ({ dispatch }, credentials) {
       await axios.get('/sanctum/csrf-cookie')
       await axios.post('/login', credentials)

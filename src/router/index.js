@@ -12,6 +12,7 @@ import About from '../views/About.vue'
 import Settings from '../views/Settings.vue'
 import ResetPassword from '../views/ResetPassword.vue'
 import ForgotPassword from '../views/ForgotPassword.vue'
+import Register from '../views/Register.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,14 @@ const routes = [
     path: '/reset/password/:token',
     name: 'ResetPassowrd',
     component: ResetPassword
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+    meta: {
+      showBackButton: true
+    }
   },
   {
     path: '/dashboard',
