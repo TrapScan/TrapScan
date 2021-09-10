@@ -82,7 +82,7 @@ const scanModule = {
       })
     },
     nearby (state, location) {
-      location = { lat: -41.307832, long: 174.756868 } // Debug
+      // location = { lat: -41.307832, long: 174.756868 } // Debug
       scan.nearby(location.lat, location.long).then((data) => {
         for (let i = 0; i < data.data.length; i++) {
           const trap = data.data[i]
