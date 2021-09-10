@@ -11,5 +11,9 @@ export default {
 
   async checkPCord (projectId) {
     return api.get('/api/user/isCoordinator/' + projectId)
+  },
+
+  async nearby (lat, long) {
+    return api.get('/api/nearby', { params: { lat, long } })
   }
 }
