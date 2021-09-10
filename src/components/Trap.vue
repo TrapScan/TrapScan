@@ -2,7 +2,9 @@
 <template>
   <v-list-item class="card my-3">
     <v-list-item-content>
-      <v-list-item-title>{{ trap.name }}</v-list-item-title>
+      <v-list-item-title>
+        <v-icon :style="style">mdi-navigation</v-icon>
+        </v-list-item-title>
       <v-list-item-subtitle>
         <span class="font-weight-black">Distance: </span>{{ trap.distance }}
       </v-list-item-subtitle>
@@ -25,6 +27,11 @@ export default {
   props: {
     trap: {
       type: Object
+    }
+  },
+  computed: {
+    style () {
+      return { transform: 'rotate(' + this.trap.compassBearing + 'deg) !important' }
     }
   }
 }

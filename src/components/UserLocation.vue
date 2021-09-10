@@ -40,7 +40,7 @@ export default {
             this.location = {
               lat: position.coords.latitude,
               long: position.coords.longitude,
-              heading: position.coords.heading,
+              heading: position.coords.heading ?? 151.20166015625,
               speed: position.coords.speed,
               altitude: position.coords.altitude
             }

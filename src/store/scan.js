@@ -28,6 +28,37 @@ function haversine (p1, p2) {
   return d
 }
 
+function relativeBearing (p1, p2, heading) {
+  // Converts from degrees to radians.
+  function toRadians (degrees) {
+    return degrees * Math.PI / 180
+  };
+
+  // Converts from radians to degrees.
+  function toDegrees (radians) {
+    return radians * 180 / Math.PI
+  }
+
+  let startLat = p1[0]
+  let startLng = p1[1]
+
+  let destLat = p2[0]
+  let destLng = p2[1]
+
+  startLat = toRadians(startLat)
+  startLng = toRadians(startLng)
+  destLat = toRadians(destLat)
+  destLng = toRadians(destLng)
+
+  const y = Math.sin(destLng - startLng) * Math.cos(destLat)
+  const x = Math.cos(startLat) * Math.sin(destLat) -
+        Math.sin(startLat) * Math.cos(destLat) * Math.cos(destLng - startLng)
+  let brng = Math.atan2(y, x)
+  brng = toDegrees(brng)
+  brng = (brng + 360) % 360
+  return Math.abs(heading - brng)
+}
+
 function prettyDistance (d) {
   if (d > 1) {
     return d.toFixed(1) + ' km'
@@ -83,11 +114,14 @@ const scanModule = {
     },
     nearby (state, location) {
       // location = { lat: -41.307832, long: 174.756868 } // Debug
+      if (location.heading === null) location.heading = 151.20166015625
       scan.nearby(location.lat, location.long).then((data) => {
         for (let i = 0; i < data.data.length; i++) {
           const trap = data.data[i]
           const distance = haversine([location.lat, location.long], trap.coordinates.coordinates)
+          const compassBearing = relativeBearing([location.lat, location.long], trap.coordinates.coordinates, location.heading)
           trap.distance = prettyDistance(distance)
+          trap.compassBearing = compassBearing
           data.data[i] = trap
         }
         state.nearbyTraps = data.data
