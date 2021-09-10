@@ -1,6 +1,6 @@
 <template>
   <div class="mt-3 text-center">
-    <v-btn :loading="loading" class="mb-4 p-4" @click="locate" color="primary">
+    <v-btn :loading="loading" class="mb-4 p-4" @click="startPoll" color="primary">
       <v-icon
         class="mr-2"
         v-bind:class="{ pulse: scanning }"
@@ -27,7 +27,8 @@ export default {
       error: null,
       scanning: false,
       watchID: null,
-      loading: false
+      loading: false,
+      polling: null
     }
   },
   methods: {
@@ -74,7 +75,35 @@ export default {
         navigator.geolocation.clearWatch(this.watchID)
         this.watchID = null
       }
+    },
+    getLocation () {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          this.location = {
+            lat: position.coords.latitude,
+            long: position.coords.longitude,
+            heading: position.coords.heading,
+            speed: position.coords.speed,
+            altitude: position.coords.altitude
+          }
+          this.$emit('location-updated', this.location)
+        })
+    },
+    startPoll () {
+      if (this.scanning) {
+        this.scanning = false
+        clearInterval(this.polling)
+        this.polling = null
+      } else {
+        this.scanning = true
+        this.polling = setInterval(() => {
+          this.getLocation()
+        }, 1500)
+      }
     }
+  },
+  beforeDestroy () {
+    clearInterval(this.polling)
   },
   computed: {
     iconColour () {
