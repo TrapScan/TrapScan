@@ -39,7 +39,10 @@ export default {
             this.scanning = true
             this.location = {
               lat: position.coords.latitude,
-              long: position.coords.longitude
+              long: position.coords.longitude,
+              heading: position.coords.heading,
+              speed: position.coords.speed,
+              altitude: position.coords.altitude
             }
             this.$emit('location-updated', this.location)
             this.loading = false
@@ -48,17 +51,12 @@ export default {
               (position) => {
                 this.location = {
                   lat: position.coords.latitude,
-                  long: position.coords.longitude
+                  long: position.coords.longitude,
+                  heading: position.coords.heading,
+                  speed: position.coords.speed,
+                  altitude: position.coords.altitude
                 }
                 this.$emit('location-updated', this.location)
-                this.thing =
-                  'Count ' +
-                  this.count +
-                  ' ' +
-                  this.location.lat +
-                  ' : ' +
-                  this.location.long
-                this.count++
               },
               (error) => {
                 this.loading = false

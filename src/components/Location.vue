@@ -30,6 +30,7 @@ export default {
   },
   methods: {
     locationUpdated (locationData) {
+      console.log(locationData)
       this.$store.dispatch('nearby', locationData)
     }
   }
