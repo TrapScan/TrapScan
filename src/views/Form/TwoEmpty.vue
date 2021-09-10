@@ -1,6 +1,6 @@
 <template>
   <div class="form-options">
-    <h2>Something is wrong with it…</h2>
+    <h2>It was empty and the ...</h2>
     <div class="d-flex flex-column justify-end" style="height: 90%">
       <ChildForm v-for="option in options"
         :goesTo="option.goesTo"
@@ -23,7 +23,7 @@ export default {
     return {
       options: [
         {
-          title: 'Needs repair or replacing',
+          title: 'Bait is still good',
           goesTo: 6,
           formData: {
             status: 'Still set, bait OK',
