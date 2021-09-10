@@ -3,14 +3,12 @@
     <user-location v-on:location-updated="locationUpdated"></user-location>
     <div v-if="nearbyTraps.length > 0">
       <v-list class="background" subheader two-line>
-        <!-- <v-list-item  v-for="trap in nearbyTraps" :key="trap.id"> -->
         <Trap
           class="rounded"
           v-for="trap in nearbyTraps"
           :key="trap.id"
           :trap="trap"
         ></Trap>
-        <!-- </v-list-item> -->
       </v-list>
     </div>
   </div>
