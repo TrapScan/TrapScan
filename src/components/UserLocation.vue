@@ -40,7 +40,7 @@ export default {
             this.location = {
               lat: position.coords.latitude,
               long: position.coords.longitude,
-              heading: position.coords.heading ?? 151.20166015625,
+              heading: position.coords.heading,
               speed: position.coords.speed,
               altitude: position.coords.altitude
             }
@@ -61,7 +61,7 @@ export default {
               (error) => {
                 this.loading = false
                 this.error = error.message
-              }
+              }, { enableHighAccuracy: true, maximumAge: 0 }
             )
           },
           (error) => {

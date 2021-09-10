@@ -3,7 +3,7 @@
   <v-list-item class="card my-3">
     <v-list-item-content>
       <v-list-item-title>
-        <v-icon :style="style">mdi-navigation</v-icon>
+        {{ trap.name }}
         </v-list-item-title>
       <v-list-item-subtitle>
         <span class="font-weight-black">Distance: </span>{{ trap.distance }}
@@ -16,8 +16,11 @@
       </v-list-item-subtitle>
     </v-list-item-content>
 
-    <v-list-item-action>
-      <v-btn class="primary"> Scan Trap </v-btn>
+    <v-list-item-action class="align-baseline">
+      <span>
+        <v-icon class="mr-4" :style="style">mdi-navigation</v-icon>
+        <v-btn class="primary"> Scan Trap </v-btn>
+      </span>
     </v-list-item-action>
   </v-list-item>
 </template>
