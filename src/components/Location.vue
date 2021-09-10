@@ -28,6 +28,9 @@ export default {
   computed: {
     ...mapGetters(['nearbyTraps'])
   },
+  mounted () {
+    console.log('Logging Enabled')
+  },
   methods: {
     locationUpdated (locationData) {
       this.$store.dispatch('nearby', locationData)
