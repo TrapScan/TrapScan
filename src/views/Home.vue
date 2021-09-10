@@ -7,6 +7,7 @@
           <v-text-field
             v-model="email"
             :rules="emailRules"
+            @keydown.native.enter="submit"
             type="email"
             label="Email"
             required
