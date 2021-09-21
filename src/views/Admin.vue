@@ -20,14 +20,12 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
       <template v-slot:extension>
-        <v-tabs v-model="tab" align-with-title>
+        <v-tabs color="white" v-model="tab" align-with-title>
           <v-tab href="#createQR">Create QR Codes</v-tab>
+          <v-tab href="#unmappedTraps">Unmapped Traps</v-tab>
           <v-tab href="#unmappedCodes">Unmapped Codes</v-tab>
+          <v-tab href="#mappedTraps">All Traps</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
@@ -36,24 +34,43 @@
       <v-tab-item :key="0" value="createQR">
         <CreateQR></CreateQR>
       </v-tab-item>
-      <v-tab-item :key="1" value="unmappedCodes">
-        <h1>Unmapped</h1>
+      <v-tab-item :key="1" value="unmappedTraps">
+        <Unmapped v-if="tab === 'unmappedTraps'"></Unmapped>>
+      </v-tab-item>
+      <v-tab-item :key="2" value="unmappedCodes">
+        <UnmappedCodes v-if="tab === 'unmappedCodes'"></UnmappedCodes>>
+      </v-tab-item>
+      <v-tab-item :key="3" value="mappedTraps">
+        <Traps v-if="tab === 'mappedTraps'"></Traps>>
       </v-tab-item>
     </v-tabs-items>
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex'
 import CreateQR from './Admin/CreateQR.vue'
+import Unmapped from './Admin/Unmapped.vue'
+import UnmappedCodes from './Admin/UnmappedCodes.vue'
+import Traps from './Admin/Traps.vue'
+
 export default {
   components: {
-    CreateQR
+    CreateQR,
+    Unmapped,
+    UnmappedCodes,
+    Traps
   },
   data: () => ({
     tab: null
   }),
-  methods: {
-    ...mapActions(['signIn'])
+  mounted () {
+    this.$store.dispatch('setShowNavBar', { navBarState: false })
+    // Preload the data for each admin section
+    this.$store.dispatch('fetchTraps')
+    this.$store.dispatch('fetchNoCodes')
+    this.$store.dispatch('fetchUnmappedCodes')
+  },
+  beforeDestroy () {
+    this.$store.dispatch('setShowNavBar', { navBarState: true })
   }
 }
 </script>

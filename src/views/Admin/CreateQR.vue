@@ -11,13 +11,13 @@
           prepend-icon="mdi-minus"
           @click:prepend="decrement"
         ></v-text-field>
-       <v-select
+       <!-- <v-select
           v-model="project"
           :items="items"
           item-text="name"
           item-value="id"
           label="Project (Optional)"
-        ></v-select>
+        ></v-select> -->
         <v-row align="center" justify="space-around">
           <v-btn depressed color="primary" @click="submit"> Generate Codes </v-btn>
         </v-row>
