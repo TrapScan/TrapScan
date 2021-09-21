@@ -50,6 +50,7 @@
     >
       <template v-slot:item.actions="{ item }">
         <v-btn class="primary" @click.stop="editItem(item)">Map Code</v-btn>
+        <v-btn class="ml-3 primary" @click.stop="print($event, item)">Print Code</v-btn>
       </template>
       <template v-slot:top>
         <v-text-field
@@ -64,6 +65,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import admin from '../../api/admin'
+
 export default {
   data () {
     return {
@@ -78,6 +81,21 @@ export default {
     }
   },
   methods: {
+    print (event, item) {
+      admin.print(item.qr_code).then((qr) => {
+        const blob = new Blob([qr.data], {
+          type: 'image/svg+xml'
+        })
+        const url = window.URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.target = '_blank'
+        link.download = item.qr_code + '.svg'
+        link.href = url
+        const body = document.querySelector('body')
+        body.appendChild(link)
+        link.click()
+      })
+    },
     editItem (item) {
       this.dialog = true
       this.editedIndex = this.unmappedCodes.indexOf(item)

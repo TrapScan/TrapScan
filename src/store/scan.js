@@ -72,7 +72,9 @@ const scanModule = {
     scannedQRID: null,
     scannedTrap: null,
     nearbyTraps: [],
-    scanError: null
+    scanError: null,
+    pcordData: null,
+    admin: false
   },
   mutations: {
     scanQR (state, data) {
@@ -81,21 +83,28 @@ const scanModule = {
         state.scannedTrap = trap
         state.scannedQRID = data.qr_id
         let pcord = false
-        scan.checkPCord(trap.project_id).then((response) => {
+        scan.checkPCord().then((response) => {
           pcord = true
+          state.pcordData = response.data
         }).catch(() => {
           pcord = false
         }).finally(() => {
           const currentUser = data.user
           let admin = false
           currentUser.roles.forEach(element => {
-            if (element.name === 'admin') admin = true
+            if (element.name === 'admin') {
+              admin = true
+              state.admin = true
+            }
           })
 
           if (trap) {
             // Check if unmapped (no nz id) and if admin / pcord => Installation form
             if (!trap.nz_trap_id && (pcord || admin)) {
               router.push('/installform')
+            } else if (!trap.nz_trap_id) {
+              // Trap is unmapped and this isn't a pcord or admin
+              state.scanError = 'This QR code is unmapped, please contact the project coordinator or admin'
             } else {
               // Go to inspection form
               router.push('/form')
@@ -132,6 +141,11 @@ const scanModule = {
     scanQR ({ commit, rootState }, form) {
       form.user = rootState.auth.user
       commit('scanQR', form)
+      rootState.auth.user.roles.forEach(element => {
+        if (element.name === 'admin') {
+          commit('fetchNoCodes', null, { root: true })
+        }
+      })
     },
     nearby ({ commit }, location) {
       commit('nearby', location)
@@ -146,6 +160,13 @@ const scanModule = {
     },
     scanError (state) {
       return state.scanError
+    },
+    pcordOptions (state) {
+      // Todo: Sort all the traps by distance
+      return state.pcordData.project
+    },
+    scanAdmin (state) {
+      return state.admin
     }
   }
 }

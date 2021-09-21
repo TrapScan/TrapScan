@@ -10,11 +10,11 @@
       </v-tab-item>
       <v-tab-item key="camera">
         <Camera></Camera>
-        <v-alert class="ma-0 rounded-0" v-if="scanError" type="error">
-          {{ scanError }}
-        </v-alert>
       </v-tab-item>
     </v-tabs-items>
+    <v-alert dismissible class="ma-0 rounded-0" v-if="scanError" type="error">
+        {{ scanError }}
+      </v-alert>
   </div>
 </template>
 <script>

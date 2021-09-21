@@ -112,8 +112,7 @@ const routes = [
     component: QRInstall,
     name: 'InstallationForm',
     meta: {
-      authRequired: true,
-      adminOnly: true
+      authRequired: true
     }
   },
   {

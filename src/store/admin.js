@@ -34,7 +34,7 @@ const adminModule = {
         }
       })
     },
-    fetchNoCodes (state) {
+    async fetchNoCodes (state) {
       admin.fetchUnmappedTraps()
         .then((res) => {
           state.noCodes = res.data
