@@ -9,7 +9,7 @@
             v-model="selectedCode"
             :items="unmappedCodes"
             return-object
-            background-color="primary"
+            outlined
             label="Code"
             placeholder="Type to search for a Code"
             item-text="qr_code"

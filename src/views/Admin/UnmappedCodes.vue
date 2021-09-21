@@ -9,14 +9,14 @@
             v-model="selectedTrap"
             :items="noCodes"
             return-object
-            background-color="primary"
+            outlined
+            class="text--white"
             label="Trap"
             placeholder="Type to search for a Trap"
             item-text="name"
             item-value="nz_trap_id"
             :error="error !== null"
             :error-messages="error"
-            autofocus
             clearable
             filled
             solo

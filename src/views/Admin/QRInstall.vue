@@ -14,6 +14,7 @@
           <v-autocomplete
             v-model="trap"
             :items="trapList"
+            outlined
             item-text="name"
             label="Trap to Map"
             placeholder="Type to search unmapped traps"
@@ -95,7 +96,7 @@ export default {
             element.forEach((trap) => {
               options.push({
                 name: trap.name,
-                group: element.name,
+                group: key,
                 nz_id: trap.nz_trap_id
               })
             })
