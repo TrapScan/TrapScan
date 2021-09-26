@@ -4,6 +4,7 @@
         <p>Beta:  {{beta}}</p>
         <p>Gamma: {{gamma}}</p>
         <p>Apple: {{apple}}</p>
+        <p>Event: {{evnt}}</p>
     </div>
 </template>
 
@@ -14,13 +15,16 @@ export default {
       alpha: 0,
       beta: 0,
       gamma: 0,
-      apple: 0
+      apple: 0,
+      evnt: null
     }
   },
   mounted () {
     if (window.DeviceOrientationEvent) {
       console.log('Found')
-      window.addEventListener('deviceorientation', function (event) {
+      window.addEventListener('deviceorientation', (event) => {
+        console.log('EVENT')
+        this.evnt = event
         // alpha: rotation around z-axis
         this.alpha = event.alpha
         // gamma: left to right
