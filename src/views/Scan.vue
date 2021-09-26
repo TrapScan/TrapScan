@@ -3,6 +3,7 @@
     <v-tabs centered background-color="transparent" v-model="tab">
       <v-tab key="location">Location</v-tab>
       <v-tab key="camera">Camera</v-tab>
+      <v-tab key="heading">Heading</v-tab>
     </v-tabs>
     <v-tabs-items v-model="tab">
       <v-tab-item class="background" key="location">
@@ -10,6 +11,9 @@
       </v-tab-item>
       <v-tab-item key="camera">
         <Camera></Camera>
+      </v-tab-item>
+      <v-tab-item key="heading">
+        <UserHeading></UserHeading>
       </v-tab-item>
     </v-tabs-items>
     <v-alert dismissible class="ma-0 rounded-0" v-if="scanError" type="error">
@@ -21,10 +25,12 @@
 import Camera from '../components/Camera.vue'
 import Location from '../components/Location.vue'
 import { mapGetters } from 'vuex'
+import UserHeading from '../components/UserHeading.vue'
 export default {
   components: {
     Camera,
-    Location
+    Location,
+    UserHeading
   },
   data () {
     return {
