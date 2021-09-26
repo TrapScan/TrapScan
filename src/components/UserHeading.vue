@@ -5,6 +5,7 @@
         <p>Gamma: {{gamma}}</p>
         <p>Apple: {{apple}}</p>
         <p>Event: {{evnt}}</p>
+        <p>Message: {{message}}</p>
     </div>
 </template>
 
@@ -16,7 +17,8 @@ export default {
       beta: 0,
       gamma: 0,
       apple: 0,
-      evnt: null
+      evnt: null,
+      message: ''
     }
   },
   mounted () {
@@ -39,6 +41,8 @@ export default {
         }
         console.log(event)
       }, true)
+    } else {
+      this.message = 'Not found'
     }
   }
 }
