@@ -1,18 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Dashboard from '../views/Dashboard.vue'
 import MagicLoginCallback from '../views/Passwordless/MagicLoginCallback.vue'
-import Scan from '../views/Scan.vue'
-import Form from '../views/Form/Form.vue'
-import Admin from '../views/Admin.vue'
-import QRInstall from '../views/Admin/QRInstall.vue'
-import About from '../views/About.vue'
-import Settings from '../views/Settings.vue'
-import ResetPassword from '../views/ResetPassword.vue'
-import ForgotPassword from '../views/ForgotPassword.vue'
-import Register from '../views/Register.vue'
-import AnonInspectionForm from '../views/AnonForm/AnonInspectionForm'
+const Home = () => import('../views/Home.vue')
+const Dashboard = () => import('../views/Dashboard.vue')
+const Scan = () => import('../views/Scan.vue')
+const Form = () => import('../views/Form/Form.vue')
+const Admin = () => import('../views/Admin.vue')
+const QRInstall = () => import('../views/Admin/QRInstall.vue')
+const About = () => import('../views/About.vue')
+const Settings = () => import('../views/Settings.vue')
+const ResetPassword = () => import('../views/ResetPassword.vue')
+const ForgotPassword = () => import('../views/ForgotPassword.vue')
+const Register = () => import('../views/Register.vue')
+const AnonInspectionForm = () => import('../views/AnonForm/AnonInspectionForm')
 
 Vue.use(VueRouter)
 
