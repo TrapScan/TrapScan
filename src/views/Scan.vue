@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-tabs centered background-color="transparent" v-model="tab">
-      <v-tab key="location">Location</v-tab>
+      <v-tab key="location">Nearby Traps</v-tab>
       <v-tab key="camera">Camera</v-tab>
       <v-tab key="heading">Heading</v-tab>
     </v-tabs>
