@@ -33,7 +33,7 @@ const authModule = {
     },
     async signOut ({ dispatch }) {
       await axios.post('/logout')
-      location.reload()
+      location.href = '/'
 
       return dispatch('me')
     },
