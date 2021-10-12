@@ -78,48 +78,60 @@ const scanModule = {
   },
   mutations: {
     scanQR (state, data) {
-      scan.scan(data.qr_id).then((response) => {
-        const trap = response.data
-        state.scannedTrap = trap
-        state.scannedQRID = data.qr_id
-        let pcord = false
-        scan.checkPCord().then((response) => {
-          pcord = true
-          state.pcordData = response.data
-        }).catch(() => {
-          pcord = false
-        }).finally(() => {
-          const currentUser = data.user
-          let admin = false
-          currentUser.roles.forEach(element => {
-            if (element.name === 'admin') {
-              admin = true
-              state.admin = true
+      if (data.qr_id === null) {
+        // Dealing with an unmapped trap here (from location screen)
+        scan.checkPCordByTrap(data.id).then((response) => {
+
+        })
+          .catch(() => {
+          // User not a coordinator for this trap, shouldn't happen, abort aggresivly
+            state.scanError = 'You don\'t have permission to do that'
+          })
+      } else {
+        // QR exists, trap may not
+        scan.scan(data.qr_id).then((response) => {
+          const trap = response.data
+          state.scannedTrap = trap
+          state.scannedQRID = data.qr_id
+          let pcord = false
+          scan.checkPCord().then((response) => {
+            pcord = true
+            state.pcordData = response.data
+          }).catch(() => {
+            pcord = false
+          }).finally(() => {
+            const currentUser = data.user
+            let admin = false
+            currentUser.roles.forEach(element => {
+              if (element.name === 'admin') {
+                admin = true
+                state.admin = true
+              }
+            })
+
+            if (trap) {
+              // Check if unmapped (no nz id) and if admin / pcord => Installation form
+              if (!trap.nz_trap_id && (pcord || admin)) {
+                router.push('/installform')
+              } else if (!trap.nz_trap_id) {
+                // Trap is unmapped and this isn't a pcord or admin
+                state.scanError = 'This QR code is unmapped, please contact the project coordinator or admin'
+              } else {
+                // Go to inspection form
+                router.push('/form')
+              }
+            } else {
+              state.scanError = 'Trap was not found with id: ' + data.qr_id
             }
           })
-
-          if (trap) {
-            // Check if unmapped (no nz id) and if admin / pcord => Installation form
-            if (!trap.nz_trap_id && (pcord || admin)) {
-              router.push('/installform')
-            } else if (!trap.nz_trap_id) {
-              // Trap is unmapped and this isn't a pcord or admin
-              state.scanError = 'This QR code is unmapped, please contact the project coordinator or admin'
-            } else {
-              // Go to inspection form
-              router.push('/form')
-            }
+        }).catch((error) => {
+          if (error.response) {
+            state.scanError = error.response.data.message
           } else {
-            state.scanError = 'Trap was not found with id: ' + data.qr_id
+            state.scanError = error.message
           }
         })
-      }).catch((error) => {
-        if (error.response) {
-          state.scanError = error.response.data.message
-        } else {
-          state.scanError = error.message
-        }
-      })
+      }
     },
     nearby (state, location) {
       // location = { lat: -41.307832, long: 174.756868 } // Debug
@@ -135,6 +147,17 @@ const scanModule = {
         }
         state.nearbyTraps = data.data
       })
+    },
+    updateNearby (state, trap) {
+      // Locally update the data to give immediate feedback to the users
+      for (let i = 0; i < state.nearbyTraps.length; i++) {
+        const nearbyTrap = state.nearbyTraps[i]
+        if (nearbyTrap.nz_trap_id === trap.nz_id && nearbyTrap.qr_id === null) {
+          nearbyTrap.qr_id = trap.qr_id
+          state.nearbyTraps.splice(i, 1, nearbyTrap)
+          break
+        }
+      }
     }
   },
   actions: {
@@ -149,6 +172,9 @@ const scanModule = {
     },
     nearby ({ commit }, location) {
       commit('nearby', location)
+    },
+    updateNearby ({ commit }, trap) {
+      commit('updateNearby', trap)
     }
   },
   getters: {

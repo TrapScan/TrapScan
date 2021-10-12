@@ -239,6 +239,9 @@ const settingsModule = {
     },
     coordinatorSettings (state) {
       return state.coordinatorSettings
+    },
+    isCoordinator (state) {
+      return state.coordinatorSettings.length > 0
     }
   }
 }

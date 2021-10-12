@@ -5,6 +5,9 @@
       <v-tab key="camera">Camera</v-tab>
       <v-tab key="heading">Heading</v-tab>
     </v-tabs>
+    <v-alert dismissible class="ma-0 mt-2 rounded-0" v-if="scanError" type="error">
+        {{ scanError }}
+     </v-alert>
     <v-tabs-items v-model="tab">
       <v-tab-item class="background" key="location">
         <Location></Location>
@@ -16,9 +19,6 @@
         <UserHeading></UserHeading>
       </v-tab-item>
     </v-tabs-items>
-    <v-alert dismissible class="ma-0 rounded-0" v-if="scanError" type="error">
-        {{ scanError }}
-      </v-alert>
   </div>
 </template>
 <script>
@@ -47,9 +47,12 @@ export default {
     if (this.initial_code) {
       this.$store.dispatch('scanQR', { qr_id: this.initial_code })
     }
+    if (this.isCoordinator) {
+      this.$store.dispatch('fetchUnmappedCodes')
+    }
   },
   computed: {
-    ...mapGetters(['scanError'])
+    ...mapGetters(['scanError', 'isCoordinator'])
   },
   methods: {}
 }

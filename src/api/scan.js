@@ -13,6 +13,10 @@ export default {
     return api.get('/api/user/isCoordinator')
   },
 
+  async checkPCordByTrap (trapid) {
+    return api.get('/api/user/isCoordinator')
+  },
+
   async nearby (lat, long) {
     return api.get('/api/nearby', { params: { lat, long } })
   }
