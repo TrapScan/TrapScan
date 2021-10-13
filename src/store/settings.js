@@ -20,7 +20,14 @@ const settingsModule = {
           warning: '#FFC107',
           card: '#FAFAFA', // Used in inspection form card background
           background: '#F4EFE1', // // Basic background of the app
-          icon_background: '#DADADA' // Used in inspection form icon background
+          icon_background: '#DADADA', // Used in inspection form icon background
+          green: '0AB587',
+          darkblue: '163B5E',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
         },
         dark: {
           google: '#ffffff',
@@ -35,7 +42,14 @@ const settingsModule = {
           warning: '#FFC107',
           card: '#182532', // Used in inspection form card background
           background: '#0D151C', // Basic background of the app
-          icon_background: '#0D151C' // Used in inspection form icon background
+          icon_background: '#0D151C', // Used in inspection form icon background
+          green: '0AB587',
+          darkblue: '163B5E',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
         }
       },
       miromiro: {
