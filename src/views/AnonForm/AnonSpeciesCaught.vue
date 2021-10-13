@@ -1,9 +1,10 @@
 <template>
   <div class="form-options">
+    <h2>Take a look inside the trap.</h2>
     <h2>The trap caught a...</h2>
     <div v-if="! moreItems"  class="option-grid">
       <ChildFormGrid v-for="option in getSpecies"
-        :goesTo="2"
+        :goesTo="3"
         :dumb="true"
         :key="option"
         :icon="option.toLowerCase()"
@@ -73,5 +74,13 @@ export default {
 <style lang="scss" scoped>
 .grid-button{
   cursor: pointer;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 10px;
+  row-gap: 10px;
 }
 </style>

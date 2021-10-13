@@ -49,7 +49,7 @@ export default {
   },
   watch: {
     form_index: function (val) {
-      if (val === 2) {
+      if (val === 3) {
         this.$store
           .dispatch('anonSubmitInspectionForm', {
             code: this.$route.params.code
