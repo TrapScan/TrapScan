@@ -65,7 +65,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import admin from '../../api/admin'
+// import admin from '../../api/admin'
+import axios from 'axios'
 
 export default {
   data () {
@@ -82,17 +83,29 @@ export default {
   },
   methods: {
     print (event, item) {
-      admin.print(item.qr_code).then((qr) => {
-        const blob = new Blob([qr.data], {
-          type: 'image/svg+xml'
-        })
-        const url = window.URL.createObjectURL(blob)
+      // admin.print(item.qr_code).then((qr) => {
+      //   const blob = new Blob([qr.data], {
+      //     type: 'image/svg+xml'
+      //   })
+      //   const url = window.URL.createObjectURL(blob)
+      //   const link = document.createElement('a')
+      //   link.target = '_blank'
+      //   link.download = item.qr_code + '.svg'
+      //   link.href = url
+      //   const body = document.querySelector('body')
+      //   body.appendChild(link)
+      //   link.click()
+      // })
+      axios({
+        url: process.env.VUE_APP_API_URL + '/api/admin/qr/print/' + item.qr_code,
+        method: 'GET',
+        responseType: 'blob' // important
+      }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]))
         const link = document.createElement('a')
-        link.target = '_blank'
-        link.download = item.qr_code + '.svg'
         link.href = url
-        const body = document.querySelector('body')
-        body.appendChild(link)
+        link.setAttribute('download', 'image.png')
+        document.body.appendChild(link)
         link.click()
       })
     },
