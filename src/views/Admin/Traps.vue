@@ -1,28 +1,14 @@
 <template>
   <div>
-    <v-data-table
-      :headers="headers"
-      :items="allTraps"
-      item-key="name"
-      :search="search"
-    >
+    <v-data-table :headers="headers" :items="allTraps" item-key="name" :search="search">
       <template v-slot:item.actions="{ item }">
         <a
-          class="
-            primary
-            v-btn v-btn--is-elevated v-btn--has-bg
-            v-size--default
-          "
+          class="primary v-btn v-btn--is-elevated v-btn--has-bg v-size--default"
           @click="print($event, item)"
-          >Print Trap</a
-        >
+        >Print Trap</a>
       </template>
       <template v-slot:top>
-        <v-text-field
-          v-model="search"
-          label="Search"
-          class="mx-4"
-        ></v-text-field>
+        <v-text-field v-model="search" label="Search" class="mx-4"></v-text-field>
       </template>
     </v-data-table>
   </div>
@@ -30,7 +16,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import admin from '../../api/admin'
+// import admin from '../../api/admin'
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -42,17 +29,30 @@ export default {
   },
   methods: {
     print (event, item) {
-      admin.print(item.qr_id).then((qr) => {
-        const blob = new Blob([qr.data], {
-          type: 'image/svg+xml'
-        })
-        const url = window.URL.createObjectURL(blob)
+      // admin.print(item.qr_id).then((qr) => {
+      //   const blob = new Blob([qr.data], {
+      //     type: 'image/png'
+      //   })
+      //   const url = window.URL.createObjectURL(blob)
+      //   const link = document.createElement('a')
+      //   link.style = 'display: none'
+      //   link.target = '_blank'
+      //   link.download = item.qr_id + '.png'
+      //   link.href = url
+      //   // const body = document.querySelector('body')
+      //   document.body.appendChild(link)
+      //   link.click()
+      // })
+      axios({
+        url: process.env.VUE_APP_API_URL + '/api/admin/qr/print/' + item.qr_id,
+        method: 'GET',
+        responseType: 'blob' // important
+      }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]))
         const link = document.createElement('a')
-        link.target = '_blank'
-        link.download = item.qr_id + '.svg'
         link.href = url
-        const body = document.querySelector('body')
-        body.appendChild(link)
+        link.setAttribute('download', 'image.png')
+        document.body.appendChild(link)
         link.click()
       })
     }

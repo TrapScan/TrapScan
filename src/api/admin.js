@@ -24,7 +24,10 @@ export default {
     return api.post('/api/admin/qr/map', data)
   },
   async print (code) {
-    return api.get('/api/admin/qr/print/' + code)
+    return api.get({
+      url: '/api/admin/qr/print/' + code,
+      responseType: 'blob'
+    })
   },
   async fetchTraps () {
     return api.get('/api/admin/qr/all')
