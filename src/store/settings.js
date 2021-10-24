@@ -185,7 +185,6 @@ const settingsModule = {
         const dark = theme.dark
         const light = theme.light
         Object.keys(dark).forEach(i => {
-          console.log(i)
           Vuetify.framework.theme.themes.dark[i] = dark[i]
         })
         Object.keys(light).forEach(i => {

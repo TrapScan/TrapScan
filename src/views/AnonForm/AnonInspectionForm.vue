@@ -19,6 +19,7 @@
             <h2 class="mb-3 card_primary--text">Expecting a different page?</h2>
             <p class="black--text">Click below to login to your account for the full form.</p>
             <v-btn @click="goToLogin">Login</v-btn>
+            <v-btn class="ml-4" to="/register">Register</v-btn>
           </Card>
         </v-stepper-content>
         <v-stepper-content class="background" step="2">

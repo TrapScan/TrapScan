@@ -42,7 +42,6 @@ export default {
       this.result = content
       let code = this.result.split('/')
       code = code[code.length - 1]
-      console.log(code)
 
       this.turnCameraOff()
 
@@ -108,7 +107,6 @@ export default {
           12,
           (50 * boundingBox.width) / ctx.canvas.width
         )
-        console.log(boundingBox.width, ctx.canvas.width)
 
         ctx.font = `bold ${fontSize}px sans-serif`
         ctx.textAlign = 'center'

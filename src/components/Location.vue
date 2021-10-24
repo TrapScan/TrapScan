@@ -48,7 +48,6 @@ export default {
       this.dialog = true
     },
     locationUpdated (locationData) {
-      console.log(locationData)
       this.$store.dispatch('nearby', locationData)
     },
     closeDialog () {

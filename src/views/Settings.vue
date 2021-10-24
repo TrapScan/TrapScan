@@ -127,7 +127,6 @@ export default {
       if (this.showFilter && this.selectedProject.notify_catches) {
         if (this.selectedProject.catch_filter.length === 0) {
           // Empty catch filter, set it to null and push to backend
-          console.log('Simulate setting to null')
           this.selectedProject.catch_filter = null
           this.showFilter = false
         }
