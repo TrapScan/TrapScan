@@ -13,13 +13,13 @@
           Our primary mission is to make it the recording and viewing trapping
           activity easy and accessible. This includes welcoming general members
           of public get involved by letting trappers know of catches they see,
-          without needing to create an account. <br />
+          without needing to create an account. <br /><br />
           We want to minimise the time it takes to record data to free up more
           time for volunteers to do the real work that makes a difference. By
           making it easier we hope to increase how much data is captured,
           therefore making the bigger picture more clear. The more we know about
           what's happening and the results of our efforts, the more we can learn
-          from each other and make better decisions we can make as a nation.<br />
+          from each other and make better decisions we can make as a nation.<br /><br />
           We want everyone to be able to see these results though, not just the
           data gurus tucked away in offices. That's why we display this data in
           a clear and simple way. We hope that the work will become more
@@ -32,10 +32,10 @@
         >
           Our second mission is to help project coordinators get more done in
           less time by removing some of their common pain points and providing
-          tooling to make their life easier.<br />
+          tooling to make their life easier.<br /><br />
           In future plan to build in volunteer relationship and asset management
           features, and to improve the project onboarding and offboarding
-          experiences for both parties. <br />
+          experiences for both parties. <br /><br />
           We believe that volunteer project coordinators are modern day heroes
           and without them we'd have no chance at saving our species from the
           grizzly demise they face. For that we want to repay their efforts by
@@ -60,7 +60,7 @@
           last place on earth that primates set foot. Flora and fauna evolved in
           a very curious and unique way with the absence of predatory mammals.
           Many of our species are only found here which makes them
-          internationally significant and important to protect. <br />
+          internationally significant and important to protect. <br /><br />
           The introduction of mammalian pests with the arrival of humans led to
           the extinction of over 65 of our most treasured species and to this
           day we are still losing the battle…
@@ -75,14 +75,14 @@
           eviction order served on the three most voracious predators — rats,
           stoats and possums. It’s our most ambitious conservation effort ever
           and is to be enforced by hundreds of thousands of ordinary Kiwis.
-          <br />In Fight for the Wild we walk with the kaitiaki, ecologists,
+         <br /><br />In Fight for the Wild we walk with the kaitiaki, ecologists,
           inventors and community trappers desperately defending our taonga
           species. We follow the fortunes of kea, kiwi, kakariki and other
           native species and discover the fascinating initiatives underway as we
           come to their rescue. We examine the tough choices our nation needs to
           make as we navigate the challenges of protecting our wildlife. And
           among the hard decisions and desperate losses, we discover bold
-          visions, hard won victories and hope. <br />Fight for the Wild is a
+          visions, hard won victories and hope. <br /><br />Fight for the Wild is a
           call to action for all New Zealanders. It tells how each of us holds a
           piece of a jigsaw, and how, if we all play our part, we might just see
           a wilderness saved and our Wild returned.<a
