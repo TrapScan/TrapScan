@@ -44,6 +44,14 @@ const routes = [
     }
   },
   {
+    path: '/anon/about',
+    name: 'AnonAbout',
+    component: About,
+    meta: {
+      showBackButton: true
+    }
+  },
+  {
     path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard,

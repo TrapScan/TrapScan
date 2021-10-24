@@ -1,10 +1,10 @@
 <template>
-  <div class="card pa-5 mb-2" v-bind:class="colour">
+  <v-card class="pa-3 mb-2" elevation="0" :color="colour" rounded="0">
     <h2 v-bind:class="text">{{ title }}</h2>
     <p class="mt-2" v-bind:class="text">
       <slot></slot>
     </p>
-  </div>
+  </v-card>
 </template>
 
 <script>

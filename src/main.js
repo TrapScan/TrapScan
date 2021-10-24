@@ -18,6 +18,11 @@ router.beforeEach((to, from, next) => {
   const requireAuth = to.matched.some(record => record.meta.authRequired)
   const adminOnly = to.matched.some(record => record.meta.adminOnly)
 
+  if (!currentUser) {
+    // Apply the defualt theme
+    store.dispatch('setDefaultTheme')
+  }
+
   if (adminOnly && requireAuth && currentUser) {
     let admin = false
     currentUser.roles.forEach(element => {

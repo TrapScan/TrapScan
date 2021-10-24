@@ -19,10 +19,12 @@ const settingsModule = {
           success: '#4CAF50',
           warning: '#FFC107',
           card: '#FAFAFA', // Used in inspection form card background
-          background: '#F4EFE1', // // Basic background of the app
+          background: '#FAF9F6', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
           green: '0AB587',
-          darkblue: '163B5E',
+          primary_text: '#0ED9A3',
+          card_primary: '#163B5E',
+          card_secondary: '#ABC2D2',
           blue: '286EA2',
           greyblue: 'ABC2D2',
           purple: '283696',
@@ -44,7 +46,9 @@ const settingsModule = {
           background: '#0D151C', // Basic background of the app
           icon_background: '#0D151C', // Used in inspection form icon background
           green: '0AB587',
-          darkblue: '163B5E',
+          primary_text: '#0ED9A3', // Light green
+          card_primary: '#163B5E', // Dark blue
+          card_secondary: '#ABC2D2', // Light grey
           blue: '286EA2',
           greyblue: 'ABC2D2',
           purple: '283696',
@@ -181,6 +185,7 @@ const settingsModule = {
         const dark = theme.dark
         const light = theme.light
         Object.keys(dark).forEach(i => {
+          console.log(i)
           Vuetify.framework.theme.themes.dark[i] = dark[i]
         })
         Object.keys(light).forEach(i => {
@@ -224,6 +229,9 @@ const settingsModule = {
       commit('setSettings', settings)
       commit('setTheme', settings.theme)
       commit('setDarkMode', settings.dark_mode)
+    },
+    setDefaultTheme ({ commit }) {
+      commit('setTheme', 'default')
     },
     async fetchCoordinatorSettings ({ commit }) {
       const data = await settings.projectCoordinatorSettings()

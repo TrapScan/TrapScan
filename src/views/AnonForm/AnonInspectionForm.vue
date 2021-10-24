@@ -2,29 +2,30 @@
   <div>
     <v-stepper elevation="0" v-model="e1">
       <v-stepper-items>
-        <v-stepper-content step="1">
-          <Card class="mb-6" title="Welcome to TrapScan!">
-            TrapScan is a mobile web application designed by conservation
-            volunteers to help simplify the administrative parts of their work.
-            <br><br>
-            You can get involved by clicking the link below to inspect the trap you just scanned!
-            <br>
-            If you want to get involved, you can register after submitting an inspection!
-            <br><br>
-            <v-btn @click="goToForm">Inspect Trap</v-btn>
+        <v-stepper-content class="background" id="anon-step-form" step="1">
+          <h1>Welcome to TrapScan</h1>
+          <p>This is a mobile web application designed by conservation volunteers to simplify their record keeping and reporting work.</p>
+          <Card colour="card_primary" class="mb-6">
+            <h2 class="mb-3 primary_text--text">Did this trap catch something?</h2>
+            <p class="">If you don't have an account, you can lend a hand by letting us know:</p>
+            <v-btn @click="goToForm">Inspect the trap</v-btn>
+
+            <h2 class="mt-5 mb-3 primary_text--text">Don't know what this is about?</h2>
+            <p class="">If you're new to trapping, don't know why we are doing it or just want to learn more, you can here:</p>
+            <v-btn to="/anon/about">About Us</v-btn>
           </Card>
 
-          <Card title="Already involved?" colour="red darken-2">
-            Click below to login to your account for the full form.
-            <br><br>
+          <Card colour="card_secondary">
+            <h2 class="mb-3 card_primary--text">Expecting a different page?</h2>
+            <p class="black--text">Click below to login to your account for the full form.</p>
             <v-btn @click="goToLogin">Login</v-btn>
           </Card>
         </v-stepper-content>
-        <v-stepper-content step="2">
+        <v-stepper-content class="background" step="2">
           <AnonSpeciesCaught></AnonSpeciesCaught>
         </v-stepper-content>
 
-        <v-stepper-content step="3">
+        <v-stepper-content class="background" step="3">
           <AnonConfirmation></AnonConfirmation>
         </v-stepper-content>
       </v-stepper-items>
@@ -57,3 +58,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+.card {
+  background-color: var(--v-cardprimary);
+}
+#anon-step-form {
+  padding: 15px !important;
+}
+</style>

@@ -16,6 +16,9 @@ import Egg from '../components/Icons/Egg.vue'
 Vue.use(Vuetify)
 
 export default new Vuetify({
+  theme: {
+    options: { customProperties: true }
+  },
   icons: {
     values: {
       hedgehog: {
