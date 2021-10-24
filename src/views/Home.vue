@@ -103,6 +103,14 @@
             >Forgot your password?</v-btn
           >
         </v-card-actions>
+        <v-card-actions class="mt-4">
+          <v-btn
+            to="/anon/about"
+            :loading="loading"
+            color="primary"
+            >About Us</v-btn
+          >
+        </v-card-actions>
       </v-col>
     </v-row>
   </v-container>
