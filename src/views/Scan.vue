@@ -22,9 +22,9 @@
   </div>
 </template>
 <script>
-import Camera from '../components/Camera.vue'
 import Location from '../components/Location.vue'
 import { mapGetters } from 'vuex'
+const Camera = () => import('../components/Camera.vue')
 // import UserHeading from '../components/UserHeading.vue'
 export default {
   components: {
