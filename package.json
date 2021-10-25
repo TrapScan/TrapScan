@@ -6,16 +6,16 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "report": "vue-cli-service build --report"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "html5-qrcode": "^2.1.1",
     "js-cookie": "^2.2.1",
-    "luxon": "^1.28.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
-    "vue-qrcode-reader": "^3.0.0",
     "vue-router": "^3.2.0",
     "vuetify": "^2.4.0",
     "vuex": "^3.4.0"

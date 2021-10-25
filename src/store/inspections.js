@@ -1,7 +1,17 @@
-import { DateTime } from 'luxon'
 import inspections from '../api/inspections'
 
-var date = DateTime.local().toFormat('yyyy-LL-dd HH:mm:ss')
+// var date = DateTime.local().toFormat('yyyy-LL-dd HH:mm:ss')
+
+const dateOb = new Date()
+
+const day = ('0' + dateOb.getDate()).slice(-2)
+const month = ('0' + (dateOb.getMonth() + 1)).slice(-2)
+const year = dateOb.getFullYear()
+const hours = dateOb.getHours()
+const minutes = ('0' + (dateOb.getMinutes())).slice(-2)
+const seconds = dateOb.getSeconds()
+
+const date = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds
 
 const getDefaultState = () => {
   return {
