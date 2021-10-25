@@ -5,8 +5,9 @@
     color="primary"
     @click="onComplete"
   >
-    <span class="ml-3 mr-4 icon_background pa-1 rounded-lg">
-      <v-icon large color="primary"> mdi-domain </v-icon>
+    <span class="ml-3 mr-4 icon_background  rounded-lg">
+      <v-icon v-if="this.icon" x-large>$vuetify.icons.{{ icon }}</v-icon>
+      <v-icon v-else large color="primary">mdi-chevron-right</v-icon>
     </span>
     <span class="mr-auto subtitle align-self-start text-left">{{ name }}</span>
     <v-icon large color="primary" class="justify-self-end"> mdi-chevron-right </v-icon>
@@ -31,6 +32,10 @@ export default {
     dumb: {
       type: Boolean,
       default: false
+    },
+    icon: {
+      type: String,
+      default: null
     }
   },
   data () {

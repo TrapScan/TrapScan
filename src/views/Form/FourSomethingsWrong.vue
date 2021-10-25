@@ -2,6 +2,7 @@
   <div>
     <h2>Something is wrong with it…</h2>
     <ChildForm v-for="option in options"
+      :icon="option.icon"
       :goesTo="option.goesTo"
       :key="option.title"
       :name="option.title"
@@ -23,6 +24,7 @@ export default {
         {
           title: 'Needs repair or replacing',
           goesTo: 6,
+          icon: 'NeedsRepair',
           formData: {
             trap_condition: 'Needs maintenance',
             status: 'Removed for Repair',
@@ -32,6 +34,7 @@ export default {
         {
           title: 'Trap is missing',
           goesTo: 6,
+          icon: 'TrapMissing',
           formData: {
             trap_condition: 'Needs maintenance',
             status: 'Trap gone',
@@ -41,6 +44,7 @@ export default {
         {
           title: 'QR code needs fixing',
           goesTo: 6,
+          icon: 'QRBroken',
           formData: {
             trap_condition: 'Needs maintenance',
             status: 'Removed for Repair',

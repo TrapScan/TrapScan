@@ -3,6 +3,7 @@
     <h2>I checked this trap {{ scannedCodeValue }} and...</h2>
     <div class="d-flex flex-column justify-end" style="height: 90%">
       <ChildForm v-for="option in options"
+        :icon="option.icon"
         :goesTo="option.goesTo"
         :key="option.title"
         :name="option.title"
@@ -26,6 +27,7 @@ export default {
         {
           title: 'It was empty',
           goesTo: 2,
+          icon: 'TrapMissing',
           formData: {
             strikes: 0,
             species_caught: 'None',
@@ -36,6 +38,7 @@ export default {
         {
           title: 'Something was in it',
           goesTo: 3,
+          icon: 'SomethingIsInit',
           formData: {
             strikes: 0,
             status: 'Sprung',
@@ -46,6 +49,7 @@ export default {
         {
           title: 'Somethings wrong',
           goesTo: 4,
+          icon: 'SomethingIsWrong',
           formData: {
             strikes: 0,
             species_caught: 'None',
