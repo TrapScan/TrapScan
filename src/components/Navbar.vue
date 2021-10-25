@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app :elevation="elevation" hide-on-scroll>
+  <v-app-bar color="banner" app :elevation="elevation" hide-on-scroll>
     <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
 
     <back-button v-if="this.$route.meta.showBackButton"></back-button>

@@ -11,6 +11,7 @@ const settingsModule = {
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
+          banner: '#f5f5f5',
           primary: '#1976D2',
           secondary: '#424242',
           accent: '#82B1FF',
@@ -35,6 +36,7 @@ const settingsModule = {
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
+          banner: '#272727',
           primary: '#1976D2',
           secondary: '#424242',
           accent: '#82B1FF',
@@ -56,114 +58,274 @@ const settingsModule = {
           red: 'B13732'
         }
       },
-      miromiro: {
-        name: 'Miromiro',
+      ngirungiru: {
+        name: 'Ngirungiru',
         icon: '',
         light: {
-          primary: '#ebd333',
-          secondary: '#e5eef9',
-          accent: '#172635',
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
+          banner: '#EBD333',
+          primary: '#172635',
+          secondary: '#424242',
+          accent: '#82B1FF',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
+          warning: '#FFC107',
+          card: '#FAFAFA', // Used in inspection form card background
+          background: '#E5EEF9', // Basic background of the app
+          icon_background: '#DADADA', // Used in inspection form icon background
+          green: '0AB587',
+          primary_text: '#0ED9A3',
+          card_primary: '#163B5E',
+          card_secondary: '#ABC2D2',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
         },
         dark: {
-          primary: '#ebd333',
-          secondary: '#e5eef9',
-          accent: '#172635',
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
+          banner: '#23374A',
+          primary: '#EBD333',
+          secondary: '#424242',
+          accent: '#82B1FF',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
+          warning: '#FFC107',
+          card: '#424242', // Used in inspection form card background
+          background: '#0D151C', // Basic background of the app
+          icon_background: '#DADADA', // Used in inspection form icon background
+          green: '0AB587',
+          primary_text: '#0ED9A3',
+          card_primary: '#163B5E',
+          card_secondary: '#ABC2D2',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
         }
       },
-      executePink: {
-        name: 'Execute Pink',
+      kakariki: {
+        name: 'Kākāriki',
         icon: '',
         light: {
-          primary: '#ff34a2',
-          secondary: '#ffe4f5',
-          accent: '#0d004d',
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
+          banner: '#DBF6AF',
+          primary: '#009E73',
+          secondary: '#424242',
+          accent: '#82B1FF',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
+          warning: '#FFC107',
+          card: '#FAFAFA', // Used in inspection form card background
+          background: '#E5EEF9', // // Basic background of the app
+          icon_background: '#DADADA', // Used in inspection form icon background
+          green: '0AB587',
+          primary_text: '#0ED9A3',
+          card_primary: '#163B5E',
+          card_secondary: '#ABC2D2',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
         },
         dark: {
-          primary: '#ff34a2',
-          secondary: '#ffe4f5',
-          accent: '#0d004d',
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
+          banner: '#115132',
+          primary: '#009E73',
+          secondary: '#424242',
+          accent: '#82B1FF',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
-        }
-      },
-      ripeRed: {
-        name: 'Ripe Red',
-        icon: '',
-        light: {
-          primary: '#e91143',
-          secondary: '#fff6ef',
-          accent: '#111111',
-          error: '#FF5252',
-          info: '#2196F3',
-          success: '#4CAF50',
-          warning: '#FFC107'
-        },
-        dark: {
-          primary: '#e91143',
-          secondary: '#fff6ef',
-          accent: '#111111',
-          error: '#FF5252',
-          info: '#2196F3',
-          success: '#4CAF50',
-          warning: '#FFC107'
+          warning: '#FFC107',
+          card: '#424242', // Used in inspection form card background
+          background: '#0D151C', // // Basic background of the app
+          icon_background: '#DADADA', // Used in inspection form icon background
+          green: '0AB587',
+          primary_text: '#0ED9A3',
+          card_primary: '#163B5E',
+          card_secondary: '#ABC2D2',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
         }
       },
       kokako: {
-        name: 'Kokako',
+        name: 'Kōkako',
         icon: '',
         light: {
-          primary: '#173b5f',
-          secondary: '#aac2d1',
-          accent: '#293b47',
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
+          banner: '#AAC2D1',
+          primary: '#173B5F',
+          secondary: '#424242',
+          accent: '#82B1FF',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
+          warning: '#FFC107',
+          card: '#FAFAFA', // Used in inspection form card background
+          background: '#E5EEF9', // // Basic background of the app
+          icon_background: '#DADADA', // Used in inspection form icon background
+          green: '0AB587',
+          primary_text: '#0ED9A3',
+          card_primary: '#163B5E',
+          card_secondary: '#ABC2D2',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
         },
         dark: {
-          primary: '#173b5f',
-          secondary: '#aac2d1',
-          accent: '#293b47',
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
+          banner: '#293B47',
+          primary: '#286EA2',
+          secondary: '#424242',
+          accent: '#82B1FF',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
+          warning: '#FFC107',
+          card: '#424242', // Used in inspection form card background
+          background: '#0D151C', // // Basic background of the app
+          icon_background: '#DADADA', // Used in inspection form icon background
+          green: '0AB587',
+          primary_text: '#0ED9A3',
+          card_primary: '#163B5E',
+          card_secondary: '#ABC2D2',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
         }
       },
-      indegoColourblind: {
-        name: 'Indego Colourblind',
+      rata: {
+        name: 'Rātā',
         icon: '',
         light: {
-          primary: '#293697',
-          secondary: '#fff6ef',
-          accent: '#b85d7b',
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
+          banner: '#FFE0C4',
+          primary: '#C24030',
+          secondary: '#424242',
+          accent: '#82B1FF',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
+          warning: '#FFC107',
+          card: '#FAFAFA', // Used in inspection form card background
+          background: '#E5EEF9', // // Basic background of the app
+          icon_background: '#DADADA', // Used in inspection form icon background
+          green: '0AB587',
+          primary_text: '#0ED9A3',
+          card_primary: '#163B5E',
+          card_secondary: '#ABC2D2',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
         },
         dark: {
-          primary: '#293697',
-          secondary: '#fff6ef',
-          accent: '#b85d7b',
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
+          banner: '#592119',
+          primary: '#C24030',
+          secondary: '#424242',
+          accent: '#82B1FF',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
+          warning: '#FFC107',
+          card: '#424242', // Used in inspection form card background
+          background: '#0D151C', // // Basic background of the app
+          icon_background: '#DADADA', // Used in inspection form icon background
+          green: '0AB587',
+          primary_text: '#0ED9A3',
+          card_primary: '#163B5E',
+          card_secondary: '#ABC2D2',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
+        }
+      },
+      kotukutuku: {
+        name: 'Kōtukutuku',
+        icon: '',
+        light: {
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
+          banner: '#DEC6F5',
+          primary: '#382997',
+          secondary: '#424242',
+          accent: '#82B1FF',
+          error: '#FF5252',
+          info: '#2196F3',
+          success: '#4CAF50',
+          warning: '#FFC107',
+          card: '#FAFAFA', // Used in inspection form card background
+          background: '#E5EEF9', // // Basic background of the app
+          icon_background: '#DADADA', // Used in inspection form icon background
+          green: '0AB587',
+          primary_text: '#0ED9A3',
+          card_primary: '#163B5E',
+          card_secondary: '#ABC2D2',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
+        },
+        dark: {
+          google: '#ffffff',
+          facebook: '#3b5998',
+          apple: '#131216',
+          banner: '#4533B5',
+          primary: '#B43EAF',
+          secondary: '#424242',
+          accent: '#82B1FF',
+          error: '#FF5252',
+          info: '#2196F3',
+          success: '#4CAF50',
+          warning: '#FFC107',
+          card: '#424242', // Used in inspection form card background
+          background: '#0D151C', // // Basic background of the app
+          icon_background: '#DADADA', // Used in inspection form icon background
+          green: '0AB587',
+          primary_text: '#0ED9A3',
+          card_primary: '#163B5E',
+          card_secondary: '#ABC2D2',
+          blue: '286EA2',
+          greyblue: 'ABC2D2',
+          purple: '283696',
+          yellow: 'F2B148',
+          red: 'B13732'
         }
       }
     },
