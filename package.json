@@ -15,12 +15,14 @@
     "html5-qrcode": "^2.1.1",
     "js-cookie": "^2.2.1",
     "register-service-worker": "^1.7.1",
+    "typeface-roboto": "^1.1.13",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuetify": "^2.4.0",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@mdi/font": "^6.4.95",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-pwa": "~4.5.0",

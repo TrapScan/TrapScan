@@ -63,7 +63,8 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
+@import '../node_modules/typeface-roboto/index.css';
 #main-bottom-nav {
   height:100% !important;
 }
