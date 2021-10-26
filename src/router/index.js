@@ -14,6 +14,8 @@ const ForgotPassword = () => import('../views/ForgotPassword.vue')
 const Register = () => import('../views/Register.vue')
 const Contact = () => import('../views/Contact.vue')
 const AnonInspectionForm = () => import('../views/AnonForm/AnonInspectionForm')
+const Privacy = () => import('../views/Legal/Privacy.vue')
+const DataDeletion = () => import('../views/Legal/DataDeletion.vue')
 
 Vue.use(VueRouter)
 
@@ -136,6 +138,19 @@ const routes = [
     component: Contact,
     meta: {
       authRequired: true,
+      showBackButton: true
+    }
+  },
+  {
+    path: '/privacy',
+    name: 'Privacy',
+    component: Privacy
+  },
+  {
+    path: '/data',
+    name: 'DataDeletion',
+    component: DataDeletion,
+    meta: {
       showBackButton: true
     }
   }
