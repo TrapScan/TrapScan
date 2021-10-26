@@ -4,8 +4,11 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
+import VueQrcodeReader from 'vue-qrcode-reader'
 import axios from 'axios'
 import SuccessFailBanner from './components/SuccessFailBanner'
+
+Vue.use(VueQrcodeReader)
 
 Vue.config.productionTip = false
 Vue.component('message-banner', SuccessFailBanner)

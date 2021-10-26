@@ -1,18 +1,23 @@
 <template>
   <div>
-    <div class="pt-4 background" id="reader" width="600px"></div>
+    <qrcode-stream
+      key="trapscan"
+      :camera="camera"
+      @decode="onDecode"
+      @init="onInit"
+      :track="paintOutline"
+    >
+    </qrcode-stream>
   </div>
 </template>
 
 <script>
-import { Html5QrcodeScanner } from 'html5-qrcode'
 export default {
   data () {
     return {
       isValid: undefined,
       camera: 'auto',
-      result: null,
-      reader: null
+      result: null
     }
   },
   computed: {
@@ -27,45 +32,119 @@ export default {
     }
   },
   methods: {
-    async onScanSuccess (decodedText, decodedResult) {
-      // handle the scanned code as you like, for example:
-      this.reader.pause()
-      this.result = decodedText
+    onInit (promise) {
+      promise.catch(console.error).then(this.resetValidationState)
+    },
+    resetValidationState () {
+      this.isValid = undefined
+    },
+    async onDecode (content) {
+      this.result = content
       let code = this.result.split('/')
       code = code[code.length - 1]
 
+      this.turnCameraOff()
+
       // TODO: Enter the stepper form, or make this step 1
-      this.isValid = decodedText.startsWith('http')
+      this.isValid = content.startsWith('http')
       // some more delay, so users have time to read the message
 
       this.$store.dispatch('scanQR', { qr_id: code })
 
       await this.timeout(1000)
-      this.reader.resume()
+      this.turnCameraOn()
     },
-    onScanFailure (error) {
-      // handle scan failure, usually better to ignore and keep scanning.
-      // for example:
-      console.warn(`Code scan error = ${error}`)
+    turnCameraOn () {
+      this.camera = 'auto'
+    },
+
+    turnCameraOff () {
+      this.camera = 'off'
+    },
+
+    timeout (ms) {
+      return new Promise((resolve) => {
+        window.setTimeout(resolve, ms)
+      })
+    },
+    paintOutline (detectedCodes, ctx) {
+      for (const detectedCode of detectedCodes) {
+        const [firstPoint, ...otherPoints] = detectedCode.cornerPoints
+
+        ctx.strokeStyle = 'red'
+
+        ctx.beginPath()
+        ctx.moveTo(firstPoint.x, firstPoint.y)
+        for (const { x, y } of otherPoints) {
+          ctx.lineTo(x, y)
+        }
+        ctx.lineTo(firstPoint.x, firstPoint.y)
+        ctx.closePath()
+        ctx.stroke()
+      }
+    },
+
+    paintBoundingBox (detectedCodes, ctx) {
+      for (const detectedCode of detectedCodes) {
+        const {
+          boundingBox: { x, y, width, height }
+        } = detectedCode
+
+        ctx.lineWidth = 2
+        ctx.strokeStyle = '#007bff'
+        ctx.strokeRect(x, y, width, height)
+      }
+    },
+
+    paintCenterText (detectedCodes, ctx) {
+      for (const detectedCode of detectedCodes) {
+        const { boundingBox, rawValue } = detectedCode
+
+        const centerX = boundingBox.x + boundingBox.width / 2
+        const centerY = boundingBox.y + boundingBox.height / 2
+
+        const fontSize = Math.max(
+          12,
+          (50 * boundingBox.width) / ctx.canvas.width
+        )
+
+        ctx.font = `bold ${fontSize}px sans-serif`
+        ctx.textAlign = 'center'
+
+        ctx.lineWidth = 3
+        ctx.strokeStyle = '#35495e'
+        ctx.strokeText(detectedCode.rawValue, centerX, centerY)
+
+        ctx.fillStyle = '#5cb984'
+        ctx.fillText(rawValue, centerX, centerY)
+      }
     }
-  },
-  beforeDestroy () {
-    this.reader.stop().then((ignore) => {
-      // QR Code scanning is stopped.
-    }).catch((err) => {
-      console.err(err)
-    })
-  },
-  mounted () {
-    this.reader = new Html5QrcodeScanner(
-      'reader',
-      { fps: 10, qrbox: { width: 250, height: 250 }, rememberLastUsedCamera: true },
-      /* verbose= */ false)
-    this.reader.render(this.onScanSuccess, this.onScanFailure)
   }
 }
 </script>
 
 <style scoped>
+.validation-success,
+.validation-failure,
+.validation-pending {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  padding: 10px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+.validation-success {
+  color: green;
+}
+.validation-failure {
+  color: red;
+}
 </style>
