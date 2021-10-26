@@ -121,6 +121,7 @@ const routes = [
     component: QRInstall,
     name: 'InstallationForm',
     meta: {
+      showBackButton: true,
       authRequired: true
     }
   },

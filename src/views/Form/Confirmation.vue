@@ -11,7 +11,7 @@
         <h1 class="text-center">Success</h1>
         <h4 class="text-center">Your inspection has been recorded</h4>
         <div class="mt-6">
-          <p>
+          <p v-if="formatDate && lastCheckedBy">
             This trap was last checked
             <b>{{ formatDate }}</b> by
             <b>{{ lastCheckedBy }}</b>
@@ -20,7 +20,7 @@
             The trap last caught a
             <b>{{ lastCaught }}</b>
           </p>
-          <p>Total catches on this trap: {{ totalCatches }}</p>
+          <p>Total catches on this before this: {{ totalCatches }}</p>
         </div>
         <v-btn block class="mt-6" x-large to="/scan">Finish</v-btn>
       </div>
