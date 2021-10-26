@@ -31,5 +31,18 @@ export default {
   },
   async fetchTraps () {
     return api.get('/api/admin/qr/all')
+  },
+  async submitCSV (csvData) {
+    await csrf.getCookie()
+    const formData = new FormData()
+    formData.append('file', csvData)
+    return api.post('/api/admin/scrape/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+  },
+  async scrapeData () {
+    return api.get('/api/admin/scrape')
   }
 }

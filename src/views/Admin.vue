@@ -26,6 +26,7 @@
           <v-tab href="#unmappedTraps">Unmapped Traps</v-tab>
           <v-tab href="#unmappedCodes">Unmapped Codes</v-tab>
           <v-tab href="#mappedTraps">All Traps</v-tab>
+          <v-tab href="#scrapeData">Trap NZ Data</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
@@ -43,6 +44,9 @@
       <v-tab-item :key="3" value="mappedTraps">
         <Traps v-if="tab === 'mappedTraps'"></Traps>>
       </v-tab-item>
+      <v-tab-item :key="4" value="scrapeData">
+        <Scrape v-if="tab === 'scrapeData'"></Scrape>
+      </v-tab-item>
     </v-tabs-items>
   </div>
 </template>
@@ -51,13 +55,15 @@ import CreateQR from './Admin/CreateQR.vue'
 import Unmapped from './Admin/Unmapped.vue'
 import UnmappedCodes from './Admin/UnmappedCodes.vue'
 import Traps from './Admin/Traps.vue'
+import Scrape from './Admin/Scrape.vue'
 
 export default {
   components: {
     CreateQR,
     Unmapped,
     UnmappedCodes,
-    Traps
+    Traps,
+    Scrape
   },
   data: () => ({
     tab: null

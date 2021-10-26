@@ -89,6 +89,12 @@ const adminModule = {
     },
     removeUnmappedCode ({ commit }, index) {
       commit('removeUnmappedCode', index)
+    },
+    submitCSV ({ commit }, file) {
+      return admin.submitCSV(file)
+    },
+    scrapeData ({ commit }) {
+      return admin.scrapeData()
     }
   },
   getters: {
