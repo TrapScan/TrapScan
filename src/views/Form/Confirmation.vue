@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-sheet color="success" id="success-banner" class="d-flex align-center justify-center">
+    <v-sheet v-if="!loading && success" color="success" id="success-banner" class="d-flex align-center justify-center">
       <v-icon x-large>mdi-check</v-icon>
     </v-sheet>
     <div v-if="loading">
@@ -34,8 +34,8 @@ import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      loading: false,
-      success: true
+      loading: true,
+      success: false
     }
   },
   computed: {
