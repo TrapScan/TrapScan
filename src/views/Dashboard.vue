@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card color="card" elevation="5" class="mx-auto mb-7" max-width="500">
+    <v-card color="card" elevation="3" class="mx-auto mb-7" max-width="500">
       <v-list-item two-line>
         <v-list-item-content>
           <v-card-title class="text-h5 mb-1">My Stats</v-card-title>
@@ -28,7 +28,7 @@
       </v-list-item>
     </v-card>
 
-    <v-card color="card" elevation="5" class="mx-auto" max-width="500">
+    <v-card color="card" elevation="3" class="mx-auto" max-width="500">
       <v-list-item two-line>
         <v-list-item-content>
           <v-card-title class="text-h5 mb-1">Global Stats</v-card-title>

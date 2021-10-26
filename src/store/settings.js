@@ -98,7 +98,7 @@ const settingsModule = {
           info: '#2196F3',
           success: '#4CAF50',
           warning: '#FFC107',
-          card: '#424242', // Used in inspection form card background
+          card: '#182532', // Used in inspection form card background
           background: '#0D151C', // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
           green: '0AB587',
@@ -152,7 +152,7 @@ const settingsModule = {
           info: '#2196F3',
           success: '#4CAF50',
           warning: '#FFC107',
-          card: '#424242', // Used in inspection form card background
+          card: '#182532', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
           green: '0AB587',
@@ -182,7 +182,7 @@ const settingsModule = {
           success: '#4CAF50',
           warning: '#FFC107',
           card: '#FAFAFA', // Used in inspection form card background
-          background: '#E5EEF9', // // Basic background of the app
+          background: '#F4f4F4', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
           green: '0AB587',
           primary_text: '#0ED9A3',
@@ -206,7 +206,7 @@ const settingsModule = {
           info: '#2196F3',
           success: '#4CAF50',
           warning: '#FFC107',
-          card: '#424242', // Used in inspection form card background
+          card: '#182532', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
           green: '0AB587',
@@ -236,7 +236,7 @@ const settingsModule = {
           success: '#4CAF50',
           warning: '#FFC107',
           card: '#FAFAFA', // Used in inspection form card background
-          background: '#E5EEF9', // // Basic background of the app
+          background: '#F4f4F4', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
           green: '0AB587',
           primary_text: '#0ED9A3',
@@ -260,7 +260,7 @@ const settingsModule = {
           info: '#2196F3',
           success: '#4CAF50',
           warning: '#FFC107',
-          card: '#424242', // Used in inspection form card background
+          card: '#182532', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
           green: '0AB587',
@@ -290,7 +290,7 @@ const settingsModule = {
           success: '#4CAF50',
           warning: '#FFC107',
           card: '#FAFAFA', // Used in inspection form card background
-          background: '#E5EEF9', // // Basic background of the app
+          background: '#F4f4F4', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
           green: '0AB587',
           primary_text: '#0ED9A3',
@@ -306,15 +306,15 @@ const settingsModule = {
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
-          banner: '#4533B5',
-          primary: '#B43EAF',
+          banner: '#2A1C50',
+          primary: '#DEC6F5',
           secondary: '#424242',
           accent: '#82B1FF',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
           warning: '#FFC107',
-          card: '#424242', // Used in inspection form card background
+          card: '#1F1E34', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
           green: '0AB587',

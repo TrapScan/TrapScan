@@ -1,7 +1,7 @@
 <template>
   <div class="form-options">
     <h2>I rebaited the trap with…</h2>
-    <div v-if="! moreItems" class="option-grid">
+    <div v-if="!moreItems" class="option-grid">
       <ChildFormGrid
         v-for="option in getBait"
         :goesTo="6"
@@ -18,27 +18,42 @@
         name="I didn’t rebait it"
         icon="norebait"
         :formData="{ rebaited: 'No', bait_type: 'None', words: 'but I didn\'t rebait it' }"
-        title="I didn’t rebait it"></ChildFormGrid>
+        title="I didn’t rebait it"
+      ></ChildFormGrid>
     </div>
     <div v-else>
-      <ChildForm  v-for="option in getExtraBait"
+      <ChildForm
+        v-for="option in getExtraBait"
         :goesTo="6"
         :key="option"
         :name="option"
         :formData="{ rebaited: 'Yes', bait_type: option, words: `so I rebaited it with ${option}` }"
-        :title="option"></ChildForm>
+        :title="option"
+      ></ChildForm>
     </div>
-
+    <ChildForm
+      :goesTo="6"
+      :key="option"
+      icon="BaitGood"
+      name="Previous bait is still good"
+      :formData="{ rebaited: 'No', words: `so I rebaited it with ${option}` }"
+      title="Previous bait is still good"
+    ></ChildForm>
+    <ChildForm
+      :goesTo="6"
+      :key="option"
+      icon="LetUsKnow"
+      name="I'm just letting you know"
+      subtext="that the trap caught something and it still needs rebaiting."
+      :formData="{ rebaited: 'No', bait_type: 'None', words: 'but I didn\'t rebait it' }"
+      title="I'm just letting you know"
+    ></ChildForm>
     <!-- This button will need to be updated with any changes to ChildForm styling -->
     <div class="text-center" v-if="!moreItems">
-      <v-btn class="ma-2" outlined color="primary" @click="showMoreItems"
-        >Show More Items</v-btn
-      >
+      <v-btn class="ma-2" outlined color="primary" @click="showMoreItems">Show More Items</v-btn>
     </div>
     <div class="text-center" v-else>
-      <v-btn class="ma-2" outlined color="primary" @click="showLessItems"
-        >Show Less Items</v-btn
-      >
+      <v-btn class="ma-2" outlined color="primary" @click="showLessItems">Show Less Items</v-btn>
     </div>
   </div>
 </template>

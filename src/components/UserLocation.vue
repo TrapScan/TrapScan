@@ -1,10 +1,9 @@
 <template>
   <div class="mt-3 text-center">
-    <v-btn :loading="loading" class="mb-4 p-4" @click="startPoll" color="primary">
+    <v-btn :loading="loading" large class="mb-4 mt-5 p-4" @click="startPoll" color="card">
       <v-icon
         class="mr-2"
         v-bind:class="{ pulse: scanning }"
-        :color="iconColour"
         dark
       >
         mdi-crosshairs-gps

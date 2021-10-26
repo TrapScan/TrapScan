@@ -1,16 +1,32 @@
 <template>
   <!-- <div class="text-center card ma-2 pa-2"> -->
   <div
-    class="child-button-shadow text-center card ma-2 py-5 d-flex justify-start align-center rounded"
+    class="child-button-shadow card ma-2 py-5 d-flex justify-start rounded"
     color="primary"
     @click="onComplete"
   >
-    <span class="ml-3 mr-4 icon_background  rounded-lg">
-      <v-icon v-if="this.icon" x-large>$vuetify.icons.{{ icon }}</v-icon>
-      <v-icon v-else large color="primary">mdi-chevron-right</v-icon>
-    </span>
-    <span class="mr-auto subtitle align-self-start text-left">{{ name }}</span>
-    <v-icon large color="primary" class="justify-self-end"> mdi-chevron-right </v-icon>
+    <v-row no-gutters>
+      <v-col cols="3" class="d-flex justify-center align-center">
+        <!-- Icon -->
+        <div class="icon_background rounded-lg pa-2 ma-1">
+          <v-icon class="my-auto" v-if="this.icon" x-large>$vuetify.icons.{{ icon }}</v-icon>
+          <v-icon class="my-2" v-else large color="primary">mdi-chevron-right</v-icon>
+        </div>
+      </v-col>
+      <v-col cols="7" class="mt-2" v-bind:class="[subtitle ? 'mt-2' : 'mt-5']">
+        <!-- Text -->
+        <v-row class="ml-1">
+        <span class="title">{{ name }}</span>
+        </v-row>
+        <v-row v-if="subtext" class="ml-1">
+          <span>{{subtext}}</span>
+        </v-row>
+      </v-col>
+      <v-col cols="2" class="d-flex justify-end">
+        <!-- Trail icon -->
+        <v-icon large color="primary" class="justify-self-end">mdi-chevron-right</v-icon>
+      </v-col>
+    </v-row>
   </div>
   <!-- </div> -->
 </template>
@@ -34,6 +50,10 @@ export default {
       default: false
     },
     icon: {
+      type: String,
+      default: null
+    },
+    subtext: {
       type: String,
       default: null
     }

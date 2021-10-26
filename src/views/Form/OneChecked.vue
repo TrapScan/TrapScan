@@ -7,6 +7,7 @@
         :goesTo="option.goesTo"
         :key="option.title"
         :name="option.title"
+        :subtext="option.subtext"
         :formData="option.formData"
         :title="option.title">
       </ChildForm>
