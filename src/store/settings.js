@@ -375,6 +375,9 @@ const settingsModule = {
           element.catchFilter = catchFilter
         }
       }
+    },
+    submitFeedback (state, data) {
+      settings.submitFeedback(data)
     }
   },
   actions: {
@@ -406,6 +409,9 @@ const settingsModule = {
     updateCatchFilter ({ commit }, { catchFilter, projectId }) {
       commit('updateCatchFilter', catchFilter, projectId)
       settings.updateCatchFilter(catchFilter, projectId)
+    },
+    submitFeedback ({ commit }, data) {
+      commit('submitFeedback', data)
     }
   },
   getters: {

@@ -47,7 +47,7 @@
           TrapScan is in it's first release so if you find any bugs, have ideas
           or any feedback, we would love to hear from you.
         </p>
-        <a>TODO: Contact Us</a>
+        <v-btn class="mt-2" to="/contact">Contact Us</v-btn>
       </div>
       <v-expansion-panels multiple flat class="my-6">
         <CollapseableSection

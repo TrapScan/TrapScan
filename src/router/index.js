@@ -12,6 +12,7 @@ const Settings = () => import('../views/Settings.vue')
 const ResetPassword = () => import('../views/ResetPassword.vue')
 const ForgotPassword = () => import('../views/ForgotPassword.vue')
 const Register = () => import('../views/Register.vue')
+const Contact = () => import('../views/Contact.vue')
 const AnonInspectionForm = () => import('../views/AnonForm/AnonInspectionForm')
 
 Vue.use(VueRouter)
@@ -127,6 +128,15 @@ const routes = [
     path: '/anon/scan/:code',
     component: AnonInspectionForm,
     name: 'ExternalScan'
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact,
+    meta: {
+      authRequired: true,
+      showBackButton: true
+    }
   }
 ]
 
