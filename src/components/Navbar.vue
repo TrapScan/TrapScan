@@ -1,9 +1,10 @@
 <template>
   <v-app-bar color="banner" app :elevation="elevation" hide-on-scroll>
-    <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
 
     <back-button v-if="this.$route.meta.showBackButton"></back-button>
-    <v-toolbar-title v-else>Trap Scan</v-toolbar-title>
+    <v-toolbar-title v-else>
+      <v-img :src="logoSource" width="155" alt="TrapScan logo"></v-img>
+    </v-toolbar-title>
 
     <v-spacer></v-spacer>
 
@@ -43,7 +44,14 @@ export default {
     ...mapActions(['signOut'])
   },
   computed: {
-    ...mapGetters(['getUser', 'isUserAuth'])
+    ...mapGetters(['getUser', 'isUserAuth']),
+    logoSource () {
+      if (this.$vuetify.theme.dark) {
+        return '/dark_mode_logo.png'
+      } else {
+        return '/light_mode_logo.png'
+      }
+    }
   }
 }
 </script>
