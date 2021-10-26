@@ -13,7 +13,7 @@
           <v-icon class="my-2" v-else large color="primary">mdi-chevron-right</v-icon>
         </div>
       </v-col>
-      <v-col cols="7" class="mt-2" v-bind:class="[subtitle ? 'mt-2' : 'mt-5']">
+      <v-col cols="7" class="mt-2" v-bind:class="[subtext ? 'mt-2' : 'mt-5']">
         <!-- Text -->
         <v-row class="ml-1">
         <span class="title">{{ name }}</span>

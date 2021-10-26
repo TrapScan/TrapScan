@@ -33,15 +33,13 @@
     </div>
     <ChildForm
       :goesTo="6"
-      :key="option"
       icon="BaitGood"
       name="Previous bait is still good"
-      :formData="{ rebaited: 'No', words: `so I rebaited it with ${option}` }"
+      :formData="{ rebaited: 'No', words: `and the bait was still good.` }"
       title="Previous bait is still good"
     ></ChildForm>
     <ChildForm
       :goesTo="6"
-      :key="option"
       icon="LetUsKnow"
       name="I'm just letting you know"
       subtext="that the trap caught something and it still needs rebaiting."
