@@ -7,7 +7,7 @@ const dateOb = new Date()
 const day = ('0' + dateOb.getDate()).slice(-2)
 const month = ('0' + (dateOb.getMonth() + 1)).slice(-2)
 const year = dateOb.getFullYear()
-const hours = dateOb.getHours()
+const hours = ('0' + (dateOb.getHours())).slice(-2)
 const minutes = ('0' + (dateOb.getMinutes())).slice(-2)
 const seconds = dateOb.getSeconds()
 
