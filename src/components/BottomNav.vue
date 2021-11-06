@@ -12,7 +12,7 @@
 
     <v-btn value="about" to="/about" class="bottom-nav-icons">
       <span>About</span>
-      <v-icon>mdi-information</v-icon>
+      <v-icon>mdi-book-open-blank-variant</v-icon>
     </v-btn>
   </v-bottom-navigation>
 </template>
