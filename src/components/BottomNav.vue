@@ -7,7 +7,7 @@
 
     <v-btn value="scan" to="/scan" class="bottom-nav-icons">
       <span>Scan</span>
-      <v-icon>mdi-scan-helper</v-icon>
+      <v-icon>mdi-line-scan</v-icon>
     </v-btn>
 
     <v-btn value="about" to="/about" class="bottom-nav-icons">
