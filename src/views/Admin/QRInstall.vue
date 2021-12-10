@@ -4,9 +4,7 @@
       <v-row align="center" justify="center">
         <v-col lg="6">
           <v-text-field
-            required
             v-model="qr_id"
-            :rules="[(v) => !!v || 'QR/Trap ID is required']"
             type="text"
             :disabled="!scanAdmin"
             label="QR Code"
@@ -66,6 +64,7 @@ export default {
         .then((response) => {
           this.nz_id = null
           this.qr_id = null
+
           this.$store.dispatch('setSuccess', { success: response.data })
           setTimeout(() => {
             this.$router.push('/scan')
