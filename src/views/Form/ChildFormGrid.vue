@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="text-center card ma-2 pa-2"> -->
   <div
-    class="grid-button text-center card py-2 d-flex flex-column"
+    class="child-button-shadow grid-button text-center card py-2 d-flex flex-column"
     @click="onComplete"
   >
     <span>
@@ -68,6 +68,10 @@ export default {
 
 .justify-self-end {
   justify-self: end !important;
+}
+
+.child-button-shadow {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
 </style>

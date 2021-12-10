@@ -14,7 +14,7 @@
       ></ChildFormGrid>
 
       <div
-        class="grid-button text-center card py-2 d-flex flex-column"
+        class="child-button-shadow grid-button text-center card py-2 d-flex flex-column"
          @click="showMoreItems"
       >
         <span>
@@ -79,5 +79,9 @@ export default {
   grid-template-rows: auto;
   column-gap: 10px;
   row-gap: 10px;
+}
+
+.child-button-shadow {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 </style>
