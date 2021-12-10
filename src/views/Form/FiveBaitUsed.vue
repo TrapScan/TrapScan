@@ -43,7 +43,7 @@
       icon="LetUsKnow"
       name="I'm just letting you know"
       subtext="that the trap caught something and it still needs rebaiting."
-      :formData="{ rebaited: 'No', bait_type: 'None', words: 'but I didn\'t rebait it' }"
+      :formData="{ rebaited: 'No', bait_type: 'None', words: 'and I\'m just letting you know.' }"
       title="I'm just letting you know"
     ></ChildForm>
     <!-- This button will need to be updated with any changes to ChildForm styling -->
