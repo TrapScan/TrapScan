@@ -68,11 +68,18 @@ const inspectionFormModule = {
       state.form = { ...state.form_navigation_data_history[state.form_navigation_stack.length - 1] }
     },
     updateForm (state, form) {
-      const currentWords = state.form.words
+      let currentWords = state.form.words
+      const currentStatus = state.form.status
       state.form = Object.assign(state.form, form)
 
       // Handle 'words' being concatenated, everything else can be assigned
       if (typeof form.words !== 'undefined') {
+        // Edge case defined here https://github.com/TrapScan/TrapScan/issues/74 (Previouse bait was still good section)
+        if ((currentStatus === 'Still set, bait missing' || currentStatus === 'Still set, bait bad') &&
+        form.words === 'and the bait was still good so I didn\'t rebait it.') {
+          // Reset the form words to remove the non mistake
+          currentWords = 'The trap caught nothing, '
+        }
         state.form.words = currentWords + form.words
       }
 
