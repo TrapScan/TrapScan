@@ -48,7 +48,7 @@ export default {
           }
         },
         {
-          title: 'Somethings wrong',
+          title: 'Something\'s wrong',
           goesTo: 4,
           icon: 'SomethingIsWrong',
           formData: {

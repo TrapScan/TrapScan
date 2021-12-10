@@ -29,7 +29,7 @@
         :goesTo="5"
         :key="option"
         :name="option"
-        :formData="{ species_caught: option, words: `${option} ` }"
+        :formData="{ species_caught: option, words: `${option}, ` }"
         :title="option"
       ></ChildForm>
     </div>

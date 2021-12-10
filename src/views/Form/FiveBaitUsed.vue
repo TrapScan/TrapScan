@@ -12,14 +12,23 @@
         :formData="{ rebaited: 'Yes', bait_type: option, words: `so I rebaited it with ${option}` }"
         :title="option"
       ></ChildFormGrid>
-      <ChildFormGrid
+      <!-- <ChildFormGrid
         :goesTo="6"
-        key="I didn’t rebait it"
+        key="Show More"
         name="I didn’t rebait it"
         icon="norebait"
         :formData="{ rebaited: 'No', bait_type: 'None', words: 'but I didn\'t rebait it' }"
         title="I didn’t rebait it"
-      ></ChildFormGrid>
+      ></ChildFormGrid> -->
+      <div
+        class="child-button-shadow grid-button text-center card py-2 d-flex flex-column justify-center"
+         @click="showMoreItems"
+      >
+        <span>
+          <!-- <v-icon size="90%"> $vuetify.icons.somethingElse </v-icon> -->
+        </span>
+        <span class="font-bold">Show more options</span>
+      </div>
     </div>
     <div v-else>
       <ChildForm
@@ -35,7 +44,7 @@
       :goesTo="6"
       icon="BaitGood"
       name="Previous bait is still good"
-      :formData="{ rebaited: 'No', words: `and the bait was still good.` }"
+      :formData="{ rebaited: 'No', words: `and the bait was still good so I didn't rebait it.` }"
       title="Previous bait is still good"
     ></ChildForm>
     <ChildForm
@@ -46,11 +55,7 @@
       :formData="{ rebaited: 'No', bait_type: 'None', words: 'and I\'m just letting you know.' }"
       title="I'm just letting you know"
     ></ChildForm>
-    <!-- This button will need to be updated with any changes to ChildForm styling -->
-    <div class="text-center" v-if="!moreItems">
-      <v-btn class="ma-2" outlined color="primary" @click="showMoreItems">Show More Items</v-btn>
-    </div>
-    <div class="text-center" v-else>
+    <div class="text-center" v-if="moreItems">
       <v-btn class="ma-2" outlined color="primary" @click="showLessItems">Show Less Items</v-btn>
     </div>
   </div>

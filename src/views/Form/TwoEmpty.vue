@@ -40,7 +40,7 @@ export default {
           icon: 'BaitOld',
           formData: {
             status: 'Still set, bait bad',
-            words: 'it was still set but the bait was bad, '
+            words: 'it was still set and the bait was bad, '
           }
         },
         {
@@ -49,7 +49,7 @@ export default {
           icon: 'BaitMissing',
           formData: {
             status: 'Still set, bait missing',
-            words: 'it was still set but the bait was missing, '
+            words: 'it was still set and the bait was missing, '
           }
         },
         {
@@ -59,7 +59,7 @@ export default {
           formData: {
             status: 'Sprung',
             species_caught: 'None',
-            words: 'it was triggered though, '
+            words: 'it was sprung, '
           }
         }
       ]
