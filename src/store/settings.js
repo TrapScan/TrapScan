@@ -46,7 +46,7 @@ const settingsModule = {
           warning: '#FFC107',
           card: '#182532', // Used in inspection form card background
           background: '#0D151C', // Basic background of the app
-          icon_background: '#0D151C', // Used in inspection form icon background
+          icon_background: '#101A23', // Used in inspection form icon background
           green: '0AB587',
           primary_text: '#0ED9A3', // Light green
           card_primary: '#163B5E', // Dark blue
@@ -100,7 +100,7 @@ const settingsModule = {
           warning: '#FFC107',
           card: '#182532', // Used in inspection form card background
           background: '#0D151C', // Basic background of the app
-          icon_background: '#DADADA', // Used in inspection form icon background
+          icon_background: '#101A23', // Used in inspection form icon background
           green: '0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
@@ -154,7 +154,7 @@ const settingsModule = {
           warning: '#FFC107',
           card: '#182532', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
-          icon_background: '#DADADA', // Used in inspection form icon background
+          icon_background: '#101A23', // Used in inspection form icon background
           green: '0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
@@ -208,7 +208,7 @@ const settingsModule = {
           warning: '#FFC107',
           card: '#182532', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
-          icon_background: '#DADADA', // Used in inspection form icon background
+          icon_background: '#101A23', // Used in inspection form icon background
           green: '0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
@@ -262,7 +262,7 @@ const settingsModule = {
           warning: '#FFC107',
           card: '#182532', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
-          icon_background: '#DADADA', // Used in inspection form icon background
+          icon_background: '#101A23', // Used in inspection form icon background
           green: '0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
@@ -316,7 +316,7 @@ const settingsModule = {
           warning: '#FFC107',
           card: '#1F1E34', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
-          icon_background: '#DADADA', // Used in inspection form icon background
+          icon_background: '#101A23', // Used in inspection form icon background
           green: '0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',

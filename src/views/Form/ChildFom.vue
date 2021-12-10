@@ -1,14 +1,14 @@
 <template>
   <!-- <div class="text-center card ma-2 pa-2"> -->
   <div
-    class="child-button-shadow card ma-2 py-5 d-flex justify-start rounded"
+    class="child-button-shadow card ma-2 py-4 d-flex justify-start rounded"
     color="primary"
     @click="onComplete"
   >
     <v-row no-gutters>
       <v-col cols="3" class="d-flex justify-center align-center">
         <!-- Icon -->
-        <div class="icon_background rounded-lg pa-2 ma-1">
+        <div class="icon_background rounded-lg pa-1 ma-1">
           <v-icon class="my-auto" v-if="this.icon" x-large>$vuetify.icons.{{ icon }}</v-icon>
           <v-icon class="my-2" v-else large color="primary">mdi-chevron-right</v-icon>
         </div>
