@@ -47,7 +47,10 @@ export default {
       if (valid) {
         this.$store.dispatch('submitFeedback', {
           type: 'bugs_or_issues',
-          fields: this.form
+          fields: {
+            issue_related_to: this.form.issue_related_to,
+            body: this.form.body
+          }
         })
         this.$emit('submit')
         this.$refs.bugContactForm.reset()
