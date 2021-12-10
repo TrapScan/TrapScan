@@ -8,7 +8,7 @@
         :key="option"
         :icon="option.toLowerCase().replace(/\s/g, '')"
         :name="option"
-        size="80%"
+        size="90%"
         :formData="{ rebaited: 'Yes', bait_type: option, words: `so I rebaited it with ${option}` }"
         :title="option"
       ></ChildFormGrid>
@@ -21,11 +21,11 @@
         title="I didn’t rebait it"
       ></ChildFormGrid> -->
       <div
-        class="child-button-shadow grid-button text-center card py-2 d-flex flex-column justify-center"
+        class="child-button-shadow grid-button text-center card py-2 d-flex flex-column"
          @click="showMoreItems"
       >
         <span>
-          <!-- <v-icon size="90%"> $vuetify.icons.somethingElse </v-icon> -->
+          <v-icon size="90%"> $vuetify.icons.somethingElseAlt </v-icon>
         </span>
         <span class="font-bold">Show more options</span>
       </div>

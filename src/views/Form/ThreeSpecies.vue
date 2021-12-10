@@ -8,7 +8,7 @@
         :key="option"
         :icon="option.toLowerCase()"
         :name="option"
-        :size="option === 'Stoat' || option === 'Rat' ? '90%' : '80%'"
+        size="95%"
         :formData="{ species_caught: option, words: `${option} ` }"
         :title="option"
       ></ChildFormGrid>
@@ -18,7 +18,7 @@
          @click="showMoreItems"
       >
         <span>
-          <v-icon size="90%"> $vuetify.icons.somethingElse </v-icon>
+          <v-icon size="95%"> $vuetify.icons.somethingElse </v-icon>
         </span>
         <span>Something Else</span>
       </div>

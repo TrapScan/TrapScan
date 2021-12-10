@@ -30,6 +30,9 @@ import TrapMissing from '../components/form_icons/TrapMissing.vue'
 // Baits
 import PeanutButter from '../components/Icons/PeanutButter.vue'
 import Egg from '../components/Icons/Egg.vue'
+import Chocolate from '../components/Icons/Chocolate.vue'
+import DehydratedRabbit from '../components/Icons/DehydratedRabbit.vue'
+import SomethingElseAlt from '../components/Icons/SomethingElseAlt.vue'
 
 Vue.use(Vuetify)
 
@@ -107,13 +110,16 @@ export default new Vuetify({
         component: PeanutButter
       },
       dehydratedrabbit: {
-        component: PeanutButter
+        component: DehydratedRabbit
       },
       chocolate: {
-        component: PeanutButter
+        component: Chocolate
       },
       wholeegg: {
         component: Egg
+      },
+      somethingElseAlt: {
+        component: SomethingElseAlt
       }
     }
   }
