@@ -27,7 +27,7 @@
         <span>
           <v-icon size="90%"> $vuetify.icons.somethingElseAlt </v-icon>
         </span>
-        <span class="font-bold">Show more options</span>
+        <span class="title">Show more options</span>
       </div>
     </div>
     <div v-else>

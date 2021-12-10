@@ -7,7 +7,7 @@
     <span>
       <v-icon :size="size"> $vuetify.icons.{{ icon }} </v-icon>
     </span>
-    <span>{{ name }}</span>
+    <span class="title">{{ name }}</span>
   </div>
   <!-- </div> -->
 </template>
