@@ -59,8 +59,10 @@ export default {
       const nzId = this.nz_id
       this.$store.dispatch('submitQRMapForm', { qr_id: qrId, nz_id: nzId })
         .then((res) => {
+          this.$store.dispatch('removeUnmappedCodeByCode', this.selectedCode.qr_code)
           this.$store.dispatch('updateNearby', { qr_id: qrId, nz_id: nzId })
           this.$emit('close')
+          this.selectedCode = null
         })
         .catch((err) => {
           console.log(err)

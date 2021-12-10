@@ -66,6 +66,15 @@ const adminModule = {
     },
     removeUnmappedCode (state, index) {
       state.unmappedCodes.splice(index, 1)
+    },
+    removeUnmappedCodeByCode (state, code) {
+      for (let i = 0; i < state.unmappedCodes.length; i++) {
+        const exisitngCode = state.unmappedCodes[i]
+        if (exisitngCode.qr_code === code) {
+          state.unmappedCodes.splice(i, 1)
+          break
+        }
+      }
     }
   },
   actions: {
@@ -89,6 +98,9 @@ const adminModule = {
     },
     removeUnmappedCode ({ commit }, index) {
       commit('removeUnmappedCode', index)
+    },
+    removeUnmappedCodeByCode ({ commit }, code) {
+      commit('removeUnmappedCodeByCode', code)
     },
     submitCSV ({ commit }, file) {
       return admin.submitCSV(file)
