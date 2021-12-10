@@ -2,7 +2,7 @@
   <div>
     <v-dialog v-model="dialog" max-width="500">
       <v-card>
-        <v-card-title class="text-h5"> Map Trap </v-card-title>
+        <v-card-title class="text-h5"> Install Trap </v-card-title>
 
         <v-card-text>
           <v-autocomplete

@@ -18,7 +18,7 @@
 
     <v-list-item-action class="align-baseline">
       <span v-if="this.trap.qr_id === null">
-        <v-btn class="red white--text" @click="map" :disabled="! trap.nz_trap_id"> Map Trap </v-btn>
+        <v-btn class="red white--text" @click="map" :disabled="! trap.nz_trap_id"> Install Trap </v-btn>
       </span>
       <span v-else>
         <v-icon class="mr-4" :style="style">mdi-navigation</v-icon>
