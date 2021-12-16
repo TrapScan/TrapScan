@@ -66,7 +66,7 @@ const authModule = {
       return state.email
     },
     getUserEmail (state) {
-      return state.user.user.email
+      return state.user.email
     }
   }
 }

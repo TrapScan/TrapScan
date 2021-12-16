@@ -6,12 +6,23 @@
       label="Inspection Notes"
       v-model="notes"
     ></v-textarea>
-    <ChildForm v-for="option in options"
-      :goesTo="option.goesTo"
-      :key="option.title"
-      :name="option.title"
-      :formData="option.formData"
-      :title="option.title">
+    <ChildForm
+      :goesTo="9"
+      key="submit"
+      name="Submit Inspection"
+      :formData="{
+        notes: notes,
+        code: 'TEST_CODE',
+        recorded_by: user.id
+      }"
+      title="Submit Inspection">
+    </ChildForm>
+    <ChildForm
+      :goesTo="8"
+      key="edit"
+      name="Edit Inspection"
+      :formData="{}"
+      title="Edit Inspection">
     </ChildForm>
   </div>
 </template>

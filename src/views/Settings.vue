@@ -95,6 +95,49 @@
             ></v-select>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item>
+          <v-list-item-content
+            ><v-list-item-title class="font-weight-bold"
+              >Trap Issues</v-list-item-title
+            >
+          </v-list-item-content>
+          <v-list-item-action
+            ><v-switch @click="updateNotifications" v-model="selectedProject.notify_problems" />
+          </v-list-item-action>
+        </v-list-item>
+
+        <!-- <v-divider></v-divider>
+        <v-list-item>
+          <v-list-item-content
+            ><v-list-item-title class="font-weight-bold"
+              >Trap Issues</v-list-item-title
+            >
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-content>
+            <p>Needs repair / replace</p>
+          </v-list-item-content>
+          <v-list-item-action
+            ><v-switch @click="updateNotifications" v-model="trapRepairOrReplace" />
+          </v-list-item-action>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-content>
+            <p>Trap is missing</p>
+          </v-list-item-content>
+          <v-list-item-action
+            ><v-switch @click="updateNotifications" v-model="trapMissing" />
+          </v-list-item-action>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-content>
+            <p>QR code needs fixing</p>
+          </v-list-item-content>
+          <v-list-item-action
+            ><v-switch @click="updateNotifications" v-model="qrCodeNeedsFixing" />
+          </v-list-item-action>
+        </v-list-item> -->
       </div>
     </div>
   </div>
@@ -108,13 +151,25 @@ export default {
       selected: 'All',
       selectedProject: null,
       catchFilter: null,
-      showFilter: false
+      showFilter: false,
+      notifyProblems: null
+      // trapRepairOrReplace: false,
+      // trapMissing: false,
+      // qrCodeNeedsFixing: false
     }
   },
   mounted () {
     this.selected = this.currentTheme
   },
   methods: {
+    updateNotifications () {
+      const setting = {
+        project_id: this.selectedProject.id,
+        value: this.selectedProject.notify_problems,
+        key: 'notify_problems'
+      }
+      return this.$store.dispatch('updateCoordinatorSettings', setting)
+    },
     changedTheme (value) {
       if (this.currentTheme !== value) {
         this.$store.dispatch('setTheme', value)
