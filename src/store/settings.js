@@ -8,6 +8,7 @@ const settingsModule = {
         name: 'Default',
         icon: '',
         light: {
+          border: '#182532',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
@@ -33,6 +34,7 @@ const settingsModule = {
           red: 'B13732'
         },
         dark: {
+          border: '#ABC2D2',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
@@ -62,6 +64,7 @@ const settingsModule = {
         name: 'Ngirungiru',
         icon: '',
         light: {
+          border: '#182532',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
@@ -87,6 +90,7 @@ const settingsModule = {
           red: 'B13732'
         },
         dark: {
+          border: '#ABC2D2',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
@@ -116,6 +120,7 @@ const settingsModule = {
         name: 'Kākāriki',
         icon: '',
         light: {
+          border: '#182532',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
@@ -141,6 +146,7 @@ const settingsModule = {
           red: 'B13732'
         },
         dark: {
+          border: '#ABC2D2',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
@@ -170,6 +176,7 @@ const settingsModule = {
         name: 'Kōkako',
         icon: '',
         light: {
+          border: '#182532',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
@@ -195,6 +202,7 @@ const settingsModule = {
           red: 'B13732'
         },
         dark: {
+          border: '#ABC2D2',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
@@ -224,6 +232,7 @@ const settingsModule = {
         name: 'Rātā',
         icon: '',
         light: {
+          border: '#182532',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
@@ -249,6 +258,7 @@ const settingsModule = {
           red: 'B13732'
         },
         dark: {
+          border: '#ABC2D2',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
@@ -278,6 +288,7 @@ const settingsModule = {
         name: 'Kōtukutuku',
         icon: '',
         light: {
+          border: '#182532',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',
@@ -303,6 +314,7 @@ const settingsModule = {
           red: 'B13732'
         },
         dark: {
+          border: '#ABC2D2',
           google: '#ffffff',
           facebook: '#3b5998',
           apple: '#131216',

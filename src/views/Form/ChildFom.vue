@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="text-center card ma-2 pa-2"> -->
   <div
-    class="child-button-shadow card ma-2 py-4 d-flex justify-start rounded"
+    class="form-border card ma-2 py-4 d-flex justify-start rounded"
     color="primary"
     @click="onComplete"
   >
@@ -75,6 +75,9 @@ export default {
 }
 </script>
 <style scoped>
+.form-border {
+  border: 1px solid var(--v-border-base) !important
+}
 button {
   width: 100%;
   max-width: 80vh;

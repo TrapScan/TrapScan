@@ -13,13 +13,14 @@
         :formData="{ species_caught: option, words: `${option} ` }"
         :title="option"></ChildFormGrid>
       <div
-        class="child-button-shadow grid-button text-center card py-2 d-flex flex-column"
+        id="child-form-extra"
+        class="form-border grid-button text-center card py-2 d-flex flex-column"
          @click="showMoreItems"
       >
         <span>
           <v-icon size="95%"> $vuetify.icons.somethingElse </v-icon>
         </span>
-        <span class="title">Something Else</span>
+        <span class="title ">Something Else</span>
       </div>
     </div>
     <div v-else>
@@ -72,6 +73,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#child-form-extra {
+  border: 1px solid var(--v-border-base) !important
+}
 .grid-button{
   cursor: pointer;
 }

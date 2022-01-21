@@ -14,7 +14,8 @@
       ></ChildFormGrid>
 
       <div
-        class="child-button-shadow grid-button text-center card py-2 d-flex flex-column"
+        id="child-form-extra"
+        class="card form-border grid-button text-center py-2 d-flex flex-column"
          @click="showMoreItems"
       >
         <span>
@@ -73,6 +74,10 @@ export default {
 </script>
 
 <style lang="scss">
+#child-form-extra {
+  border: 1px solid var(--v-border-base) !important
+
+}
 .option-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="text-center card ma-2 pa-2"> -->
   <div
-    class="child-button-shadow grid-button text-center card py-2 d-flex flex-column"
+    class="form-border grid-button text-center card py-2 d-flex flex-column"
     @click="onComplete"
   >
     <span>
@@ -56,6 +56,9 @@ export default {
 }
 </script>
 <style scoped>
+.form-border {
+  border: 1px solid var(--v-border-base) !important
+}
 .grid-button {
   width: 100%;
   max-width: 40vh;

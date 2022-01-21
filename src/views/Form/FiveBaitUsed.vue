@@ -21,7 +21,7 @@
         title="I didn’t rebait it"
       ></ChildFormGrid> -->
       <div
-        class="child-button-shadow grid-button text-center card py-2 d-flex flex-column"
+        class="form-border grid-button text-center card py-2 d-flex flex-column"
          @click="showMoreItems"
       >
         <span>
@@ -91,4 +91,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.form-border {
+  border: 1px solid var(--v-border-base) !important
+}
 </style>
