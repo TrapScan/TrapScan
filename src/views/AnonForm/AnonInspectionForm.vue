@@ -2,22 +2,21 @@
   <div>
     <v-stepper elevation="0" v-model="e1">
       <v-stepper-items>
-        <v-stepper-content class="background" id="anon-step-form" step="1">
+        <v-stepper-content class="background mt-4" id="anon-step-form" step="1">
           <h1>Welcome to TrapScan</h1>
           <p>This is a mobile web application designed by conservation volunteers to simplify their record keeping and reporting work.</p>
-          <Card colour="card_primary" class="mb-6">
+          <Card colour="card_primary">
             <h2 class="mb-3 primary_text--text">Did this trap catch something?</h2>
-            <p class="">If you don't have an account, you can lend a hand by letting us know:</p>
-            <v-btn @click="goToForm">Inspect the trap</v-btn>
+            <v-btn @click="goToForm">Let us know of a catch</v-btn>
+          </Card>
 
-            <h2 class="mt-5 mb-3 primary_text--text">Don't know what this is about?</h2>
-            <p class="">If you're new to trapping, don't know why we are doing it or just want to learn more, you can here:</p>
+          <Card colour="#faf9f6">
+            <h2 class="mt-5 mb-3 card_primary--text">Want to know more?</h2>
             <v-btn to="/anon/about">About Us</v-btn>
           </Card>
 
           <Card colour="card_secondary">
-            <h2 class="mb-3 card_primary--text">Expecting a different page?</h2>
-            <p class="black--text">Click below to login to your account for the full form.</p>
+            <h2 class="mb-3 card_primary--text">Log in to get involved</h2>
             <v-btn @click="goToLogin">Login</v-btn>
             <v-btn class="ml-4" to="/register">Register</v-btn>
           </Card>
