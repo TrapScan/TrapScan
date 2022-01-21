@@ -1,7 +1,62 @@
 <template>
-  <v-container fill-height fluid style="height: 80vh">
-    <v-row align="center" justify="center">
-      <v-col lg="6">
+  <v-container fluid id="login-page" class="fill-height">
+    <!-- <div class="d-flex align-center justify-center" style="width: 100%">
+      Log in with your Google, Facebook, or Apple account
+    </div>-->
+    <v-row
+      no-gutters
+      class="socials"
+      justify="center text-center"
+    >Log in with your Google, Facebook, or Apple account</v-row>
+    <v-row no-gutters class="socials">
+      <v-col>
+        <v-card-actions class="flex justify-center">
+          <a
+            class="py-3 v-btn v-btn--is-elevated v-btn--has-bg theme--light is-google"
+            :href="baseURL + '/auth/google/redirect'"
+            :loading="loading"
+          >
+            <v-icon color="white">mdi-google</v-icon>
+          </a>
+        </v-card-actions>
+      </v-col>
+      <v-col>
+        <v-card-actions class="flex justify-center">
+          <a
+            class="py-3 v-btn v-btn--is-elevated v-btn--has-bg theme--light is-facebook"
+            :href="baseURL + '/auth/facebook/redirect'"
+            :loading="loading"
+          >
+            <v-icon color="white">mdi-facebook</v-icon>
+          </a>
+        </v-card-actions>
+      </v-col>
+      <v-col>
+        <v-card-actions>
+          <a
+            class="py-3 v-btn v-btn--is-elevated v-btn--has-bg theme--light is-apple"
+            :href="baseURL + '/auth/apple/redirect'"
+            :disabled="loading"
+          >
+            <v-icon color="white">mdi-apple</v-icon>
+          </a>
+        </v-card-actions>
+      </v-col>
+    </v-row>
+    <v-spacer></v-spacer>
+
+    <v-row no-gutters justify="space-around" align="baseline">
+      <v-col class="divide"></v-col>
+      <v-col class="text-center">
+        <i>OR</i>
+      </v-col>
+      <v-col class="divide"></v-col>
+    </v-row>
+
+    <v-row no-gutters class="socials" justify="center text-center">Log in with Email</v-row>
+
+    <v-row no-gutters align="center" justify="center">
+      <v-col>
         <success-fail-banner></success-fail-banner>
         <v-form :v-model="valid">
           <v-text-field
@@ -12,7 +67,7 @@
             label="Email"
             required
           >
-            <v-icon slot="prepend"> mdi-email </v-icon>
+            <v-icon slot="prepend">mdi-email</v-icon>
           </v-text-field>
 
           <v-text-field
@@ -23,93 +78,32 @@
             required
             type="password"
           >
-            <v-icon slot="prepend"> mdi-lock </v-icon>
+            <v-icon slot="prepend">mdi-lock</v-icon>
           </v-text-field>
         </v-form>
         <v-card-actions class="flex justify-center">
           <v-btn
             @click="submit"
+            elevation="0"
             :loading="loading"
             large
-            class="pl-10 pr-10"
-            color="primary"
-          >
-            Login
-          </v-btn>
+            class="pl-10 pr-10 primary-button"
+          >Login</v-btn>
         </v-card-actions>
         <v-card-actions>
-          <v-btn
-            outlined
-            to="/register"
-            :loading="loading"
-            color="primary"
-            >Register Now</v-btn
-          >
+          <v-btn to="/register" elevation="0" :loading="loading" class="secondary-button">Register</v-btn>
         </v-card-actions>
-        <v-row>
-          <v-col>
-            <v-card-actions class="flex justify-center">
-              <a
-                class="
-                  py-3
-                  v-btn v-btn--is-elevated v-btn--has-bg
-                  theme--light
-                  is-google
-                "
-                :href="baseURL + '/auth/google/redirect'"
-                :loading="loading"
-                ><v-icon color="white">mdi-google</v-icon></a
-              >
-            </v-card-actions>
-          </v-col>
-          <v-col>
-            <v-card-actions class="flex justify-center">
-              <a
-                class="
-                  py-3
-                  v-btn v-btn--is-elevated v-btn--has-bg
-                  theme--light
-                  is-facebook
-                "
-                :href="baseURL + '/auth/facebook/redirect'"
-                :loading="loading"
-                ><v-icon color="white">mdi-facebook</v-icon></a
-              >
-            </v-card-actions>
-          </v-col>
-          <v-col>
-            <v-card-actions>
-              <a
-                class="
-                  py-3
-                  v-btn v-btn--is-elevated v-btn--has-bg
-                  theme--light
-                  is-apple
-                "
-                :href="baseURL + '/auth/apple/redirect'"
-                :disabled="loading"
-                ><v-icon color="white">mdi-apple</v-icon></a
-              >
-            </v-card-actions>
-          </v-col>
-        </v-row>
         <v-card-actions>
           <v-btn
             text
             to="/i/forgot/password"
             :loading="loading"
-            outlined
-            color="primary"
-            >Forgot your password?</v-btn
-          >
+            class="secondary-button"
+          >Forgot your password?</v-btn>
         </v-card-actions>
-        <v-card-actions class="mt-4">
-          <v-btn
-            to="/anon/about"
-            :loading="loading"
-            color="primary"
-            >About Us</v-btn
-          >
+
+        <v-card-actions class="">
+          <v-btn to="/anon/about" class="about-button" text :loading="loading">About TrapScan</v-btn>
         </v-card-actions>
       </v-col>
     </v-row>
@@ -166,18 +160,47 @@ export default {
 }
 </script>
 <style scoped>
+#login-page {
+  font-family: "Montserrat";
+  font-weight: 400;
+  max-width: 600px;
+}
+.primary-button {
+  background-color: #286ea2 !important;
+  color: #ffffff;
+  text-transform: none;
+}
+.secondary-button {
+  background-color: #abc2d280 !important;
+  color: #286ea2;
+  text-transform: none;
+}
+.about-button {
+  font-size: 80%;
+  color: #009E73;
+  text-decoration: underline;
+  text-transform: none;
+}
+.socials {
+  font-family: "Montserrat";
+  font-weight: 600;
+  color: #737271;
+}
+.divide {
+  border-bottom: 1px solid;
+}
 .v-btn {
   width: 100%;
 }
 
 .is-facebook {
-  background-color: #1877f2 !important;
+  background-color: #286ea2 !important;
 }
 .is-google {
-  background-color: #ea4335 !important;
+  background-color: #d44944 !important;
 }
 
 .is-apple {
-  background-color: #000000 !important;
+  background-color: #182532 !important;
 }
 </style>
