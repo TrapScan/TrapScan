@@ -99,7 +99,7 @@
             to="/i/forgot/password"
             :loading="loading"
             class="secondary-button"
-          >Forgot your password?</v-btn>
+          >Reset password</v-btn>
         </v-card-actions>
 
         <v-card-actions class="">
