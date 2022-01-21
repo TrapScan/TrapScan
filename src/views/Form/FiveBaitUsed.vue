@@ -51,7 +51,7 @@
       :goesTo="6"
       icon="LetUsKnow"
       name="I'm just letting you know"
-      subtext="that the trap caught something and it still needs rebaiting."
+      subtext="that the trap caught something and/or it needs rebaiting."
       :formData="{ rebaited: 'No', bait_type: 'None', words: 'and I\'m just letting you know.' }"
       title="I'm just letting you know"
     ></ChildForm>
