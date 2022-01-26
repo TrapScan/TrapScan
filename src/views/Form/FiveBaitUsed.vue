@@ -43,17 +43,17 @@
     <ChildForm
       :goesTo="6"
       icon="BaitGood"
-      name="Previous bait is still good"
+      name="Bait is still good"
       :formData="{ rebaited: 'No', words: `and the bait was still good so I didn't rebait it.` }"
-      title="Previous bait is still good"
+      title="Bait is still good"
     ></ChildForm>
     <ChildForm
       :goesTo="6"
       icon="LetUsKnow"
-      name="I'm just letting you know"
+      name="Just letting you know"
       subtext="that the trap caught something and/or it needs rebaiting."
       :formData="{ rebaited: 'No', bait_type: 'None', words: 'and I\'m just letting you know.' }"
-      title="I'm just letting you know"
+      title="Just letting you know"
     ></ChildForm>
     <div class="text-center" v-if="moreItems">
       <v-btn class="ma-2" outlined color="primary" @click="showLessItems">Show Less Items</v-btn>

@@ -18,7 +18,7 @@
         <v-row class="ml-1">
         <span class="title">{{ name }}</span>
         </v-row>
-        <v-row v-if="subtext" class="ml-1">
+        <v-row v-if="subtext" class="ml-1 pb-2 small">
           <span>{{subtext}}</span>
         </v-row>
       </v-col>
@@ -75,6 +75,9 @@ export default {
 }
 </script>
 <style scoped>
+.small {
+  font-size: 85%;
+}
 .form-border {
   border: 1px solid var(--v-border-base) !important
 }
