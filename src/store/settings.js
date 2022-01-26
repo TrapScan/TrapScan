@@ -23,15 +23,15 @@ const settingsModule = {
           card: '#FAFAFA', // Used in inspection form card background
           background: '#FAF9F6', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
           card_secondary: '#ABC2D2',
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         },
         dark: {
           border: '#ABC2D2',
@@ -49,15 +49,15 @@ const settingsModule = {
           card: '#182532', // Used in inspection form card background
           background: '#0D151C', // Basic background of the app
           icon_background: '#101A23', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3', // Light green
           card_primary: '#163B5E', // Dark blue
           card_secondary: '#ABC2D2', // Light grey
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         }
       },
       ngirungiru: {
@@ -79,15 +79,15 @@ const settingsModule = {
           card: '#FAFAFA', // Used in inspection form card background
           background: '#E5EEF9', // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
           card_secondary: '#ABC2D2',
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         },
         dark: {
           border: '#ABC2D2',
@@ -105,15 +105,15 @@ const settingsModule = {
           card: '#182532', // Used in inspection form card background
           background: '#0D151C', // Basic background of the app
           icon_background: '#101A23', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
           card_secondary: '#ABC2D2',
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         }
       },
       kakariki: {
@@ -135,15 +135,15 @@ const settingsModule = {
           card: '#FAFAFA', // Used in inspection form card background
           background: '#E5EEF9', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
           card_secondary: '#ABC2D2',
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         },
         dark: {
           border: '#ABC2D2',
@@ -161,15 +161,15 @@ const settingsModule = {
           card: '#182532', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
           icon_background: '#101A23', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
           card_secondary: '#ABC2D2',
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         }
       },
       kokako: {
@@ -191,15 +191,15 @@ const settingsModule = {
           card: '#FAFAFA', // Used in inspection form card background
           background: '#F4f4F4', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
           card_secondary: '#ABC2D2',
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         },
         dark: {
           border: '#ABC2D2',
@@ -217,15 +217,15 @@ const settingsModule = {
           card: '#182532', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
           icon_background: '#101A23', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
           card_secondary: '#ABC2D2',
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         }
       },
       rata: {
@@ -247,15 +247,15 @@ const settingsModule = {
           card: '#FAFAFA', // Used in inspection form card background
           background: '#F4f4F4', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
           card_secondary: '#ABC2D2',
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         },
         dark: {
           border: '#ABC2D2',
@@ -273,15 +273,15 @@ const settingsModule = {
           card: '#182532', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
           icon_background: '#101A23', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
           card_secondary: '#ABC2D2',
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         }
       },
       kotukutuku: {
@@ -303,15 +303,15 @@ const settingsModule = {
           card: '#FAFAFA', // Used in inspection form card background
           background: '#F4f4F4', // // Basic background of the app
           icon_background: '#DADADA', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
           card_secondary: '#ABC2D2',
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         },
         dark: {
           border: '#ABC2D2',
@@ -329,15 +329,15 @@ const settingsModule = {
           card: '#1F1E34', // Used in inspection form card background
           background: '#0D151C', // // Basic background of the app
           icon_background: '#101A23', // Used in inspection form icon background
-          green: '0AB587',
+          green: '#0AB587',
           primary_text: '#0ED9A3',
           card_primary: '#163B5E',
           card_secondary: '#ABC2D2',
-          blue: '286EA2',
-          greyblue: 'ABC2D2',
-          purple: '283696',
-          yellow: 'F2B148',
-          red: 'B13732'
+          blue: '#286EA2',
+          greyblue: '#ABC2D2',
+          purple: '#283696',
+          yellow: '#F2B148',
+          red: '#B13732'
         }
       }
     },

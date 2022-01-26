@@ -1,13 +1,13 @@
 <template>
-  <v-expansion-panel class="mb-2 mx-4">
-    <hr />
-    <v-expansion-panel-header class="background" expand-icon="mdi-menu-down">
-      <h3 class="extra-space">{{ title }}</h3>
+  <v-expansion-panel class="mb-2">
+    <!-- <hr /> -->
+    <v-expansion-panel-header class="background px-2" expand-icon="mdi-chevron-down">
+      <h3 class="extra-space pr-2">{{ title }}</h3>
     </v-expansion-panel-header>
-    <v-expansion-panel-content class="background">
+    <v-expansion-panel-content class="hcontent pt-2 rounded">
         <slot></slot>
     </v-expansion-panel-content>
-    <hr v-if="end" />
+    <!-- <hr v-if="end" /> -->
   </v-expansion-panel>
 </template>
 
@@ -26,6 +26,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.hcontent {
+  background-color: #E4EBF1;
+}
+
 #intro {
   font-size: 1.3rem;
   line-height: 120%;
@@ -43,7 +47,9 @@ export default {
 }
 
 .extra-space {
-  line-height: 150% !important;
+  line-height: 130% !important;
+  color: #163B5E;
+  font-size: 115%;
 }
 
 hr {
