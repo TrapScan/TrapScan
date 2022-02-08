@@ -1,7 +1,7 @@
 <template>
     <v-dialog @click:outside="discard" v-model="showDialog" max-width="500">
       <v-card>
-        <v-card-title class="text-h5"> Install Trap </v-card-title>
+        <v-card-title class="text-h5"> {{ title }} </v-card-title>
         <v-card-text>
           <v-autocomplete
             v-model="selectedCode"
@@ -44,6 +44,10 @@ export default {
     nz_id: {
       type: Number,
       default: null
+    },
+    title: {
+      tyep: String,
+      defualt: 'Install Trap'
     }
   },
   data () {
@@ -57,12 +61,15 @@ export default {
       this.error = null
       const qrId = this.selectedCode.qr_code
       const nzId = this.nz_id
-      this.$store.dispatch('submitQRMapForm', { qr_id: qrId, nz_id: nzId })
+      this.$store.dispatch('submitQRMapForm', { qr_id: qrId, nz_id: nzId }) // API call to remap
         .then((res) => {
-          this.$store.dispatch('removeUnmappedCodeByCode', this.selectedCode.qr_code)
-          this.$store.dispatch('updateNearby', { qr_id: qrId, nz_id: nzId })
-          this.$emit('close')
+          this.$store.dispatch('removeUnmappedCodeByCode', this.selectedCode.qr_code) // Remove unmapped code from local store
+          this.$store.dispatch('updateLocalNearby', { qr_id: qrId, nz_id: nzId })
+          this.$emit('close', qrId)
           this.selectedCode = null
+          setTimeout(() => {
+            this.$router.push('/dashboard') // Push them back to dashboard
+          }, 500)
         })
         .catch((err) => {
           console.log(err)

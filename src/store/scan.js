@@ -70,6 +70,7 @@ function prettyDistance (d) {
 const scanModule = {
   state: {
     scannedQRID: null,
+    scannedNZID: null,
     scannedTrap: null,
     nearbyTraps: [],
     scanError: null,
@@ -110,15 +111,26 @@ const scanModule = {
       state.scanError = error
     },
     setScannedTrap (state, trap) {
-      console.log(trap)
       state.scannedTrap = trap
       state.scannedQRID = trap.qr_id
+      state.scannedNZID = trap.nz_trap_id
     },
     setPCordData (state, pcord) {
       state.pcordData = pcord
     },
     setAdmin (state, value) {
       state.admin = value
+    },
+    updateScannedQRID (state, code) {
+      state.scannedQRID = code
+    },
+    updateLocalNearby (state, data) {
+      state.nearbyTraps = state.nearbyTraps.map((element) => {
+        if (element.nz_trap_id === data.nz_id) {
+          element.qr_id = data.qr_id
+        }
+        return element
+      })
     }
   },
   actions: {
@@ -207,11 +219,24 @@ const scanModule = {
     },
     updateNearby ({ commit }, trap) {
       commit('updateNearby', trap)
+    },
+    // This is cosmetic only, real update is done before
+    updateScannedQRID ({ commit }, code) {
+      commit('updateScannedQRID', code)
+    },
+    updateLocalNearby ({ commit }, data) {
+      commit('updateLocalNearby', data)
+    },
+    checkPCord ({ commit }, trapid) {
+      commit('checkPcord', trapid)
     }
   },
   getters: {
     scannedCodeValue (state) {
       return state.scannedQRID
+    },
+    scannedNZID (state) {
+      return state.scannedNZID
     },
     nearbyTraps (state) {
       return state.nearbyTraps
@@ -221,10 +246,13 @@ const scanModule = {
     },
     pcordOptions (state) {
       // Todo: Sort all the traps by distance
-      return state.pcordData.project
+      return state.pcordData?.project
     },
     scanAdmin (state) {
       return state.admin
+    },
+    scannedTrap (state) {
+      return state.scannedTrap
     }
   }
 }

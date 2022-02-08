@@ -2,28 +2,54 @@
   <div class="form-options">
     <h2>I checked this trap {{ scannedCodeValue }} and...</h2>
     <div class="d-flex flex-column justify-end" style="height: 90%">
-      <ChildForm v-for="option in options"
+      <ChildForm
+        v-for="option in options"
         :icon="option.icon"
         :goesTo="option.goesTo"
         :key="option.title"
         :name="option.title"
         :subtext="option.subtext"
         :formData="option.formData"
-        :title="option.title">
-      </ChildForm>
+        :title="option.title"
+      ></ChildForm>
+      <div v-if="showMap" @click="openMap">
+        <ChildForm
+          dumb
+          icon="SomethingIsWrong"
+          :goesTo="99"
+          name="Re-map QR"
+          subtext="Change the Trap.NZ trap ID associated with this QR code."
+          title="Re-map QR"
+          :formData="{}"
+        ></ChildForm>
+      </div>
     </div>
+
+    <MapTrap @close="openMap" title="Remap Trap" :showDialog="openMapDialog" :nz_id="scannedNZID"></MapTrap>
   </div>
 </template>
 
 <script>
 import ChildForm from './ChildFom'
 import { mapGetters } from 'vuex'
+import MapTrap from '../../components/MapTrap.vue'
 export default {
   components: {
-    ChildForm
+    ChildForm,
+    MapTrap
+  },
+  methods: {
+    openMap (code) {
+      if (code && typeof code === 'string') {
+        // This trap has been remapped
+        this.$store.dispatch('updateScannedQRID', code)
+      }
+      this.openMapDialog = !this.openMapDialog
+    }
   },
   data () {
     return {
+      openMapDialog: false,
       options: [
         {
           title: 'It was empty',
@@ -63,8 +89,20 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'scannedCodeValue'
-    ])
+      'scannedCodeValue',
+      'scannedNZID',
+      'scannedTrap',
+      'pcordOptions'
+    ]),
+    showMap () {
+      if (this.pcordOptions && this.pcordOptions.length > 0) {
+        for (let i = 0; i < this.pcordOptions.length; i++) {
+          const element = this.pcordOptions[i]
+          if (element.id === this.scannedTrap.project_id) return true
+        }
+      }
+      return false
+    }
   }
 }
 </script>

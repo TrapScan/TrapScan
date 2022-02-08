@@ -442,7 +442,7 @@ const settingsModule = {
       return state.coordinatorSettings
     },
     isCoordinator (state) {
-      return state.coordinatorSettings.length > 0
+      return state.coordinatorSettings?.length > 0
     }
   }
 }
