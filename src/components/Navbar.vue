@@ -12,20 +12,22 @@
       <v-icon>mdi-magnify</v-icon>
     </v-btn> -->
 
-    <v-btn v-if="isUserAuth" icon value="settings" to="/settings">
-      <v-icon>mdi-cog</v-icon>
+    <IconToggler />
+    <v-btn class="ml-2" v-if="isUserAuth" icon value="settings" to="/settings">
+      <v-icon large>mdi-cog</v-icon>
     </v-btn>
 
-    <v-btn icon v-if="isUserAuth" @click="signOut">
+    <!-- <v-btn icon v-if="isUserAuth" @click="signOut">
       <v-icon>mdi-logout</v-icon>
-    </v-btn>
+    </v-btn> -->
   </v-app-bar>
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import BackButton from './BackButton.vue'
+import IconToggler from './IconToggler.vue'
 export default {
-  components: { BackButton },
+  components: { BackButton, IconToggler },
   props: {
     elevation: {
       type: Number,

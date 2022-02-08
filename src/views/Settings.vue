@@ -105,45 +105,19 @@
             ><v-switch @click="updateNotifications" v-model="selectedProject.notify_problems" />
           </v-list-item-action>
         </v-list-item>
-
-        <!-- <v-divider></v-divider>
-        <v-list-item>
-          <v-list-item-content
-            ><v-list-item-title class="font-weight-bold"
-              >Trap Issues</v-list-item-title
-            >
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
-            <p>Needs repair / replace</p>
-          </v-list-item-content>
-          <v-list-item-action
-            ><v-switch @click="updateNotifications" v-model="trapRepairOrReplace" />
-          </v-list-item-action>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
-            <p>Trap is missing</p>
-          </v-list-item-content>
-          <v-list-item-action
-            ><v-switch @click="updateNotifications" v-model="trapMissing" />
-          </v-list-item-action>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
-            <p>QR code needs fixing</p>
-          </v-list-item-content>
-          <v-list-item-action
-            ><v-switch @click="updateNotifications" v-model="qrCodeNeedsFixing" />
-          </v-list-item-action>
-        </v-list-item> -->
       </div>
     </div>
+    <v-divider></v-divider>
+    <v-btn v-if="isUserAuth" @click="signOut" class="mt-4" block x-large>
+      <v-icon left>
+        mdi-logout
+      </v-icon>
+      Log Out
+    </v-btn>
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Settings',
   data () {
@@ -162,6 +136,7 @@ export default {
     this.selected = this.currentTheme
   },
   methods: {
+    ...mapActions(['signOut']),
     updateNotifications () {
       const setting = {
         project_id: this.selectedProject.id,
@@ -216,7 +191,8 @@ export default {
       'themeNames',
       'currentTheme',
       'coordinatorSettings',
-      'allSpecies'
+      'allSpecies',
+      'isUserAuth'
     ]),
     dark_mode: {
       get () {
