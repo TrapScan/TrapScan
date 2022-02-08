@@ -1,5 +1,10 @@
 <template>
   <div class="form-options">
+    <div v-if="showMap">
+      <small class="obscure">Name: {{ scannedTrap.name }}</small>
+      <br>
+      <small class="obscure">NZID: {{ scannedTrap.nz_trap_id }}</small>
+    </div>
     <h2>I checked this trap {{ scannedCodeValue }} and...</h2>
     <div class="d-flex flex-column justify-end" style="height: 90%">
       <ChildForm
@@ -108,4 +113,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.obscure {
+  color: grey;
+}
 </style>
