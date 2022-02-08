@@ -19,16 +19,29 @@
       width="64"
     />
     <video style="max-height: 50vh" ref="scanner"></video>
+    <v-btn
+      @click="toggleDialog"
+      elevation="0"
+      large
+      class="mt-6 pl-10 pr-10 primary-button"
+    >Manual Entry</v-btn>
+
+    <ManualEntry @save="manual" @close="toggleDialog" title="Enter QR ID" :showDialog="openMapDialog"></ManualEntry>
   </div>
 </template>
 
 <script>
 import QrScanner from 'qr-scanner'
+import ManualEntry from './ManualEntry.vue'
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import QrScannerWorkerPath from '!!file-loader!../../node_modules/qr-scanner/qr-scanner-worker.min.js'
 export default {
+  components: {
+    ManualEntry
+  },
   data () {
     return {
+      openMapDialog: false,
       reader: null,
       scanning: true,
       flash: false,
@@ -37,6 +50,12 @@ export default {
     }
   },
   methods: {
+    manual (a) {
+      this.onScanSuccess(a)
+    },
+    toggleDialog () {
+      this.openMapDialog = !this.openMapDialog
+    },
     async onScanSuccess (decodedText) {
       // handle the scanned code as you like, for example:
       this.reader.stop()
@@ -50,7 +69,6 @@ export default {
       // some more delay, so users have time to read the message
 
       this.$store.dispatch('scanQR', { qr_id: code })
-        .then((data) => {})
         .catch((_err) => {
           this.checking = false
           this.reader.start()
@@ -95,4 +113,9 @@ export default {
 </script>
 
 <style scoped>
+.primary-button {
+  background-color: #286ea2 !important;
+  color: #ffffff;
+  /* text-transform: none; */
+}
 </style>

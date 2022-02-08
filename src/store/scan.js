@@ -135,6 +135,8 @@ const scanModule = {
   },
   actions: {
     scanQR ({ commit, rootState }, form) {
+      // Reset error on scan
+      commit('setScanError', null)
       form.user = rootState.auth.user
       rootState.auth.user.roles.forEach(element => {
         if (element.name === 'admin') {
