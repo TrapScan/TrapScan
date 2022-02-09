@@ -1,5 +1,6 @@
 import axios from 'axios'
 import auth from '../api/auth'
+import * as Sentry from '@sentry/vue'
 
 const authModule = {
   state: {
@@ -32,6 +33,7 @@ const authModule = {
       return auth.resetPassword(form)
     },
     async signOut ({ dispatch }) {
+      Sentry.configureScope(scope => scope.setUser(null))
       await axios.post('/logout')
       location.href = '/'
 

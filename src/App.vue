@@ -20,6 +20,7 @@ import { mapGetters } from 'vuex'
 import Navbar from './components/Navbar'
 // import InspectionNavBar from './components/InspectionNavbar.vue'
 import BottomNav from './components/BottomNav'
+import * as Sentry from '@sentry/vue'
 // import firebase from 'firebase'
 export default {
   name: 'App',
@@ -35,6 +36,7 @@ export default {
   }),
   mounted () {
     this.$store.dispatch('fetchStats')
+    Sentry.setUser({ email: this.getUser.email, name: this.getUser.name })
   },
   computed: {
     ...mapGetters(['getUser', 'isUserAuth', 'showNavBar']),

@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
+import * as Sentry from '@sentry/vue'
+import { BrowserTracing } from '@sentry/tracing'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
@@ -46,6 +48,22 @@ router.beforeEach((to, from, next) => {
 
 axios.defaults.withCredentials = true
 axios.defaults.baseURL = process.env.VUE_APP_API_URL
+
+Sentry.init({
+  Vue,
+  environment: process.env.NODE_ENV,
+  dsn: 'https://50c55552f8494640b23b4d6310d09ee7@o386630.ingest.sentry.io/5221153',
+  integrations: [
+    new BrowserTracing({
+      routingInstrumentation: Sentry.vueRouterInstrumentation(router),
+      tracingOrigins: ['localhost:8080', 'trapscan.app', /^\//]
+    })
+  ],
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0
+})
 
 store.dispatch('me').then(() => {
   new Vue({

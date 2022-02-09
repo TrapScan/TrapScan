@@ -10,6 +10,8 @@
     "report": "vue-cli-service build --modern --report"
   },
   "dependencies": {
+    "@sentry/tracing": "^6.17.6",
+    "@sentry/vue": "^6.17.6",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "file-loader": "^6.2.0",
