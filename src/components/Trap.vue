@@ -37,6 +37,7 @@ export default {
   },
   methods: {
     scan () {
+      this.$emit('loading')
       this.$store.dispatch('scanQR', { qr_id: this.trap.qr_id })
     },
     map () {
