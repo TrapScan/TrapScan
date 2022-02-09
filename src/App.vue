@@ -36,7 +36,9 @@ export default {
   }),
   mounted () {
     this.$store.dispatch('fetchStats')
-    Sentry.setUser({ email: this.getUser.email, name: this.getUser.name })
+    if (this.getUser) {
+      Sentry.setUser({ email: this.getUser.email, name: this.getUser.name })
+    }
   },
   computed: {
     ...mapGetters(['getUser', 'isUserAuth', 'showNavBar']),
