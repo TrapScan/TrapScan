@@ -16,8 +16,9 @@ module.exports = {
       appleMobileWebAppCapable: 'yes',
       appleMobileWebAppStatusBarStyle: 'black',
       start_url: 'https://trapscan.app',
-      theme_color: '#163b5e',
-      msTileColor: '#163b5e',
+      theme_color: '#0ab587',
+      background_color: '#0ab587',
+      msTileColor: '#0ab587',
       prefer_related_applications: true,
       scope: 'https://trapscan.app',
       icons: [
@@ -29,6 +30,43 @@ module.exports = {
         {
           src: './img/icons/android-chrome-512x512.png',
           sizes: '512x512',
+          type: 'image/png'
+        },
+        {
+          src: './img/icons/android-chrome-maskable-192x192.png',
+          sizes: '192x192',
+          type: 'image/png',
+          purpose: 'maskable'
+        },
+        {
+          src: './img/icons/android-chrome-maskable-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'maskable'
+        },
+        {
+          src: './img/icons/apple-touch-icon-60x60.png',
+          sizes: '60x60',
+          type: 'image/png'
+        },
+        {
+          src: './img/icons/apple-touch-icon-76x76.png',
+          sizes: '76x76',
+          type: 'image/png'
+        },
+        {
+          src: './img/icons/apple-touch-icon-120x120.png',
+          sizes: '120x120',
+          type: 'image/png'
+        },
+        {
+          src: './img/icons/apple-touch-icon-152x152.png',
+          sizes: '152x152',
+          type: 'image/png'
+        },
+        {
+          src: './img/icons/apple-touch-icon-180x180.png',
+          sizes: '180x180',
           type: 'image/png'
         },
         {
@@ -47,9 +85,14 @@ module.exports = {
           type: 'image/png'
         },
         {
-          src: './img/icons/safari-pinned-tab.svg',
-          color: '#163b5e',
-          type: 'maskable'
+          src: './img/icons/msapplication-icon-144x144.png',
+          sizes: '144x144',
+          type: 'image/png'
+        },
+        {
+          src: './img/icons/mstile-150x150.png',
+          sizes: '150x150',
+          type: 'image/png'
         }
       ]
     }
