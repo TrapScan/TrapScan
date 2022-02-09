@@ -27,6 +27,7 @@
           <v-tab href="#unmappedCodes">Unmapped Codes</v-tab>
           <v-tab href="#mappedTraps">All Traps</v-tab>
           <v-tab href="#scrapeData">Trap NZ Data</v-tab>
+          <v-tab href="#userManagement">User Management</v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
@@ -47,6 +48,9 @@
       <v-tab-item :key="4" value="scrapeData">
         <Scrape v-if="tab === 'scrapeData'"></Scrape>
       </v-tab-item>
+      <v-tab-item :key="5" value="userManagement">
+        <Users v-if="tab === 'userManagement'"></Users>
+      </v-tab-item>
     </v-tabs-items>
   </div>
 </template>
@@ -56,6 +60,7 @@ import Unmapped from './Admin/Unmapped.vue'
 import UnmappedCodes from './Admin/UnmappedCodes.vue'
 import Traps from './Admin/Traps.vue'
 import Scrape from './Admin/Scrape.vue'
+import Users from './Admin/Users.vue'
 
 export default {
   components: {
@@ -63,7 +68,8 @@ export default {
     Unmapped,
     UnmappedCodes,
     Traps,
-    Scrape
+    Scrape,
+    Users
   },
   data: () => ({
     tab: null

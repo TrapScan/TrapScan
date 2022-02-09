@@ -8,7 +8,11 @@ const adminModule = {
     mapFormErrorMessage: null,
     noCodes: [],
     unmappedCodes: [],
-    allTraps: []
+    allTraps: [],
+    allUsers: [],
+    allProjects: [],
+    userEditError: false,
+    userEditErrorMessage: null
   },
   mutations: {
     submitQRCreationForm (state, form) {
@@ -75,6 +79,42 @@ const adminModule = {
           break
         }
       }
+    },
+    fetchUserProjects (state) {
+      admin.fetchUserProjects()
+        .then((res) => {
+          state.allUsers = res.data
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    fetchProjects (state) {
+      admin.fetchProjects()
+        .then((res) => {
+          state.allProjects = res.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    addProjectToUser (state, { userId, projectId }) {
+      admin.addProjectToUser(userId, projectId)
+    },
+    removeUserFromProject (state, { userId, projectId }) {
+      admin.removeUserFromProject(userId, projectId)
+    },
+    updateUserProject (state, { userId, projectId, value, key }) {
+      state.userEditError = false
+      state.userEditErrorMessage = null
+      admin.updateUserProject(userId, projectId, value, key)
+        .catch(err => {
+          state.userEditError = true
+          state.userEditErrorMessage = err
+        })
+    },
+    setUserEditError (state, value) {
+      state.userEditError = value
     }
   },
   actions: {
@@ -107,6 +147,24 @@ const adminModule = {
     },
     scrapeData ({ commit }) {
       return admin.scrapeData()
+    },
+    adminFetchProjects ({ commit }) {
+      commit('fetchProjects')
+    },
+    adminFetchUserProjects ({ commit }) {
+      commit('fetchUserProjects')
+    },
+    addProjectToUser ({ commit }, data) {
+      commit('addProjectToUser', data)
+    },
+    removeUserFromProject ({ commit }, data) {
+      commit('removeUserFromProject', data)
+    },
+    updateUserProject ({ commit }, data) {
+      commit('updateUserProject', data)
+    },
+    setUserEditError ({ commit }, value) {
+      commit('setUserEditError', value)
     }
   },
   getters: {
@@ -127,6 +185,15 @@ const adminModule = {
     },
     allTraps (state) {
       return state.allTraps
+    },
+    allUsers (state) {
+      return state.allUsers
+    },
+    allProjects (state) {
+      return state.allProjects
+    },
+    userEditError (state) {
+      return state.userEditError
     }
   }
 }

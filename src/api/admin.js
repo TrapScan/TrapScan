@@ -44,5 +44,39 @@ export default {
   },
   async scrapeData () {
     return api.get('/api/admin/scrape')
+  },
+  async fetchProjects () {
+    return api.get('/api/admin/projects')
+  },
+  async fetchUserProjects () {
+    return api.get('/api/admin/users')
+  },
+  async addProjectToUser (userId, projectId) {
+    await csrf.getCookie()
+    return api.post('/api/admin/userProject', {
+      userId,
+      projectId
+    })
+  },
+  async removeUserFromProject (userId, projectId) {
+    await csrf.getCookie()
+    return api.post('/api/admin/remove/userProject', {
+      userId,
+      projectId
+    })
+  },
+  async updateUserProject (userId, projectId, value, key) {
+    switch (key) {
+      case 'coordinator':
+        await csrf.getCookie()
+        return api.put('/api/admin/userProject', {
+          userId,
+          projectId,
+          value,
+          key
+        })
+      default:
+        return false
+    }
   }
 }
