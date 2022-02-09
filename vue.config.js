@@ -15,7 +15,7 @@ module.exports = {
       name: 'TrapScan',
       appleMobileWebAppCapable: 'yes',
       appleMobileWebAppStatusBarStyle: 'black',
-      start_url: 'https://trapscan.app',
+      start_url: '/',
       theme_color: '#0ab587',
       background_color: '#0ab587',
       msTileColor: '#0ab587',
