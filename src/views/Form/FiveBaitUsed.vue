@@ -21,7 +21,7 @@
         title="I didn’t rebait it"
       ></ChildFormGrid> -->
       <div
-        class="form-border grid-button text-center card py-2 d-flex flex-column"
+        class="form-border rounded grid-button text-center card py-2 d-flex flex-column"
          @click="showMoreItems"
       >
         <span>
@@ -41,6 +41,7 @@
       ></ChildForm>
     </div>
     <ChildForm
+      class="mx-0"
       :goesTo="6"
       icon="BaitGood"
       name="Bait is still good"
@@ -48,6 +49,7 @@
       title="Bait is still good"
     ></ChildForm>
     <ChildForm
+      class="mx-0"
       :goesTo="6"
       icon="LetUsKnow"
       name="Just letting you know"

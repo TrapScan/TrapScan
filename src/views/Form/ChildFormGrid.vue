@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="text-center card ma-2 pa-2"> -->
   <div
-    class="form-border grid-button text-center card py-2 d-flex flex-column"
+    class="form-border rounded grid-button text-center card py-2 d-flex flex-column"
     @click="onComplete"
   >
     <span>

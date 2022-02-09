@@ -14,7 +14,7 @@
         :title="option"></ChildFormGrid>
       <div
         id="child-form-extra"
-        class="form-border grid-button text-center card py-2 d-flex flex-column"
+        class="form-border rounded grid-button text-center card py-2 d-flex flex-column"
          @click="showMoreItems"
       >
         <span>
