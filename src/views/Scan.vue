@@ -10,7 +10,9 @@
      </v-alert>
     <v-tabs-items v-model="tab">
       <v-tab-item key="camera">
-        <Camera></Camera>
+        <div v-if="tab===0">
+          <Camera></Camera>
+        </div>
       </v-tab-item>
       <v-tab-item class="background" key="location">
         <Location></Location>
