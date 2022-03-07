@@ -1,19 +1,19 @@
 <template>
   <div>
     <v-tabs centered background-color="transparent" v-model="tab">
-      <v-tab key="location">Nearby Traps</v-tab>
       <v-tab key="camera">QR Scanner</v-tab>
+      <v-tab key="location">Nearby Traps</v-tab>
       <!-- <v-tab key="heading">Heading</v-tab> -->
     </v-tabs>
     <v-alert dismissible class="ma-0 mt-2 rounded-0" v-if="scanError" type="error">
         {{ scanError }}
      </v-alert>
     <v-tabs-items v-model="tab">
-      <v-tab-item class="background" key="location">
-        <Location></Location>
-      </v-tab-item>
       <v-tab-item key="camera">
         <Camera></Camera>
+      </v-tab-item>
+      <v-tab-item class="background" key="location">
+        <Location></Location>
       </v-tab-item>
       <!-- <v-tab-item key="heading">
         <UserHeading></UserHeading>
