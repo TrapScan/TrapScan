@@ -33,7 +33,7 @@ router.beforeEach((to, from, next) => {
     }
   } else if (requireAuth && !currentUser) next('/')
   else if (!requireAuth && currentUser) {
-    next('/dashboard')
+    next('/scan')
   } else {
     next()
   }
