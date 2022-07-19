@@ -142,11 +142,12 @@ const scanModule = {
       // Reset error on scan
       commit('setScanError', null)
       form.user = rootState.auth.user
-      rootState.auth.user.roles.forEach(element => {
-        if (element.name === 'admin') {
-          commit('fetchNoCodes', null, { root: true })
-        }
-      })
+      commit('fetchNoCodes', null, { root: true })
+      // rootState.auth.user.roles.forEach(element => {
+      //   if (element.name === 'admin') {
+      //     commit('fetchNoCodes', null, { root: true })
+      //   }
+      // })
       // commit('scanQR', form)
       return new Promise((resolve, reject) => {
         const data = form
