@@ -75,7 +75,8 @@ const scanModule = {
     nearbyTraps: [],
     scanError: null,
     pcordData: null,
-    admin: false
+    admin: false,
+    temp: false
   },
   mutations: {
     scanQR (state, data) {
@@ -107,6 +108,9 @@ const scanModule = {
         }
       }
     },
+    setTemp (state, temp) {
+      state.temp = temp
+    },
     setScanError (state, error) {
       state.scanError = error
     },
@@ -134,7 +138,7 @@ const scanModule = {
     }
   },
   actions: {
-    scanQR ({ commit, rootState }, form) {
+    scanQR ({ commit, rootState, state }, form) {
       // Reset error on scan
       commit('setScanError', null)
       form.user = rootState.auth.user
@@ -164,18 +168,14 @@ const scanModule = {
             // state.scannedTrap = trap
             // state.scannedQRID = data.qr_id
             commit('setScannedTrap', trap)
-            let pcord = false
+            console.log()
             scan.checkPCord().then((response) => {
-              pcord = true
               commit('setPCordData', response.data)
             }).catch(() => {
-              pcord = false
             }).finally(() => {
               const currentUser = data.user
-              let admin = false
               currentUser.roles.forEach(element => {
                 if (element.name === 'admin') {
-                  admin = true
                   // state.admin = true
                   commit('setAdmin', true)
                 }
@@ -183,7 +183,7 @@ const scanModule = {
 
               if (trap) {
                 // Check if unmapped (no nz id) and if admin / pcord => Installation form
-                if (!trap.nz_trap_id && (pcord || admin)) {
+                if (!trap.nz_trap_id && state.temp) {
                   router.push('/installform')
                   resolve()
                 } else if (!trap.nz_trap_id) {
@@ -255,6 +255,9 @@ const scanModule = {
     },
     scannedTrap (state) {
       return state.scannedTrap
+    },
+    getTemp (state) {
+      return state.temp
     }
   }
 }

@@ -67,7 +67,7 @@ export default {
       // TODO: Enter the stepper form, or make this step 1
       this.isValid = decodedText.startsWith('http')
       // some more delay, so users have time to read the message
-
+      this.$store.commit('setTemp', true)
       this.$store.dispatch('scanQR', { qr_id: code })
         .catch((_err) => {
           this.checking = false
