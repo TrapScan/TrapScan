@@ -28,7 +28,8 @@ const getDefaultState = () => {
       trap_condition: null,
       notes: 'test',
       words: '',
-      trap_last_checked: null
+      trap_last_checked: null,
+      upload_to_nz: true
     },
     form_error: [],
     form_navigation_stack: [1],
@@ -46,7 +47,8 @@ const getDefaultState = () => {
         trap_condition: null,
         notes: 'test',
         words: '',
-        trap_last_checked: null
+        trap_last_checked: null,
+        upload_to_nz: true
       }
     ],
     form_index: 1

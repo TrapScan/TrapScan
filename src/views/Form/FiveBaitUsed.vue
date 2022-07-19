@@ -54,7 +54,7 @@
       icon="LetUsKnow"
       name="Just letting you know"
       subtext="that the trap caught something and/or it needs rebaiting."
-      :formData="{ rebaited: 'No', bait_type: 'None', words: 'and I\'m just letting you know.' }"
+      :formData="{ rebaited: 'No', bait_type: 'None', words: 'and I\'m just letting you know.', upload_to_nz: false }"
       title="Just letting you know"
     ></ChildForm>
     <div class="text-center" v-if="moreItems">
