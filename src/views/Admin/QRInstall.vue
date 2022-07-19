@@ -77,46 +77,30 @@ export default {
     },
     initData () {
       const options = []
-      if (this.scanAdmin) {
-        // Admin here, populate with all unmapped traps
-        const projects = {}
-        this.noCodes.forEach((element) => {
-          if (projects[element.project.name]) {
-            projects[element.project.name].push(element)
-          } else {
-            projects[element.project.name] = [element]
-          }
-        })
-
-        for (const key in projects) {
-          if (Object.hasOwnProperty.call(projects, key)) {
-            const element = projects[key]
-            options.push({ header: 'Project: ' + key })
-            element.forEach((trap) => {
-              options.push({
-                name: trap.name,
-                group: key,
-                nz_id: trap.nz_trap_id
-              })
-            })
-          }
+      // Admin here, populate with all unmapped traps
+      const projects = {}
+      this.noCodes.forEach((element) => {
+        if (projects[element.project.name]) {
+          projects[element.project.name].push(element)
+        } else {
+          projects[element.project.name] = [element]
         }
-        this.trapList = options
-      } else {
-        this.pcordOptions.forEach((element) => {
-          if (element.traps.length > 0) {
-            options.push({ header: 'Project: ' + element.name })
-            element.traps.forEach((trap) => {
-              options.push({
-                name: trap.name,
-                group: element.name,
-                nz_id: trap.nz_trap_id
-              })
+      })
+
+      for (const key in projects) {
+        if (Object.hasOwnProperty.call(projects, key)) {
+          const element = projects[key]
+          options.push({ header: 'Project: ' + key })
+          element.forEach((trap) => {
+            options.push({
+              name: trap.name,
+              group: key,
+              nz_id: trap.nz_trap_id
             })
-          }
-        })
-        this.trapList = options
+          })
+        }
       }
+      this.trapList = options
     }
   },
   computed: {
