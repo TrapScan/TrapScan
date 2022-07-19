@@ -17,7 +17,7 @@ export default {
     return api.get('/api/admin/qr/unmapped/' + project)
   },
   async fetchUnmappedTraps () {
-    return api.get('/api/admin/nocode')
+    return api.get('/api/nocode')
   },
   async mapCode (data) {
     await csrf.getCookie()
