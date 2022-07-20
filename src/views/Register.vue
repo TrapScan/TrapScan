@@ -74,7 +74,7 @@ export default {
     ],
     passwordRules: [
       (v) => !!v || 'Password is required',
-      (v) => v.length > 7 || 'Password must be at least 8 characters'
+      (v) => v.length > 7 || 'The password must be at least 8 characters'
     ],
     password_confirmationRules: [(v) => (v) => !!v || 'Passwords must match']
   }),
