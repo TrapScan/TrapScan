@@ -19,13 +19,18 @@
       <v-list-item two-line>
         <v-list-item-content>
           <v-card-title class="text-h5 mb-1">Today`s catches</v-card-title>
-          <v-row no-gutters justify="start" align="center" class="d-flex justify-space-between px-4" v-for="(value, index) in getUser.stats_per_day" :key="index">
-             <p class="font-weight-bold">
-               {{index}}:
-             </p>
-             <div>
-               {{value}}
-             </div>
+          <tamplate v-if="getUser.stats_per_day.length > 0">
+            <v-row  no-gutters justify="start" align="center" class="d-flex justify-space-between px-4" v-for="(value, index) in getUser.stats_per_day" :key="index">
+              <p class="font-weight-bold">
+                {{index}}:
+              </p>
+              <div>
+                {{value}}
+              </div>
+            </v-row>
+          </tamplate>
+          <v-row v-else no-gutters justify="start" align="center" class="d-flex justify-center px-4">
+            <div class="text-truncate"> Nothing </div>
           </v-row>
           <v-card-title class="text-h5 mb-1">For All Time</v-card-title>
           <v-row no-gutters justify="start" class="d-flex justify-space-between px-4" align="center">
