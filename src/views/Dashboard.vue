@@ -1,20 +1,18 @@
 <template>
   <div>
     <v-card color="card" elevation="3" class="mx-auto mb-10 mt-5" max-width="500">
-      <v-card-title class="align-start">
+      <v-card-title class=" d-flex justify-space-between ">
         <div class="text-h4 v-card--material__title pl-3">
           My Stats
-          <v-icon large>
-            mdi-chart-bar
-          </v-icon>
-          <div class="text-subtitle-1 mb-n4">
-          </div>
         </div>
+        <v-icon large>
+          mdi-account
+        </v-icon>
       </v-card-title>
       <hr role="separator" aria-orientation="horizontal" class="mt-2 mx-4 v-divider theme--light">
       <v-list-item two-line>
         <v-list-item-content>
-          <v-card-title class="text-h5 mb-1">{{getUser.stats_per_day !== null ? 'Today`s catches' : 'No catches today'}}</v-card-title>
+          <v-card-title class="text-h5 mb-1">{{getUser.stats_per_day !== null ? "Today's catches" : 'No catches today'}}</v-card-title>
             <v-row  no-gutters justify="start" align="center" class="d-flex justify-space-between px-4" v-for="(value, index) in getUser.stats_per_day" :key="index">
               <p class="font-weight-bold">
                 {{index}}:
@@ -45,15 +43,13 @@
     </v-card>
 
     <v-card color="card" elevation="3" class="mx-auto " max-width="500">
-      <v-card-title class="align-start">
-        <div class="text-h4 v-card--material__title pl-3 justify-space-between">
+      <v-card-title class=" d-flex justify-space-between ">
+        <div class="text-h4 v-card--material__title pl-3 ">
           Global Stats
-          <v-icon large>
-            mdi-chart-line
-          </v-icon>
-          <div class="text-subtitle-1 mb-n4">
-          </div>
         </div>
+        <v-icon large>
+          mdi-earth
+        </v-icon>
       </v-card-title>
       <hr role="separator" aria-orientation="horizontal" class="mt-2 mx-4 v-divider theme--light">
 
