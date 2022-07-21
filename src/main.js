@@ -8,6 +8,7 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import axios from 'axios'
 import SuccessFailBanner from './components/SuccessFailBanner'
+import './styles/style.scss'
 
 Vue.config.productionTip = false
 Vue.component('message-banner', SuccessFailBanner)

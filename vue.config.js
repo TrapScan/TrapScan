@@ -7,6 +7,10 @@ module.exports = {
   },
   configureWebpack: {
   },
+  css: {
+    sourceMap: true,
+    extract: true
+  },
   pwa: {
     workboxOptions: {
       exclude: [/_redirects/]
