@@ -4,7 +4,7 @@
       <v-card-title class="align-start">
         <div class="text-h4 v-card--material__title pl-3">
           My Stats
-          <v-icon dark large>
+          <v-icon large>
             mdi-chart-bar
           </v-icon>
           <div class="text-subtitle-1 mb-n4">
@@ -48,7 +48,7 @@
       <v-card-title class="align-start">
         <div class="text-h4 v-card--material__title pl-3 justify-space-between">
           Global Stats
-          <v-icon dark large>
+          <v-icon large>
             mdi-chart-line
           </v-icon>
           <div class="text-subtitle-1 mb-n4">
