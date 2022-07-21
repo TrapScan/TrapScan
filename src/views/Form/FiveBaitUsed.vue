@@ -1,5 +1,22 @@
 <template>
   <div class="form-options">
+    <ChildForm
+      class="mx-0"
+      :goesTo="6"
+      icon="BaitGood"
+      name="Bait is still good"
+      :formData="{ rebaited: 'No', words: `and the bait was still good so I didn't rebait it.` }"
+      title="Bait is still good"
+    ></ChildForm>
+    <ChildForm
+      class="mx-0"
+      :goesTo="6"
+      icon="LetUsKnow"
+      name="Just letting you know"
+      subtext="that the trap caught something and/or it needs rebaiting."
+      :formData="{ rebaited: 'No', bait_type: 'None', words: 'and I\'m just letting you know.', upload_to_nz: false }"
+      title="Just letting you know"
+    ></ChildForm>
     <h2>I rebaited the trap with…</h2>
     <div v-if="!moreItems" class="option-grid">
       <ChildFormGrid
@@ -40,23 +57,7 @@
         :title="option"
       ></ChildForm>
     </div>
-    <ChildForm
-      class="mx-0"
-      :goesTo="6"
-      icon="BaitGood"
-      name="Bait is still good"
-      :formData="{ rebaited: 'No', words: `and the bait was still good so I didn't rebait it.` }"
-      title="Bait is still good"
-    ></ChildForm>
-    <ChildForm
-      class="mx-0"
-      :goesTo="6"
-      icon="LetUsKnow"
-      name="Just letting you know"
-      subtext="that the trap caught something and/or it needs rebaiting."
-      :formData="{ rebaited: 'No', bait_type: 'None', words: 'and I\'m just letting you know.', upload_to_nz: false }"
-      title="Just letting you know"
-    ></ChildForm>
+
     <div class="text-center" v-if="moreItems">
       <v-btn class="ma-2" outlined color="primary" @click="showLessItems">Show Less Items</v-btn>
     </div>
