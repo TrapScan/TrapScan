@@ -73,7 +73,6 @@ const inspectionFormModule = {
       state.form = { ...state.form_navigation_data_history[state.form_navigation_stack.length - 1] }
     },
     updateForm (state, form) {
-      console.log(form)
       let currentWords = state.form.words
       const currentStatus = state.form.status
       state.form = Object.assign(state.form, form)
