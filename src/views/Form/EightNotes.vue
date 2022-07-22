@@ -18,7 +18,7 @@
       title="Submit Inspection">
     </ChildForm>
     <ChildForm
-      :goesTo="8"
+      :goesTo="7"
       key="edit"
       name="Edit Inspection"
       :formData="{}"
