@@ -104,7 +104,7 @@
           background-color="rgb(231,234,236,236)"
           class="rounded-lg"
           solo
-          :value="form_data.status"
+          v-model="form_data.status"
           :items="status"
         ></v-autocomplete>
         <p class="font-weight-black mb-2">
@@ -129,7 +129,7 @@
           solo
           background-color="rgb(231,234,236,236)"
           :items="['Yes','No']"
-          :value="form_data.rebaited"
+          v-model="form_data.rebaited"
         ></v-autocomplete>
         <p class="font-weight-black mb-2">
           Bait type
@@ -140,7 +140,7 @@
           class="rounded-lg"
           solo
           :items="allBaits"
-          :value="form_data.bait_type"
+          v-model="form_data.bait_type"
           background-color="rgb(231,234,236,236)"
         ></v-autocomplete>
         <p class="font-weight-black mb-2">
@@ -152,7 +152,7 @@
           class="rounded-lg"
           solo
           :items="trap_condition"
-          :value="form_data.trap_condition"
+          v-model="form_data.trap_condition"
           background-color="rgb(231,234,236,236)"
         ></v-autocomplete>
         <p class="font-weight-black mb-2">
