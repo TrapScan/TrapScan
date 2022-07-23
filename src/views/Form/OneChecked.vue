@@ -5,7 +5,7 @@
       <br>
       <small class="obscure">NZID: {{ scannedTrap.nz_trap_id }}</small>
     </div>
-    <h2>I checked this trap {{ scannedCodeValue }} and...</h2>
+    <h2 class="ubuntu_face">I checked this trap {{ scannedCodeValue }} and...</h2>
     <div class="d-flex flex-column justify-end" style="height: 90%">
       <ChildForm
         v-for="option in options"

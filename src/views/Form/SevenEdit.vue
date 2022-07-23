@@ -4,7 +4,7 @@
     <hr role="separator" aria-orientation="horizontal" class="mt-2 mx-4 v-divider theme--light">
 
     <div class="text-left mt-3" v-if="itemData">
-        <p class="font-weight-black mb-2">
+        <p class="font-weight-black mb-2 ubuntu_face">
           QR ID
         </p>
       <v-text-field
@@ -15,7 +15,7 @@
         solo
         v-model="form_data.QR_ID"
       ></v-text-field>
-        <p class="font-weight-black mb-2">
+        <p class="font-weight-black mb-2 ubuntu_face">
           Inspection date
         </p>
       <div class="row">
@@ -95,7 +95,7 @@
         </div>
       </div>
 
-        <p class="font-weight-black mb-2">
+        <p class="font-weight-black mb-2 ubuntu_face">
           Status
         </p>
         <v-autocomplete
@@ -107,7 +107,7 @@
           v-model="form_data.status"
           :items="status"
         ></v-autocomplete>
-        <p class="font-weight-black mb-2">
+        <p class="font-weight-black mb-2 ubuntu_face">
           Species caught
         </p>
         <v-autocomplete
@@ -119,7 +119,7 @@
           :items="allSpecies"
           v-model="form_data.species_caught"
         ></v-autocomplete>
-        <p class="font-weight-black mb-2">
+        <p class="font-weight-black mb-2 ubuntu_face">
           Rebaited
         </p>
         <v-autocomplete
@@ -131,7 +131,7 @@
           :items="['Yes','No']"
           v-model="form_data.rebaited"
         ></v-autocomplete>
-        <p class="font-weight-black mb-2">
+        <p class="font-weight-black mb-2 ubuntu_face">
           Bait type
         </p>
         <v-autocomplete
@@ -143,7 +143,7 @@
           v-model="form_data.bait_type"
           background-color="rgb(231,234,236,236)"
         ></v-autocomplete>
-        <p class="font-weight-black mb-2">
+        <p class="font-weight-black mb-2 ubuntu_face">
           Trap Condition
         </p>
         <v-autocomplete
@@ -155,7 +155,7 @@
           v-model="form_data.trap_condition"
           background-color="rgb(231,234,236,236)"
         ></v-autocomplete>
-        <p class="font-weight-black mb-2">
+        <p class="font-weight-black mb-2 ubuntu_face">
           Note
         </p>
         <v-textarea
@@ -166,7 +166,7 @@
           v-model="form_data.notes"
           background-color="rgb(231,234,236,236)"
         ></v-textarea>
-      <div class='button -blue center w-100' @click="save">SUBMIT</div>
+      <div class='button -blue center w-100 monserat_face' @click="save">SUBMIT</div>
     </div>
   </div>
 </template>

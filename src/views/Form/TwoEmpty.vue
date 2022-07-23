@@ -1,5 +1,5 @@
 <template>
-  <div class="form-options">
+  <div class="form-options ubuntu_face">
     <h2>It was empty and the ...</h2>
     <div class="d-flex flex-column justify-end" style="height: 90%">
       <ChildForm v-for="option in options"

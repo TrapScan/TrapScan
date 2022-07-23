@@ -21,7 +21,7 @@
         <span>
           <v-icon size="95%"> $vuetify.icons.somethingElse </v-icon>
         </span>
-        <span class="title">Something Else</span>
+        <span class="title">Something else</span>
       </div>
     </div>
     <div v-else>
