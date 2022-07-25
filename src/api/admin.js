@@ -2,6 +2,9 @@ import api from './api'
 import csrf from './csrf'
 
 export default {
+  async scrapeSingleTrap (value) {
+    return api.get('/api/scrape/single', { params: { nz_id: value } })
+  },
   async createNewQR (data) {
     await csrf.getCookie()
     return api.post('/api/admin/qr/create', data)
