@@ -49,6 +49,29 @@
         </v-list-item-content>
       </v-list-item>
       <div v-if="selectedProject">
+        <h3>Project Operations</h3>
+        <v-divider></v-divider>
+
+        <v-dialog v-model="dialog" width="500">
+          <template v-slot:activator="{ on, attrs }">
+           <v-btn
+              class="my-4"
+              block
+              v-bind="attrs"
+              v-on="on"
+            >
+              Fetch Trap from TrapNZ
+            </v-btn>
+          </template>
+
+          <v-card>
+            <v-card-title>Fetch Trap from TrapNZ</v-card-title>
+            <div class="container">
+              <SingleScrapeModal></SingleScrapeModal>
+            </div>
+          </v-card>
+        </v-dialog>
+
         <h3>Notification Settings</h3>
 
         <v-divider></v-divider>
@@ -118,6 +141,7 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import SingleScrapeModal from '../components/SingleScrapeModal.vue'
 export default {
   name: 'Settings',
   data () {
@@ -126,7 +150,8 @@ export default {
       selectedProject: null,
       catchFilter: null,
       showFilter: false,
-      notifyProblems: null
+      notifyProblems: null,
+      dialog: false
       // trapRepairOrReplace: false,
       // trapMissing: false,
       // qrCodeNeedsFixing: false
@@ -202,6 +227,7 @@ export default {
         return this.$store.dispatch('setDarkMode', value)
       }
     }
-  }
+  },
+  components: { SingleScrapeModal }
 }
 </script>
